@@ -75,19 +75,25 @@ export default function AboutClientView() {
               transition={{ duration: 0.6 }}
               className="lg:col-span-5 relative flex justify-center"
             >
-              <div className="relative">
-                <div className="relative max-w-full w-[280px] sm:w-[350px] h-[360px] sm:h-[440px] rounded-2xl overflow-hidden border border-[#E2E9EB] shadow-2xl bg-slate-900 z-10">
+              <div className="relative w-full max-w-[420px]">
+                {/* Subtle soft ambient glow */}
+                <div
+                  className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-[#03594E]/15 to-[#F8C62F]/15 blur-xl pointer-events-none"
+                  aria-hidden="true"
+                />
+
+                <div className="group relative w-full aspect-[978/1018] rounded-2xl overflow-hidden border border-[#E2E9EB] shadow-2xl bg-slate-900 z-10">
                   <Image
                     src={about.story.image}
                     alt={about.story.imageAlt}
                     fill
-                    sizes="(max-width: 768px) 100vw, 400px"
-                    className="object-cover object-center hover:scale-105 transition-transform duration-700 ease-out"
+                    sizes="(max-width: 768px) 100vw, 440px"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />
                 </div>
 
-                <div className="absolute -bottom-4 right-2 bg-[#1F2432] text-white px-4 py-2 rounded-xl font-bold text-xs shadow-xl border border-white/10 z-20 flex items-center gap-2 font-[var(--font-jost)]">
+                <div className="absolute -bottom-4 right-2 sm:right-4 bg-[#1F2432] text-white px-4 py-2 rounded-xl font-bold text-xs shadow-xl border border-white/10 z-20 flex items-center gap-2 font-[var(--font-jost)] select-none">
                   <span className="w-2 h-2 rounded-full bg-[#F8C62F]" />
                   <span>Est. 2022 • College Road, Feni</span>
                 </div>

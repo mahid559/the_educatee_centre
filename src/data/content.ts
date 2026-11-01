@@ -290,8 +290,8 @@ export const siteContent = {
     story: {
       tag: "OUR STORY",
       title: "A Friendly Sanctuary for English & Digital Mastery in Feni",
-      image: "/images/gallery/classroom/557593266_792413500209639_4966182424805824257_n.jpg",
-      imageAlt: "Inside The Educatee Centre interactive classroom",
+      image: "/images/about/about-classroom.jpg",
+      imageAlt: "Engr. Zahir Uddin Babar conducting an interactive English session in the modern classroom at The Educatee Centre Feni",
       // TODO: Confirm exact founding month/date in 2022 with Engr. Zahir Uddin Babar
       paragraph1: "Established in 2022 in the heart of Feni, The Educatee Centre was born out of a clear observation: countless bright students, job seekers, and professionals in our community felt held back — not by lack of intelligence, but by anxiety and hesitation when speaking English or working with modern digital tools.",
       paragraph2: "We built The Educatee Centre to be the exact opposite of an intimidating coaching center. Located on the quiet 5th floor of Appayan Afroz Tower on College Road, our campus is an encouraging, judgment-free space where making mistakes is celebrated as the first natural step toward real mastery.",
@@ -344,7 +344,7 @@ export const siteContent = {
     ],
     ctaText: "Learn More About Us",
     ctaLink: "/about",
-    image: "/images/gallery/classroom/557593266_792413500209639_4966182424805824257_n.jpg",
+    image: "/images/about/about-classroom.jpg",
     imageAlt: "Inside The Educatee Centre interactive classroom",
   },
 

@@ -63,20 +63,33 @@ export function AboutPreview() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column: Image with Floating Circular Badge (6 cols) */}
           <div className="lg:col-span-6 relative flex justify-center lg:justify-start">
-            <div className="about-anim-image relative w-full max-w-[560px]">
-              {/* Main Photo with 24px rounded corners and shadow */}
-              <div className="relative w-full aspect-[4/3] sm:aspect-[16/11] rounded-[24px] overflow-hidden shadow-2xl border-2 border-white/20 bg-slate-900">
+            <div className="about-anim-image relative w-full max-w-[500px]">
+              {/* Subtle ambient light behind frame */}
+              <div
+                className="absolute -inset-3 rounded-[32px] bg-gradient-to-tr from-[#F8C62F]/25 via-white/10 to-transparent blur-xl pointer-events-none"
+                aria-hidden="true"
+              />
+
+              {/* Main Photo with matching aspect ratio so zero classroom details get cropped */}
+              <div className="group relative w-full aspect-[4/4.2] sm:aspect-[4/4.2] lg:aspect-[978/1018] rounded-[24px] sm:rounded-[28px] overflow-hidden shadow-2xl border-2 border-white/25 bg-slate-900">
                 <Image
                   src={aboutPreview.image}
                   alt={aboutPreview.imageAlt}
                   fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 560px"
-                  className="object-cover object-[center_20%]"
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 500px"
+                  className="object-cover object-center group-hover:scale-[1.025] transition-transform duration-700 ease-out"
                 />
+
+                {/* Authentic live classroom tag */}
+                <div className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4 z-10 px-3.5 py-1.5 rounded-full bg-slate-950/70 backdrop-blur-md border border-white/20 text-white text-[11px] sm:text-xs font-semibold flex items-center gap-2 shadow-lg select-none">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>Real Classroom • Feni Campus</span>
+                </div>
               </div>
 
-              {/* Floating Circular Experience Badge (Exact match to language-courses-128 experience-img) */}
-              <div className="absolute -bottom-6 -right-3 sm:-bottom-8 sm:right-6 w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-white shadow-2xl flex flex-col items-center justify-center border-4 border-white text-center z-10 select-none">
+              {/* Floating Circular Experience Badge */}
+              <div className="absolute -bottom-5 -right-3 sm:-bottom-6 sm:-right-4 w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-white shadow-2xl flex flex-col items-center justify-center border-4 border-white text-center z-20 select-none hover:scale-105 transition-transform duration-300">
                 <span className="text-2xl sm:text-3xl font-extrabold text-[#03594E] leading-none font-[var(--font-jost)]">
                   3+
                 </span>
