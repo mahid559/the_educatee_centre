@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 140" fill="none" width="100%" height="100%">
+  <!-- Transparent Background (Navbar serves as background) -->
+
+  <!-- Left: Layered Open Book with Mortarboard (Red: #E51937) -->
+  <g transform="translate(24, 16)">
+    <!-- Left Book Pages / Wings -->
+    <path d="M72 108 L18 108 L6 88 L6 42 L18 52 L18 96 L72 96 Z" fill="#E51937" />
+    <path d="M72 104 L30 104 L20 86 L20 30 L32 40 L32 92 L72 92 Z" fill="#D41430" />
+    <path d="M72 100 L42 100 L34 78 L34 16 L48 26 L48 88 L72 88 Z" fill="#E51937" />
+    <path d="M72 96 L58 96 L52 70 L52 2 L70 12 L70 84 L72 84 Z" fill="#F0203E" />
+    
+    <!-- Spine center divider -->
+    <rect x="70" y="4" width="4" height="104" fill="transparent" />
+
+    <!-- Right Book Pages / Wings (Mirrored) -->
+    <path d="M72 96 L86 96 L92 70 L92 2 L74 12 L74 84 L72 84 Z" fill="#F0203E" />
+    <path d="M72 100 L102 100 L110 78 L110 16 L96 26 L96 88 L72 88 Z" fill="#E51937" />
+    <path d="M72 104 L114 104 L124 86 L124 30 L112 40 L112 92 L72 92 Z" fill="#D41430" />
+    <path d="M72 108 L126 108 L138 88 L138 42 L126 52 L126 96 L72 96 Z" fill="#E51937" />
+
+    <!-- Center White Graduation Cap / Mortarboard -->
+    <!-- Cap Diamond -->
+    <polygon points="72,42 98,53 72,64 46,53" fill="#FFFFFF" />
+    <!-- Cap Skull Base -->
+    <path d="M54 57 L54 69 C54 75 90 75 90 69 L90 57 C84 62 60 62 54 57 Z" fill="#FFFFFF" />
+    <!-- Tassel -->
+    <path d="M47 54 L44 65 L46 76" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+
+  <!-- Typography Right -->
+  <!-- "The" (White) + "Educatee" (Red #E51937) -->
+  <text x="180" y="68" font-family="'Nunito', 'Ubuntu', 'Inter', -apple-system, sans-serif" font-weight="900" font-size="52" letter-spacing="-0.5">
+    <tspan fill="#FFFFFF">The </tspan>
+    <tspan fill="#E51937">Educatee</tspan>
+  </text>
+  <!-- "Centre" (White, clean spaced) -->
+  <text x="184" y="108" font-family="'Open Sans', 'Inter', sans-serif" font-weight="400" font-size="30" fill="#FFFFFF" letter-spacing="9">
+    Centre
+  </text>
+</svg>

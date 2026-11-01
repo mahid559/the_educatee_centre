@@ -1,0 +1,209 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #03594E;
+  --color-primary-dark: #02443B;
+  --color-primary-light: #EBF5F3;
+  --color-accent-gold: #F8C62F;
+  --color-accent-gold-hover: #EAA816;
+  --color-accent-gold-light: #FFF9EB;
+  --color-dark: #1F2432;
+  --color-dark-heading: #0C121D;
+  --color-heading: #0C121D;
+  --color-body: #6C757D;
+  --color-surface-soft: #F5F7F9;
+  --color-surface-card: #FFFFFF;
+  --color-border-light: #E2E8F0;
+  --color-crimson: #C81E2B;
+
+  --font-heading: var(--font-jost), var(--font-ubuntu), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: var(--font-jost), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: var(--font-dm-sans), var(--font-open-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+:root {
+  --font-heading-val: var(--font-jost), 'Ubuntu', sans-serif;
+  --font-body-val: var(--font-dm-sans), 'Open Sans', sans-serif;
+  --it-theme-1: #03594E;
+  --it-theme-2: #F8C62F;
+  --it-common-black: #1F2432;
+  --it-gray-1: #F0F4F5;
+  --it-gray-3: #F5F7F9;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-body-val);
+    color: #6C757D;
+    background-color: #FFFFFF;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading-val);
+    color: #0C121D;
+  }
+}
+
+/* Padora Specific Shapes & Hero Decorations */
+.padora-blob-hero {
+  border-radius: 46% 54% 68% 32% / 38% 44% 56% 62%;
+  transition: all 0.5s ease-in-out;
+}
+
+.padora-blob-about {
+  border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+}
+
+.padora-card-shadow {
+  box-shadow: 0 10px 30px -10px rgba(200, 30, 43, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
+}
+
+.padora-card-hover {
+  transition: transform 0.25s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.25s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.padora-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -12px rgba(200, 30, 43, 0.16);
+}
+
+/* Custom Scrollbar for Smooth Touch */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F8FAFC;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Smooth Scrolling for anchor targets without breaking route navigation scroll */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Focus styles for keyboard accessibility */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid #C81E2B;
+  outline-offset: 2px;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+}
+
+/* Infinite Marquee Animations */
+@keyframes marquee-left {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-marquee-left {
+  display: flex;
+  width: max-content;
+  animation: marquee-left 45s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-right {
+  display: flex;
+  width: max-content;
+  animation: marquee-right 45s linear infinite;
+  will-change: transform;
+}
+
+.pause-animation {
+  animation-play-state: paused !important;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Fast compositor-driven entrance animations for Hero */
+@keyframes heroFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroScaleUp {
+  0% {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-hero-fade {
+  animation: heroFadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-hero-scale {
+  animation: heroScaleUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
