@@ -177,13 +177,6 @@ export function WhyChooseUs() {
             );
           })}
         </div>
-
-        {/* Bottom Hashtag Brand Signature (Matching reference image #Growwithsizaria) */}
-        <div className="mt-14 sm:mt-16 text-center">
-          <span className="inline-block text-base sm:text-lg font-extrabold font-[var(--font-jost)] text-[#1F2432] tracking-wide">
-            #GrowWith<span className="text-[#03594E]">Educatee</span>
-          </span>
-        </div>
       </div>
     </section>
   );

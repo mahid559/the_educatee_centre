@@ -290,7 +290,7 @@ export const siteContent = {
     story: {
       tag: "OUR STORY",
       title: "A Friendly Sanctuary for English & Digital Mastery in Feni",
-      image: "/images/about/about-community.jpg",
+      image: "/images/gallery/classroom/557593266_792413500209639_4966182424805824257_n.jpg",
       imageAlt: "Inside The Educatee Centre interactive classroom",
       // TODO: Confirm exact founding month/date in 2022 with Engr. Zahir Uddin Babar
       paragraph1: "Established in 2022 in the heart of Feni, The Educatee Centre was born out of a clear observation: countless bright students, job seekers, and professionals in our community felt held back — not by lack of intelligence, but by anxiety and hesitation when speaking English or working with modern digital tools.",
@@ -344,7 +344,7 @@ export const siteContent = {
     ],
     ctaText: "Learn More About Us",
     ctaLink: "/about",
-    image: "/images/about/about-community.jpg",
+    image: "/images/gallery/classroom/557593266_792413500209639_4966182424805824257_n.jpg",
     imageAlt: "Inside The Educatee Centre interactive classroom",
   },
 

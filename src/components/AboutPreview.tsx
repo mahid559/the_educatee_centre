@@ -71,7 +71,7 @@ export function AboutPreview() {
                   alt={aboutPreview.imageAlt}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 560px"
-                  className="object-cover object-center"
+                  className="object-cover object-[center_20%]"
                 />
               </div>
 
