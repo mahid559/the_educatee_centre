@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #03594E;
-  --color-primary-dark: #02443B;
-  --color-primary-light: #EBF5F3;
+  --color-primary: #E51937;
+  --color-primary-dark: #C8132C;
+  --color-primary-light: #FFF0F2;
   --color-accent-gold: #F8C62F;
   --color-accent-gold-hover: #EAA816;
   --color-accent-gold-light: #FFF9EB;
@@ -11,10 +11,10 @@
   --color-dark-heading: #0C121D;
   --color-heading: #0C121D;
   --color-body: #6C757D;
-  --color-surface-soft: #F5F7F9;
+  --color-surface-soft: #F8FAFC;
   --color-surface-card: #FFFFFF;
   --color-border-light: #E2E8F0;
-  --color-crimson: #C81E2B;
+  --color-crimson: #E51937;
 
   --font-heading: var(--font-jost), var(--font-ubuntu), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-display: var(--font-jost), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -24,11 +24,11 @@
 :root {
   --font-heading-val: var(--font-jost), 'Ubuntu', sans-serif;
   --font-body-val: var(--font-dm-sans), 'Open Sans', sans-serif;
-  --it-theme-1: #03594E;
+  --it-theme-1: #E51937;
   --it-theme-2: #F8C62F;
   --it-common-black: #1F2432;
   --it-gray-1: #F0F4F5;
-  --it-gray-3: #F5F7F9;
+  --it-gray-3: #F8FAFC;
 }
 
 @layer base {

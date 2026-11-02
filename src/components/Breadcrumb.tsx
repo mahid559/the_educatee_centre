@@ -35,7 +35,7 @@ export function Breadcrumb({ items, variant = "light" }: BreadcrumbProps) {
                   className={
                     isLight
                       ? "text-[#F8C62F] font-bold"
-                      : "text-[#03594E] font-bold"
+                      : "text-[#E51937] font-bold"
                   }
                   aria-current={isLast ? "page" : undefined}
                 >
@@ -47,7 +47,7 @@ export function Breadcrumb({ items, variant = "light" }: BreadcrumbProps) {
                   className={`transition-colors hover:underline ${
                     isLight
                       ? "text-white/80 hover:text-white"
-                      : "text-[#6C757D] hover:text-[#03594E]"
+                      : "text-[#6C757D] hover:text-[#E51937]"
                   }`}
                 >
                   {item.label}

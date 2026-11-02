@@ -23,7 +23,7 @@ export function ProgramsGrid() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
           <div className="max-w-2xl">
-            <span className="text-[#03594E] text-xs sm:text-sm font-bold uppercase tracking-widest block mb-2 font-[var(--font-jost)]">
+            <span className="text-[#E51937] text-xs sm:text-sm font-bold uppercase tracking-widest block mb-2 font-[var(--font-jost)]">
               POPULAR COURSES
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#1F2432] tracking-tight mb-3 font-[var(--font-jost)] leading-tight">
@@ -38,9 +38,9 @@ export function ProgramsGrid() {
           <div className="flex-shrink-0 self-start md:self-auto">
             <Link
               href="/programs"
-              className="inline-flex items-center justify-center bg-[#03594E] hover:bg-[#F8C62F] hover:text-[#1F2432] text-white font-bold text-sm sm:text-base px-7 py-3.5 rounded-lg transition-all duration-300 shadow-sm font-[var(--font-jost)]"
+              className="inline-flex items-center justify-center bg-[#E51937] hover:bg-[#C8132C] text-white font-bold text-sm sm:text-base px-7 py-3.5 rounded-lg transition-all duration-300 shadow-sm font-[var(--font-jost)]"
             >
-              <span>View All 6 Programs</span>
+              <span>View All Programs</span>
             </Link>
           </div>
         </div>
@@ -52,7 +52,7 @@ export function ProgramsGrid() {
               key={program.id}
               className="h-full flex flex-col"
             >
-              <CourseCard course={program} index={index} />
+              <CourseCard course={program} index={index} ctaVariant="red" />
             </div>
           ))}
         </div>
@@ -63,7 +63,7 @@ export function ProgramsGrid() {
             Looking for handwriting transformation, executive evening batches, or digital marketing?{" "}
             <Link
               href="/programs"
-              className="font-bold text-[#03594E] hover:underline"
+              className="font-bold text-[#E51937] hover:underline"
             >
               Explore all career tracks →
             </Link>

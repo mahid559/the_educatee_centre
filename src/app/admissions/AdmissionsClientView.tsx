@@ -89,11 +89,11 @@ export default function AdmissionsClientView() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
                 {...cardLiftProps}
-                className="bg-white rounded-2xl p-7 border border-[#E2E9EB] shadow-[0_2px_12px_-2px_rgba(3,89,78,0.06)] hover:shadow-xl hover:border-[#03594E]/40 transition-all duration-300 flex flex-col justify-between group"
+                className="bg-white rounded-2xl p-7 border border-[#E2E9EB] shadow-[0_2px_12px_-2px_rgba(229,25,55,0.06)] hover:shadow-xl hover:border-[#E51937]/40 transition-all duration-300 flex flex-col justify-between group"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="bg-[#E7F3F1] text-[#03594E] border border-[#03594E]/20 text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full font-[var(--font-jost)]">
+                    <span className="bg-[#FFF0F2] text-[#E51937] border border-[#E51937]/20 text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full font-[var(--font-jost)]">
                       {offer.badge}
                     </span>
                     <span className="text-xs font-semibold text-emerald-600 flex items-center gap-1.5 font-[var(--font-jost)]">
@@ -102,7 +102,7 @@ export default function AdmissionsClientView() {
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-bold font-[var(--font-jost)] text-[#1F2432] group-hover:text-[#03594E] transition-colors mb-2.5 leading-snug">
+                  <h3 className="text-xl font-bold font-[var(--font-jost)] text-[#1F2432] group-hover:text-[#E51937] transition-colors mb-2.5 leading-snug">
                     {offer.title}
                   </h3>
 
@@ -117,7 +117,7 @@ export default function AdmissionsClientView() {
                   </span>
                   <Link
                     href="#free-demo"
-                    className="inline-flex items-center gap-1.5 bg-[#03594E] hover:bg-[#023E37] text-white font-bold text-xs px-4 py-2 rounded-full shadow-xs transition-all font-[var(--font-jost)]"
+                    className="inline-flex items-center gap-1.5 bg-[#E51937] hover:bg-[#C8132C] text-white font-bold text-xs px-4 py-2 rounded-full shadow-xs transition-all font-[var(--font-jost)]"
                   >
                     <span>Claim Offer</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -138,14 +138,15 @@ export default function AdmissionsClientView() {
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           <SectionHeading
             tag="TUITION &amp; TIMELINE"
+            tagColor="red"
             title="Course Fees &amp; Batch Schedules"
             subtext="Official fee schedules and upcoming batch timelines are confirmed before each intake. Contact us or attend a demo class for current details."
           />
 
-          <div className="overflow-x-auto bg-white rounded-3xl border border-[#E2E9EB] shadow-xl shadow-[#03594E]/5">
+          <div className="overflow-x-auto bg-white rounded-3xl border border-[#E2E9EB] shadow-xl shadow-[#E51937]/5">
             <table className="w-full text-left border-collapse min-w-[700px]">
               <thead>
-                <tr className="bg-[#03594E] text-white text-xs sm:text-sm font-bold uppercase tracking-wider font-[var(--font-jost)]">
+                <tr className="bg-[#181D26] text-white text-xs sm:text-sm font-bold uppercase tracking-wider font-[var(--font-jost)]">
                   <th className="py-4 px-6 rounded-tl-3xl">Course Name</th>
                   <th className="py-4 px-6">Category</th>
                   <th className="py-4 px-6">Fee</th>
@@ -170,7 +171,7 @@ export default function AdmissionsClientView() {
                         {p.subtitle}
                       </div>
                     </td>
-                    <td className="py-4 px-6 font-semibold text-[#03594E] font-[var(--font-jost)]">
+                    <td className="py-4 px-6 font-semibold text-[#E51937] font-[var(--font-jost)]">
                       {p.category}
                     </td>
                     <td className="py-4 px-6 font-bold text-[#1F2432] font-[var(--font-jost)]">
@@ -185,7 +186,7 @@ export default function AdmissionsClientView() {
                     <td className="py-4 px-6 text-right">
                       <Link
                         href={`/programs/${p.slug}`}
-                        className="inline-flex items-center gap-1 text-xs font-bold text-[#03594E] hover:underline font-[var(--font-jost)]"
+                        className="inline-flex items-center gap-1 text-xs font-bold text-[#E51937] hover:underline font-[var(--font-jost)]"
                       >
                         <span>Details</span>
                         <ArrowRight className="w-3 h-3" />
@@ -197,7 +198,7 @@ export default function AdmissionsClientView() {
             </table>
           </div>
 
-          <div className="mt-4 p-4 rounded-2xl bg-[#E7F3F1] border border-[#03594E]/20 text-xs text-[#03594E] text-center font-[var(--font-dm-sans)]">
+          <div className="mt-4 p-4 rounded-2xl bg-[#FFF0F2] border border-[#E51937]/20 text-xs text-[#E51937] text-center font-[var(--font-dm-sans)]">
             Fee and schedule details are updated periodically before intake dates. Call our admissions desk at 01874-232272 for exact current batch allocations.
           </div>
         </div>
@@ -208,6 +209,7 @@ export default function AdmissionsClientView() {
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           <SectionHeading
             tag="STUDENT PROFILES"
+            tagColor="red"
             title="Who Enrolls at The Educatee Centre?"
             subtext="Structured learning tracks designed specifically for adult professionals, SSC/Dakhil students, and career aspirants."
           />
@@ -221,13 +223,13 @@ export default function AdmissionsClientView() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: idx * 0.08 }}
                 {...cardLiftProps}
-                className="bg-white rounded-2xl p-6 sm:p-7 border border-[#E2E9EB] shadow-[0_2px_12px_-2px_rgba(3,89,78,0.06)] hover:shadow-xl hover:border-[#03594E]/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
+                className="bg-white rounded-2xl p-6 sm:p-7 border border-[#E2E9EB] shadow-[0_2px_12px_-2px_rgba(229,25,55,0.06)] hover:shadow-xl hover:border-[#E51937]/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
               >
                 <div>
-                  <div className="w-12 h-12 rounded-xl bg-[#E7F3F1] border border-[#03594E]/20 flex items-center justify-center mb-5 text-[#03594E] shadow-xs">
+                  <div className="w-12 h-12 rounded-xl bg-[#FFF0F2] border border-[#E51937]/20 flex items-center justify-center mb-5 text-[#E51937] shadow-xs">
                     {getAudienceIcon(group.icon)}
                   </div>
-                  <h3 className="text-lg font-bold text-[#1F2432] group-hover:text-[#03594E] transition-colors mb-2 font-[var(--font-jost)] leading-snug">
+                  <h3 className="text-lg font-bold text-[#1F2432] group-hover:text-[#E51937] transition-colors mb-2 font-[var(--font-jost)] leading-snug">
                     {group.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-[#6C757D] leading-relaxed font-[var(--font-dm-sans)]">
@@ -236,7 +238,7 @@ export default function AdmissionsClientView() {
                 </div>
 
                 <div className="mt-6 pt-4 border-t border-[#E2E9EB] flex items-center gap-2 text-xs font-semibold text-[#6C757D] font-[var(--font-jost)]">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#03594E]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#E51937]" />
                   <span>Eligible for all batches</span>
                 </div>
               </motion.div>
@@ -310,7 +312,7 @@ export default function AdmissionsClientView() {
                   key={faq.id}
                   className={`rounded-2xl border transition-all overflow-hidden ${
                     isOpen
-                      ? "border-[#03594E] bg-white shadow-md shadow-[#03594E]/5"
+                      ? "border-[#E51937] bg-white shadow-md shadow-[#E51937]/5"
                       : "border-[#E2E9EB] bg-white"
                   }`}
                 >
@@ -324,7 +326,7 @@ export default function AdmissionsClientView() {
                       {faq.question}
                     </span>
                     <ChevronDown
-                      className={`w-5 h-5 text-[#03594E] transition-transform duration-200 flex-shrink-0 ${
+                      className={`w-5 h-5 text-[#E51937] transition-transform duration-200 flex-shrink-0 ${
                         isOpen ? "rotate-180" : ""
                       }`}
                     />
@@ -354,14 +356,14 @@ export default function AdmissionsClientView() {
       {/* 8. Free Demo Class Booking Form */}
       <section id="free-demo" className="py-20 md:py-28 bg-white relative scroll-mt-24">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
-          <div className="bg-[#03594E] rounded-3xl md:rounded-[3rem] p-8 sm:p-12 lg:p-16 text-white relative overflow-hidden shadow-2xl">
+          <div className="bg-[#181D26] rounded-3xl md:rounded-[3rem] p-8 sm:p-12 lg:p-16 text-white relative overflow-hidden shadow-2xl border border-white/10">
             {/* Educeet accents */}
-            <div className="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-[#F8C62F]/15 blur-3xl pointer-events-none" />
+            <div className="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-[#E51937]/20 blur-3xl pointer-events-none" />
             <div className="absolute -left-20 -top-20 w-72 h-72 rounded-full bg-white/10 blur-3xl pointer-events-none" />
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center relative z-10">
               <div className="lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left">
-                <span className="text-[#1F2432] bg-[#F8C62F] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-4 inline-block shadow-sm font-[var(--font-jost)]">
+                <span className="text-white bg-[#E51937] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-4 inline-block shadow-sm font-[var(--font-jost)]">
                   START YOUR ADMISSION HERE
                 </span>
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight font-[var(--font-jost)] mb-4">
@@ -400,7 +402,7 @@ export default function AdmissionsClientView() {
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-3 text-[#1F2432]">
-              <div className="w-12 h-12 rounded-xl bg-white border border-[#E2E9EB] text-[#03594E] flex items-center justify-center flex-shrink-0 shadow-sm">
+              <div className="w-12 h-12 rounded-xl bg-[#FFF0F2] border border-[#E51937]/15 text-[#E51937] flex items-center justify-center flex-shrink-0 shadow-sm">
                 <MapPin className="w-6 h-6" />
               </div>
               <div>
@@ -416,7 +418,7 @@ export default function AdmissionsClientView() {
                 href={`tel:${contact.primaryPhone.replace(/-/g, "")}`}
                 className="inline-flex items-center gap-2 bg-white hover:bg-slate-100 text-[#1F2432] border border-[#E2E9EB] font-bold text-xs sm:text-sm px-6 py-3 rounded-full transition-all shadow-sm hover:scale-[1.02]"
               >
-                <Phone className="w-4 h-4 text-[#03594E]" />
+                <Phone className="w-4 h-4 text-[#E51937]" />
                 <span>Call {contact.primaryPhone}</span>
               </a>
 
@@ -424,7 +426,7 @@ export default function AdmissionsClientView() {
                 href={contact.whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#03594E] hover:bg-[#023E37] text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-full transition-all duration-200 shadow hover:shadow-md hover:scale-[1.02] active:scale-[0.98]"
+                className="inline-flex items-center gap-2 bg-[#E51937] hover:bg-[#C8132C] text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-full transition-all duration-200 shadow hover:shadow-md hover:scale-[1.02] active:scale-[0.98]"
               >
                 <MessageCircle className="w-4 h-4 text-[#F8C62F]" />
                 <span>WhatsApp Us</span>

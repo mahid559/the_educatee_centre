@@ -80,7 +80,7 @@ export default function ContactClientView() {
               className="bg-white rounded-2xl p-7 border border-[#E2E9EB] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-[#E7F3F1] border border-[#03594E]/20 text-[#03594E] flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-105">
+                <div className="w-12 h-12 rounded-xl bg-[#FFF0F2] border border-[#E51937]/20 text-[#E51937] flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-105">
                   <Phone className="w-5 h-5" />
                 </div>
                 <h3 className="text-lg font-bold text-[#1F2432] font-[var(--font-jost)] mb-1">
@@ -90,10 +90,10 @@ export default function ContactClientView() {
                   Direct telephone assistance for admissions &amp; general inquiries.
                 </p>
                 <div className="flex flex-col gap-1 text-sm font-bold text-[#1F2432] font-[var(--font-jost)]">
-                  <a href={`tel:${contact.primaryPhone.replace(/-/g, "")}`} className="hover:text-[#03594E] transition-colors">
+                  <a href={`tel:${contact.primaryPhone.replace(/-/g, "")}`} className="hover:text-[#E51937] transition-colors">
                     {contact.primaryPhone}
                   </a>
-                  <a href={`tel:${contact.secondaryPhone.replace(/-/g, "")}`} className="hover:text-[#03594E] text-xs text-[#6C757D] transition-colors">
+                  <a href={`tel:${contact.secondaryPhone.replace(/-/g, "")}`} className="hover:text-[#E51937] text-xs text-[#6C757D] transition-colors">
                     {contact.secondaryPhone}
                   </a>
                 </div>
@@ -126,7 +126,7 @@ export default function ContactClientView() {
                   href={contact.whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold bg-[#03594E] hover:bg-[#023E37] text-white px-4 py-2 rounded-full transition-all shadow-sm font-[var(--font-jost)]"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold bg-[#E51937] hover:bg-[#C8132C] text-white px-4 py-2 rounded-full transition-all shadow-sm font-[var(--font-jost)]"
                 >
                   <span>Chat on WhatsApp</span>
                   <ExternalLink className="w-3.5 h-3.5" />
@@ -183,8 +183,8 @@ export default function ContactClientView() {
               className="bg-white rounded-2xl p-7 border border-[#E2E9EB] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-[#E7F3F1] border border-[#03594E]/20 text-[#03594E] flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-105">
-                  <MapPin className="w-5 h-5 text-[#03594E]" />
+                <div className="w-12 h-12 rounded-xl bg-[#FFF0F2] border border-[#E51937]/20 text-[#E51937] flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-105">
+                  <MapPin className="w-5 h-5 text-[#E51937]" />
                 </div>
                 <h3 className="text-lg font-bold text-[#1F2432] font-[var(--font-jost)] mb-1">
                   Feni Campus
@@ -208,7 +208,7 @@ export default function ContactClientView() {
             {/* Left Column: Contact Form (6 cols) */}
             <div className="lg:col-span-6">
               <div className="bg-white rounded-2xl p-8 sm:p-10 border border-[#E2E9EB] shadow-sm">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#03594E] block mb-1 font-[var(--font-jost)]">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#E51937] block mb-1 font-[var(--font-jost)]">
                   SEND US AN INQUIRY
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1F2432] font-[var(--font-jost)] mb-2">
@@ -227,7 +227,7 @@ export default function ContactClientView() {
                       exit={{ opacity: 0, scale: 0.95 }}
                       className="text-center py-8"
                     >
-                      <div className="w-16 h-16 rounded-full bg-[#E7F3F1] text-[#03594E] flex items-center justify-center mx-auto mb-4 border border-[#03594E]/20">
+                      <div className="w-16 h-16 rounded-full bg-[#FFF0F2] text-[#E51937] flex items-center justify-center mx-auto mb-4 border border-[#E51937]/20">
                         <CheckCircle2 className="w-8 h-8" />
                       </div>
                       <h3 className="text-2xl font-bold text-[#1F2432] mb-2 font-[var(--font-jost)]">
@@ -235,7 +235,7 @@ export default function ContactClientView() {
                       </h3>
                       <p className="text-sm text-[#6C757D] leading-relaxed mb-6 font-[var(--font-dm-sans)]">
                         Thank you, <strong className="text-[#1F2432]">{name}</strong>! We have received your inquiry. Our academic desk will reach out to you at{" "}
-                        <strong className="text-[#03594E]">{phone}</strong> shortly.
+                        <strong className="text-[#E51937]">{phone}</strong> shortly.
                       </p>
                       <button
                         type="button"
@@ -245,7 +245,7 @@ export default function ContactClientView() {
                           setPhone("");
                           setMessage("");
                         }}
-                        className="text-xs font-bold text-[#03594E] hover:underline font-[var(--font-jost)]"
+                        className="text-xs font-bold text-[#E51937] hover:underline font-[var(--font-jost)]"
                       >
                         ← Send another inquiry
                       </button>
@@ -271,7 +271,7 @@ export default function ContactClientView() {
                           htmlFor="contact-name"
                           className="block text-xs font-bold uppercase tracking-wider text-[#1F2432] mb-1.5 font-[var(--font-jost)]"
                         >
-                          Full Name <span className="text-[#03594E]">*</span>
+                          Full Name <span className="text-[#E51937]">*</span>
                         </label>
                         <input
                           id="contact-name"
@@ -280,7 +280,7 @@ export default function ContactClientView() {
                           value={name}
                           onChange={(e) => setName(e.target.value)}
                           placeholder="Your full name"
-                          className="w-full px-4 py-3 rounded-xl border border-[#E2E9EB] text-sm focus:outline-none focus:ring-2 focus:ring-[#03594E] focus:border-[#03594E] transition-all bg-[#F5F7F9] focus:bg-white text-[#1F2432] placeholder:text-[#6C757D]/60"
+                          className="w-full px-4 py-3 rounded-xl border border-[#E2E9EB] text-sm focus:outline-none focus:ring-2 focus:ring-[#E51937] focus:border-[#E51937] transition-all bg-[#F5F7F9] focus:bg-white text-[#1F2432] placeholder:text-[#6C757D]/60"
                         />
                       </div>
 
@@ -290,7 +290,7 @@ export default function ContactClientView() {
                           htmlFor="contact-phone"
                           className="block text-xs font-bold uppercase tracking-wider text-[#1F2432] mb-1.5 font-[var(--font-jost)]"
                         >
-                          Mobile / WhatsApp Number <span className="text-[#03594E]">*</span>
+                          Mobile / WhatsApp Number <span className="text-[#E51937]">*</span>
                         </label>
                         <input
                           id="contact-phone"
@@ -299,7 +299,7 @@ export default function ContactClientView() {
                           value={phone}
                           onChange={(e) => setPhone(e.target.value)}
                           placeholder="018XXXXXXXX or 015XXXXXXXX"
-                          className="w-full px-4 py-3 rounded-xl border border-[#E2E9EB] text-sm focus:outline-none focus:ring-2 focus:ring-[#03594E] focus:border-[#03594E] transition-all bg-[#F5F7F9] focus:bg-white text-[#1F2432] placeholder:text-[#6C757D]/60"
+                          className="w-full px-4 py-3 rounded-xl border border-[#E2E9EB] text-sm focus:outline-none focus:ring-2 focus:ring-[#E51937] focus:border-[#E51937] transition-all bg-[#F5F7F9] focus:bg-white text-[#1F2432] placeholder:text-[#6C757D]/60"
                         />
                       </div>
 
@@ -309,7 +309,7 @@ export default function ContactClientView() {
                           htmlFor="contact-msg"
                           className="block text-xs font-bold uppercase tracking-wider text-[#1F2432] mb-1.5 font-[var(--font-jost)]"
                         >
-                          Your Message / Course Inquiry <span className="text-[#03594E]">*</span>
+                          Your Message / Course Inquiry <span className="text-[#E51937]">*</span>
                         </label>
                         <textarea
                           id="contact-msg"
@@ -318,7 +318,7 @@ export default function ContactClientView() {
                           value={message}
                           onChange={(e) => setMessage(e.target.value)}
                           placeholder="Tell us what course you are interested in, your preferred schedule, or any specific questions..."
-                          className="w-full px-4 py-3 rounded-xl border border-[#E2E9EB] text-sm focus:outline-none focus:ring-2 focus:ring-[#03594E] focus:border-[#03594E] transition-all bg-[#F5F7F9] focus:bg-white text-[#1F2432] placeholder:text-[#6C757D]/60"
+                          className="w-full px-4 py-3 rounded-xl border border-[#E2E9EB] text-sm focus:outline-none focus:ring-2 focus:ring-[#E51937] focus:border-[#E51937] transition-all bg-[#F5F7F9] focus:bg-white text-[#1F2432] placeholder:text-[#6C757D]/60"
                         />
                       </div>
 
@@ -326,7 +326,7 @@ export default function ContactClientView() {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="mt-2 w-full inline-flex items-center justify-center gap-2 bg-[#03594E] hover:bg-[#023E37] disabled:opacity-60 text-white font-bold text-sm sm:text-base py-4 rounded-full transition-all duration-200 shadow-md shadow-[#03594E]/20 hover:scale-[1.01] active:scale-[0.99] font-[var(--font-jost)]"
+                        className="mt-2 w-full inline-flex items-center justify-center gap-2 bg-[#E51937] hover:bg-[#C8132C] disabled:opacity-60 text-white font-bold text-sm sm:text-base py-4 rounded-full transition-all duration-200 shadow-md shadow-[#E51937]/20 hover:scale-[1.01] active:scale-[0.99] font-[var(--font-jost)]"
                       >
                         <Send className="w-4 h-4 text-[#F8C62F]" />
                         <span>{isSubmitting ? "Sending Inquiry..." : "Submit Inquiry"}</span>
@@ -348,14 +348,14 @@ export default function ContactClientView() {
               <div className="bg-white rounded-2xl p-6 border border-[#E2E9EB] shadow-sm overflow-hidden">
                 <div className="mb-4 flex items-center justify-between">
                   <span className="text-xs font-bold uppercase tracking-wider text-[#1F2432] flex items-center gap-1.5 font-[var(--font-jost)]">
-                    <MapPin className="w-4 h-4 text-[#03594E]" />
+                    <MapPin className="w-4 h-4 text-[#E51937]" />
                     <span>Campus Location Map</span>
                   </span>
                   <a
                     href="https://maps.google.com/?q=College+Road,+Feni"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs font-bold text-[#03594E] hover:underline inline-flex items-center gap-1 font-[var(--font-jost)]"
+                    className="text-xs font-bold text-[#E51937] hover:underline inline-flex items-center gap-1 font-[var(--font-jost)]"
                   >
                     <span>Open in Google Maps</span>
                     <ExternalLink className="w-3.5 h-3.5" />
@@ -380,8 +380,8 @@ export default function ContactClientView() {
               {/* Opening Hours & Lift Instructions Card */}
               <div className="bg-white rounded-2xl p-7 border border-[#E2E9EB] shadow-sm flex flex-col gap-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#E7F3F1] text-[#03594E] flex items-center justify-center flex-shrink-0 border border-[#03594E]/20">
-                    <Clock className="w-5 h-5 text-[#03594E]" />
+                  <div className="w-10 h-10 rounded-xl bg-[#FFF0F2] text-[#E51937] flex items-center justify-center flex-shrink-0 border border-[#E51937]/20">
+                    <Clock className="w-5 h-5 text-[#E51937]" />
                   </div>
                   <div>
                     <h3 className="text-base font-bold text-[#1F2432] font-[var(--font-jost)]">
@@ -405,7 +405,7 @@ export default function ContactClientView() {
                 <div className="pt-2 flex flex-wrap gap-3 font-[var(--font-jost)]">
                   <a
                     href={`tel:${contact.primaryPhone.replace(/-/g, "")}`}
-                    className="flex-1 inline-flex items-center justify-center gap-2 bg-[#03594E] hover:bg-[#023E37] text-white font-bold text-xs py-3 px-4 rounded-full transition-colors shadow-sm"
+                    className="flex-1 inline-flex items-center justify-center gap-2 bg-[#E51937] hover:bg-[#C8132C] text-white font-bold text-xs py-3 px-4 rounded-full transition-colors shadow-sm"
                   >
                     <Phone className="w-3.5 h-3.5" />
                     <span>Call Desk</span>
@@ -415,9 +415,9 @@ export default function ContactClientView() {
                     href={contact.whatsappLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 inline-flex items-center justify-center gap-2 bg-[#F5F7F9] hover:bg-[#E7F3F1] text-[#1F2432] border border-[#E2E9EB] font-bold text-xs py-3 px-4 rounded-full transition-colors shadow-sm"
+                    className="flex-1 inline-flex items-center justify-center gap-2 bg-[#F5F7F9] hover:bg-[#FFF0F2] text-[#1F2432] border border-[#E2E9EB] font-bold text-xs py-3 px-4 rounded-full transition-colors shadow-sm"
                   >
-                    <MessageCircle className="w-3.5 h-3.5 text-[#03594E]" />
+                    <MessageCircle className="w-3.5 h-3.5 text-[#E51937]" />
                     <span>WhatsApp</span>
                   </a>
                 </div>

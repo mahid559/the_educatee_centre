@@ -36,7 +36,7 @@ export function Hero() {
     <section
       ref={heroRef}
       id="hero"
-      className="relative overflow-hidden bg-[#03594E] text-white pt-32 pb-0 md:pt-36 lg:pt-40 z-10"
+      className="relative overflow-hidden bg-[#181D26] text-white pt-32 pb-0 md:pt-36 lg:pt-40 z-10"
     >
       {/* Decorative corner shapes from Educeet Theme */}
       <div className="absolute left-4 sm:left-10 top-24 pointer-events-none opacity-40 select-none" aria-hidden="true">
@@ -80,45 +80,23 @@ export function Hero() {
               {hero.subtext}
             </p>
 
-            {/* Action Buttons & Rating Box (Side by Side) */}
-            <div className="hero-anim-item flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6">
-              {/* Yellow Primary Action Button */}
+            {/* Action Buttons: Red Primary CTA + White Secondary CTA */}
+            <div className="hero-anim-item flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+              {/* Red Primary Action Button */}
               <Link
-                href={hero.primaryCtaLink || "#courses"}
-                className="w-full sm:w-auto inline-flex items-center justify-center bg-[#F8C62F] hover:bg-[#e6b422] text-[#1F2432] font-bold text-base px-8 py-4 rounded-lg transition-all duration-300 shadow-md font-[var(--font-jost)]"
+                href="#free-demo"
+                className="w-full sm:w-auto inline-flex items-center justify-center bg-[#E51937] hover:bg-[#C8132C] text-white font-bold text-base px-8 py-4 rounded-xl transition-all duration-300 shadow-lg font-[var(--font-jost)] hover:scale-[1.02] active:scale-[0.98]"
               >
-                <span>{hero.primaryCtaText || "Explore All Courses"}</span>
+                <span>Book Free Demo Class</span>
               </Link>
 
-              {/* Rating & Social Proof Box */}
-              <div className="flex items-center gap-3.5 text-left">
-                <Image
-                  src="/images/educeet/ratting.png"
-                  alt="Students Community"
-                  width={48}
-                  height={48}
-                  className="w-12 h-12 object-contain flex-shrink-0"
-                />
-                <div>
-                  <span className="block text-xs sm:text-sm font-bold text-white font-[var(--font-jost)] leading-tight">
-                    10,000+ Enrolled Students &amp; Community
-                  </span>
-                  <div className="flex items-center gap-1 mt-1 text-[#F8C62F]">
-                    {[...Array(5)].map((_, i) => (
-                      <svg
-                        key={i}
-                        className="w-3.5 h-3.5 fill-current"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                      </svg>
-                    ))}
-                    <span className="text-xs text-white/80 font-semibold ml-1 font-[var(--font-dm-sans)]">
-                      4.9 (500+ Reviews)
-                    </span>
-                  </div>
-                </div>
-              </div>
+              {/* Clean Secondary Button: Explore Programs */}
+              <Link
+                href="/programs"
+                className="w-full sm:w-auto inline-flex items-center justify-center bg-white/10 hover:bg-white hover:text-[#181D26] text-white border border-white/30 font-bold text-base px-8 py-4 rounded-xl transition-all duration-300 shadow-md font-[var(--font-jost)]"
+              >
+                <span>Explore Programs</span>
+              </Link>
             </div>
           </div>
 

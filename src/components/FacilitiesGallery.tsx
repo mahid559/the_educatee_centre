@@ -1,131 +1,157 @@
+﻿"use client";
+
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { Mic, Monitor, Building2 } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import { CheckCircle2, ArrowRight } from "lucide-react";
+import "./FacilitiesGallery.css";
 
 export function FacilitiesGallery() {
+  const shouldReduceMotion = useReducedMotion();
+
   const facilityCards = [
     {
       id: "spoken-studio",
       tag: "COMMUNICATION STUDIO",
       title: "Interactive Spoken English Hall",
+      badge: "Max 16 / Cohort",
       description:
         "Designed specifically for dialogue circles, paired speech practice, and confidence-building debates in an acoustically treated space.",
-      image: "/images/facilities/spoken-room.jpg",
-      icon: <Mic className="w-5 h-5 text-[#03594E]" />,
       features: [
-        "Circle seating for open conversational eye-contact",
-        "Air-conditioned distraction-free environment",
-        "Interactive AV screen for phonetics & drills",
-        "Strict cap of max 16 students per batch",
+        "Circular seating layout for natural eye-contact & open dialogue",
+        "Air-conditioned, quiet environment free from street noise",
+        "Interactive audio-visual screen for phonetics and pronunciation drills",
+        "Strict cap of maximum 16 candidates per batch for individual speaking time",
       ],
-      linkText: "Explore Spoken Batches",
+      linkText: "Explore Spoken Programs",
       linkUrl: "/programs/spoken-english-ssc-dakhil",
     },
     {
       id: "computer-lab",
       tag: "PRACTICAL IT WORKSPACE",
       title: "Dedicated Computer Training Lab",
+      badge: "1 Student : 1 PC",
       description:
-        "Every enrolled student works on their own dedicated high-speed PC workstation with direct instructor supervision.",
-      image: "/images/facilities/computer-room.jpg",
-      icon: <Monitor className="w-5 h-5 text-[#03594E]" />,
+        "Every enrolled student works on their own dedicated high-speed PC workstation with direct instructor supervision. Zero sharing.",
       features: [
-        "1 Student : 1 PC guaranteed (No sharing)",
-        "High-speed fiber connectivity for live tasks",
-        "Full MS Office, typing & internet applications setup",
-        "Projector screen for real-time live demonstrations",
+        "1 Student : 1 PC guaranteed during every single practical lecture",
+        "High-speed fiber connectivity for live online tasks & software practice",
+        "Full MS Office, Bangla/English typing, and digital tools configured",
+        "Dedicated instructor screen for real-time live step-by-step demonstrations",
       ],
-      linkText: "Explore IT Programs",
+      linkText: "Explore IT Courses",
       linkUrl: "/programs/basic-computer-ms-office",
     },
     {
       id: "campus-environment",
       tag: "PREMIER CAMPUS LOCATION",
       title: "Appayan Afroz Tower (5th Floor)",
+      badge: "100% Air-Conditioned",
       description:
-        "Located in the heart of Feni near Pourashava Gate, providing a quiet, safe, and respectable sanctuary for adult learners.",
-      image: "/images/about/about-community.jpg",
-      icon: <Building2 className="w-5 h-5 text-[#03594E]" />,
+        "Located in the commercial heart of Feni on College Road near Pourashava Gate — an elevated sanctuary designed for deep focus.",
       features: [
-        "Elevator facility (Press Lift 4th floor button)",
-        "Peaceful atmosphere elevated from street noise",
-        "Dedicated separate batches for female students",
-        "Comfortable waiting lounge and library corner",
+        "Modern elevator facility available directly to reception and classrooms",
+        "Peaceful academic atmosphere elevated high above street-level commotion",
+        "Bright natural light, spacious waiting area, and clean sanitized campus",
+        "Reliable standby power backup for uninterrupted learning sessions",
       ],
       linkText: "View Campus Gallery",
       linkUrl: "/gallery",
     },
+    {
+      id: "girls-batch-hub",
+      tag: "SAFE & RESPECTFUL SPACE",
+      title: "Dedicated Female Batch Environment",
+      badge: "Exclusive Cohorts",
+      description:
+        "A safe, supportive, and culturally respectful learning atmosphere with dedicated timings and female coordination.",
+      features: [
+        "Exclusive morning and afternoon cohorts for female candidates",
+        "Friendly and encouraging atmosphere with female academic coordination",
+        "Comfortable, judgment-free space to build fluent conversational practice",
+        "Over 500+ female students graduated with confidence and fluency",
+      ],
+      linkText: "Explore Batch Schedules",
+      linkUrl: "/admissions",
+    },
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-[#F5F7F9] relative border-b border-[#E2E9EB]">
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
+    <section className="fcSection py-20 md:py-28">
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-[#03594E] text-xs sm:text-sm font-bold uppercase tracking-widest block mb-2 font-[var(--font-jost)]">
-            CAMPUS INFRASTRUCTURE
+        <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
+          <span className="text-[#E51937] text-xs sm:text-sm font-bold uppercase tracking-widest block mb-2 font-[var(--font-jost)]">
+            CAMPUS INFRASTRUCTURE &amp; FACILITIES
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#1F2432] tracking-tight mb-4 font-[var(--font-jost)] leading-tight">
             World-Class Campus Facilities in Feni
           </h2>
           <p className="text-base sm:text-lg text-[#6C757D] leading-relaxed max-w-2xl mx-auto font-[var(--font-dm-sans)]">
-            Quality learning requires the right environment. We have invested in modern, comfortable facilities to support focused adult education.
+            Quality learning requires the right environment. We have invested in modern, quiet, and air-conditioned facilities on the 5th floor of Appayan Afroz Tower.
           </p>
         </div>
 
-        {/* 3 Facility Cards Grid in Educeet Style */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {facilityCards.map((card) => (
-            <article
+        {/* Stacked, angled facility banners filled with the Admission
+            Process capsule colors (no visible 1-2-3-4 numbering) */}
+        <div className="fcStack">
+          {facilityCards.map((card, index) => (
+            <motion.div
               key={card.id}
-              className="bg-white rounded-[20px] p-5 border border-[#03594E]/10 shadow-xs hover:shadow-[0_20px_30px_0_rgba(1,6,20,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
+              className="fcReveal"
+              initial={
+                shouldReduceMotion
+                  ? false
+                  : { opacity: 0, x: index % 2 === 0 ? 60 : -60 }
+              }
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.18 }}
+              transition={{
+                duration: 0.55,
+                delay: shouldReduceMotion ? 0 : index * 0.12,
+                ease: [0.22, 1, 0.36, 1],
+              }}
             >
-              <div>
-                {/* Photo Thumbnail */}
-                <div className="relative w-full aspect-[16/10] rounded-[12px] overflow-hidden bg-slate-100 mb-5">
-                  <Image
-                    src={card.image}
-                    alt={card.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 380px"
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
-                  />
-                </div>
+              {/* Floating banner wrapper (shadow + dashed guide live here) */}
+              <div className="fcCardWrap">
+                <article className="fcCard">
+                  <div className="fcContent">
+                    <div className="fcMeta">
+                      <span className="fcTag">{card.tag}</span>
+                      <span className="fcBadge">{card.badge}</span>
+                    </div>
 
-                {/* Tag & Title */}
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#03594E] block mb-2 font-[var(--font-jost)]">
-                  {card.tag}
-                </span>
+                    <h3 className="fcTitle">{card.title}</h3>
 
-                <h3 className="text-xl font-bold text-[#1F2432] group-hover:text-[#03594E] transition-colors mb-2.5 font-[var(--font-jost)]">
-                  {card.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-[#6C757D] leading-relaxed mb-5 font-[var(--font-dm-sans)]">
-                  {card.description}
-                </p>
+                    <div className="fcDots" aria-hidden="true">
+                      <span className="fcDot" />
+                      <span className="fcDot" />
+                      <span className="fcDot" />
+                    </div>
 
-                {/* Features List */}
-                <ul className="space-y-2 pt-3 border-t border-slate-100 font-[var(--font-dm-sans)] mb-5">
-                  {card.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-xs text-[#1F2432]">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#03594E] mt-1.5 shrink-0" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+                    <p className="fcDescription">{card.description}</p>
+
+                    {/* Existing feature data, preserved as-is */}
+                    <ul className="fcFeatures">
+                      {card.features.map((feature, idx) => (
+                        <li key={idx} className="fcFeature">
+                          <CheckCircle2
+                            className="fcCheck"
+                            aria-hidden="true"
+                          />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <Link href={card.linkUrl} className="fcLink">
+                      <span>{card.linkText}</span>
+                      <ArrowRight className="fcArrow" aria-hidden="true" />
+                    </Link>
+                  </div>
+                </article>
               </div>
-
-              {/* Action Link */}
-              <div className="pt-3 border-t border-slate-100">
-                <Link
-                  href={card.linkUrl}
-                  className="w-full block text-center py-2.5 px-4 rounded-lg bg-[#F5F7F9] hover:bg-[#03594E] text-[#1F2432] hover:text-white font-bold text-xs font-[var(--font-jost)] transition-all duration-300"
-                >
-                  {card.linkText}
-                </Link>
-              </div>
-            </article>
+            </motion.div>
           ))}
         </div>
       </div>

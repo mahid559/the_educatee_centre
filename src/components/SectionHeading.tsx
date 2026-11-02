@@ -25,7 +25,7 @@ export function SectionHeading({
       } ${className}`}
     >
       <span
-        className="text-xs sm:text-sm font-bold uppercase tracking-wider block mb-2 font-[var(--font-jost)] text-[#03594E]"
+        className="text-xs sm:text-sm font-bold uppercase tracking-wider block mb-2 font-[var(--font-jost)] text-[#E51937]"
       >
         {tag}
       </span>

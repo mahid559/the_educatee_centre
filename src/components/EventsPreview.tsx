@@ -100,7 +100,7 @@ export function EventsPreview() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-14 gap-6">
           <div className="max-w-2xl">
-            <span className="text-[#03594E] text-xs sm:text-sm font-bold uppercase tracking-wider block mb-2 font-[var(--font-jost)]">
+            <span className="text-[#E51937] text-xs sm:text-sm font-bold uppercase tracking-wider block mb-2 font-[var(--font-jost)]">
               PHOTO GALLERY &amp; CAMPUS MOMENTS
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#1F2432] tracking-tight font-[var(--font-jost)] leading-tight mb-3">
@@ -115,7 +115,7 @@ export function EventsPreview() {
           <div className="flex-shrink-0 self-start md:self-auto">
             <Link
               href="/gallery"
-              className="inline-flex items-center gap-2 bg-[#03594E] hover:bg-[#023E37] text-white font-bold text-sm sm:text-base px-7 py-3.5 rounded-full transition-all duration-200 shadow-md shadow-[#03594E]/20 hover:scale-[1.02] active:scale-[0.98] group font-[var(--font-jost)]"
+              className="inline-flex items-center gap-2 bg-[#E51937] hover:bg-[#C8132C] text-white font-bold text-sm sm:text-base px-7 py-3.5 rounded-full transition-all duration-200 shadow-md shadow-[#E51937]/25 hover:scale-[1.02] active:scale-[0.98] group font-[var(--font-jost)]"
             >
               <span>View Full Gallery</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -281,7 +281,7 @@ export function EventsPreview() {
                 aria-label={`Go to slide ${idx + 1}: ${item.categoryLabel}`}
                 className={`h-2 rounded-full transition-all duration-300 ${
                   mobileSlideIndex === idx
-                    ? "w-7 bg-[#03594E]"
+                    ? "w-7 bg-[#E51937]"
                     : "w-2 bg-slate-300 hover:bg-slate-400"
                 }`}
               />
@@ -292,7 +292,7 @@ export function EventsPreview() {
           <div className="mt-8 text-center">
             <Link
               href="/gallery"
-              className="inline-flex items-center gap-2 bg-[#03594E] hover:bg-[#023E37] text-white font-bold text-sm px-8 py-3.5 rounded-full shadow-md shadow-[#03594E]/20 font-[var(--font-jost)]"
+              className="inline-flex items-center gap-2 bg-[#E51937] hover:bg-[#C8132C] text-white font-bold text-sm px-8 py-3.5 rounded-full shadow-md shadow-[#E51937]/25 font-[var(--font-jost)]"
             >
               <span>View Full Gallery</span>
               <ArrowRight className="w-4 h-4" />

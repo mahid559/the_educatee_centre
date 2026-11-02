@@ -11,8 +11,8 @@ export function AdmissionSteps() {
   const stepMeta = [
     {
       stepNum: "01",
-      color: "#00A896", // Vibrant Turquoise / Cyan Teal
-      shadowColor: "rgba(0, 168, 150, 0.35)",
+      color: "#E51937", // Brand Crimson Red
+      shadowColor: "rgba(229, 25, 55, 0.35)",
       icon: <Lightbulb className="w-8 h-8 text-[#334155] stroke-[1.6]" />,
       title: admissionSteps[0]?.title || "Book a Free Demo Class",
       description:
@@ -21,8 +21,8 @@ export function AdmissionSteps() {
     },
     {
       stepNum: "02",
-      color: "#05668D", // Deep Ocean Blue-Teal
-      shadowColor: "rgba(5, 102, 141, 0.35)",
+      color: "#1F2432", // Executive Dark Charcoal
+      shadowColor: "rgba(31, 36, 50, 0.35)",
       icon: <Clock className="w-8 h-8 text-[#334155] stroke-[1.6]" />,
       title: admissionSteps[1]?.title || "Attend the Live Demo",
       description:
@@ -31,8 +31,8 @@ export function AdmissionSteps() {
     },
     {
       stepNum: "03",
-      color: "#03594E", // Deep Forest Teal
-      shadowColor: "rgba(3, 89, 78, 0.35)",
+      color: "#C8132C", // Deep Crimson Tone
+      shadowColor: "rgba(200, 19, 44, 0.35)",
       icon: <Handshake className="w-8 h-8 text-[#334155] stroke-[1.6]" />,
       title: admissionSteps[2]?.title || "Choose Your Batch",
       description:
@@ -41,7 +41,7 @@ export function AdmissionSteps() {
     },
     {
       stepNum: "04",
-      color: "#2D3748", // Slate Navy / Charcoal Indigo
+      color: "#2D3748", // Slate Charcoal
       shadowColor: "rgba(45, 55, 72, 0.35)",
       icon: <Target className="w-8 h-8 text-[#334155] stroke-[1.6]" />,
       title: admissionSteps[3]?.title || "Complete Admission at Campus",
@@ -56,7 +56,7 @@ export function AdmissionSteps() {
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
-          <span className="text-[#03594E] text-xs sm:text-sm font-bold uppercase tracking-widest block mb-2 font-[var(--font-jost)]">
+          <span className="text-[#E51937] text-xs sm:text-sm font-bold uppercase tracking-widest block mb-2 font-[var(--font-jost)]">
             ADMISSION PROCESS
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#1F2432] tracking-tight mb-4 font-[var(--font-jost)] leading-tight">
@@ -444,7 +444,7 @@ export function AdmissionSteps() {
         <div className="mt-14 sm:mt-16 text-center">
           <Link
             href="#free-demo"
-            className="inline-flex items-center gap-2 bg-[#03594E] hover:bg-[#F8C62F] hover:text-[#1F2432] text-white font-bold text-sm sm:text-base px-8 py-4 rounded-lg transition-all duration-300 shadow-md font-[var(--font-jost)] group"
+            className="inline-flex items-center gap-2 bg-[#E51937] hover:bg-[#C8132C] text-white font-bold text-sm sm:text-base px-8 py-4 rounded-lg transition-all duration-300 shadow-md font-[var(--font-jost)] group"
           >
             <span>Book Your Free Demo Class</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

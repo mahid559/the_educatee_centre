@@ -13,9 +13,9 @@ export function WhyChooseUs() {
     {
       id: "pillar-01",
       number: "01",
-      position: "left", // Node on the right
-      color: "#2D3748", // Slate Charcoal (matching node 01 in reference image)
-      icon: <ShieldCheck className="w-4 h-4 text-[#2D3748] shrink-0" />,
+      position: "left",
+      color: "#E51937", // Brand Crimson Red
+      icon: <ShieldCheck className="w-4 h-4 text-[#E51937] shrink-0" />,
       title: whyChooseUs[0]?.title || "Fear-Free Adult Learning",
       description:
         whyChooseUs[0]?.description ||
@@ -24,9 +24,9 @@ export function WhyChooseUs() {
     {
       id: "pillar-02",
       number: "02",
-      position: "right", // Node on the left
-      color: "#03594E", // Forest Teal (matching brand teal in reference image)
-      icon: <Monitor className="w-4 h-4 text-[#03594E] shrink-0" />,
+      position: "right",
+      color: "#1F2432", // Executive Dark Charcoal
+      icon: <Monitor className="w-4 h-4 text-[#1F2432] shrink-0" />,
       title: whyChooseUs[1]?.title || "100% Practical & Lab Practice",
       description:
         whyChooseUs[1]?.description ||
@@ -35,9 +35,9 @@ export function WhyChooseUs() {
     {
       id: "pillar-03",
       number: "03",
-      position: "left", // Node on the right
-      color: "#03594E", // Forest Teal
-      icon: <GraduationCap className="w-4 h-4 text-[#03594E] shrink-0" />,
+      position: "left",
+      color: "#E51937", // Brand Crimson Red
+      icon: <GraduationCap className="w-4 h-4 text-[#E51937] shrink-0" />,
       title: whyChooseUs[2]?.title || "Direct Mentorship by Founder",
       description:
         whyChooseUs[2]?.description ||
@@ -46,7 +46,7 @@ export function WhyChooseUs() {
     {
       id: "pillar-04",
       number: "04",
-      position: "right", // Node on the left
+      position: "right",
       color: "#2D3748", // Slate Charcoal
       icon: <Award className="w-4 h-4 text-[#2D3748] shrink-0" />,
       title: whyChooseUs[3]?.title || "Official Band Track Record",
@@ -58,7 +58,7 @@ export function WhyChooseUs() {
 
   return (
     <section className="py-20 md:py-28 bg-[#FFFFFF] relative border-b border-[#E2E9EB] overflow-hidden">
-      {/* Top Right Decorative Dot Matrix Grid (7x3 matching reference image) */}
+      {/* Top Right Decorative Dot Matrix Grid (7x3 matching brand crimson) */}
       <div
         className="absolute top-8 right-6 sm:right-12 lg:right-20 grid grid-cols-7 gap-2.5 sm:gap-3 pointer-events-none select-none opacity-40"
         aria-hidden="true"
@@ -66,26 +66,26 @@ export function WhyChooseUs() {
         {Array.from({ length: 21 }).map((_, i) => (
           <span
             key={i}
-            className="w-1.5 h-1.5 rounded-full bg-[#03594E]"
+            className="w-1.5 h-1.5 rounded-full bg-[#E51937]"
           />
         ))}
       </div>
 
       <div className="max-w-[1140px] mx-auto px-4 sm:px-6 relative z-10">
         {/* ============================================================== */}
-        {/* TOP HERO: Exact Visual Layout from Reference Image             */}
+        {/* TOP HERO: Typographic Treatment in Brand Palette               */}
         {/* ============================================================== */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-16 lg:mb-20">
           {/* Left Column: Big Typographic Treatment */}
           <div className="lg:col-span-7 text-center lg:text-left">
             {/* Stylized Big Headline */}
-            <h2 className="text-5xl sm:text-6xl md:text-7xl font-black text-[#03594E] tracking-tight font-[var(--font-jost)] leading-[1.02] uppercase select-none">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl font-black text-[#E51937] tracking-tight font-[var(--font-jost)] leading-[1.02] uppercase select-none">
               WHY
               <br />
               CHOOSE
               <br />
-              <span className="inline-flex items-center gap-3 mt-1">
-                <span className="inline-flex items-center justify-center bg-[#03594E] text-white w-14 sm:w-16 h-10 sm:h-12 rounded-xl shadow-md">
+              <span className="inline-flex items-center gap-3 mt-1 text-[#1F2432]">
+                <span className="inline-flex items-center justify-center bg-[#E51937] text-white w-14 sm:w-16 h-10 sm:h-12 rounded-xl shadow-md">
                   <ArrowRight className="w-6 sm:w-7 h-6 sm:h-7 stroke-[2.5]" />
                 </span>
                 <span>US</span>
@@ -102,7 +102,7 @@ export function WhyChooseUs() {
             </p>
           </div>
 
-          {/* Right Column: 3D Stippled Question Mark */}
+          {/* Right Column: 3D Stippled Graphic */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
             <div className="relative w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 select-none">
               <Image
@@ -110,7 +110,7 @@ export function WhyChooseUs() {
                 alt="Why Choose Us"
                 width={360}
                 height={360}
-                className="w-full h-full object-contain select-none transition-transform duration-500 hover:scale-[1.02] drop-shadow-[0_15px_30px_rgba(3,89,78,0.12)]"
+                className="w-full h-full object-contain select-none transition-transform duration-500 hover:scale-[1.02] drop-shadow-[0_15px_30px_rgba(229,25,55,0.12)]"
                 priority
               />
             </div>
@@ -118,7 +118,7 @@ export function WhyChooseUs() {
         </div>
 
         {/* ============================================================== */}
-        {/* 2X2 RIBBON CARDS: Exact Structure from Reference Image         */}
+        {/* 2X2 RIBBON CARDS                                               */}
         {/* ============================================================== */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-12 gap-y-8 sm:gap-y-10 max-w-4xl mx-auto">
           {features.map((item) => {
@@ -129,7 +129,7 @@ export function WhyChooseUs() {
                 key={item.id}
                 className="relative group transition-transform duration-300 hover:-translate-y-1"
               >
-                {/* 3D Folded Ribbon Base Layer (matches reference angled ribbons) */}
+                {/* 3D Folded Ribbon Base Layer */}
                 <div
                   className={`absolute -bottom-2.5 h-8 rounded-b-xl z-0 transition-all duration-300 ${
                     isLeft
@@ -149,7 +149,7 @@ export function WhyChooseUs() {
                 >
                   {/* Text Content */}
                   <div className={`flex-1 ${isLeft ? "sm:pr-2" : "sm:pl-2"}`}>
-                    <h4 className="text-base sm:text-lg font-bold text-[#1F2432] group-hover:text-[#03594E] transition-colors font-[var(--font-jost)] leading-snug flex items-center justify-center sm:justify-start gap-2 mb-1.5">
+                    <h4 className="text-base sm:text-lg font-bold text-[#1F2432] group-hover:text-[#E51937] transition-colors font-[var(--font-jost)] leading-snug flex items-center justify-center sm:justify-start gap-2 mb-1.5">
                       {item.icon}
                       <span>{item.title}</span>
                     </h4>

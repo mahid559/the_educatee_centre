@@ -139,7 +139,7 @@ export const Navbar: React.FC = () => {
                       href="/courses"
                       className="font-bold text-[#C81E2B] hover:underline flex items-center gap-1"
                     >
-                      <span>View All 6 Programs</span>
+                      <span>View All Programs</span>
                       <ArrowRight className="w-3 h-3" />
                     </Link>
                     <span className="text-[10px] text-[#585552]">Max 16 Per Batch</span>

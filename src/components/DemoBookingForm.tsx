@@ -34,16 +34,16 @@ export function DemoBookingForm() {
   return (
     <section id="free-demo" className="py-20 md:py-28 bg-[#F5F7F9] relative scroll-mt-20 border-t border-slate-200">
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
-        {/* Educeet it-contact-2-area Container */}
-        <div className="bg-[#03594E] text-white rounded-3xl p-8 sm:p-12 lg:p-16 shadow-2xl relative overflow-hidden">
+        {/* Container */}
+        <div className="bg-[#181D26] text-white rounded-3xl p-8 sm:p-12 lg:p-16 shadow-2xl relative overflow-hidden">
           {/* Subtle Accent Glows */}
-          <div className="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-[#F8C62F]/15 blur-3xl pointer-events-none" />
-          <div className="absolute -left-20 -top-20 w-72 h-72 rounded-full bg-white/10 blur-3xl pointer-events-none" />
+          <div className="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-[#E51937]/20 blur-3xl pointer-events-none" />
+          <div className="absolute -left-20 -top-20 w-72 h-72 rounded-full bg-[#E51937]/15 blur-3xl pointer-events-none" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center relative z-10">
             {/* Left Column: Heading & Contact Info (6 cols) */}
             <div className="lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left">
-              <span className="text-[#F8C62F] text-xs sm:text-sm font-bold uppercase tracking-widest block mb-2 font-[var(--font-jost)]">
+              <span className="text-[#E51937] text-xs sm:text-sm font-bold uppercase tracking-widest block mb-2 font-[var(--font-jost)]">
                 ONLINE REGISTRATIONS
               </span>
 
@@ -56,10 +56,10 @@ export function DemoBookingForm() {
                 and discover how natural speaking English can be.
               </p>
 
-              {/* Contact Information Cards in Educeet Style */}
+              {/* Contact Information Cards */}
               <div className="flex flex-col gap-3.5 w-full font-[var(--font-dm-sans)] text-left">
                 <div className="flex items-center gap-3 bg-white/10 p-3.5 rounded-xl border border-white/15">
-                  <div className="w-10 h-10 rounded-lg bg-[#F8C62F] text-[#1F2432] flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-[#E51937] text-white flex items-center justify-center shrink-0 shadow-sm">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
@@ -69,7 +69,7 @@ export function DemoBookingForm() {
                 </div>
 
                 <div className="flex items-center gap-3 bg-white/10 p-3.5 rounded-xl border border-white/15">
-                  <div className="w-10 h-10 rounded-lg bg-[#F8C62F] text-[#1F2432] flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-[#E51937] text-white flex items-center justify-center shrink-0 shadow-sm">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
@@ -79,7 +79,7 @@ export function DemoBookingForm() {
                 </div>
 
                 <div className="flex items-center gap-3 bg-white/10 p-3.5 rounded-xl border border-white/15">
-                  <div className="w-10 h-10 rounded-lg bg-[#F8C62F] text-[#1F2432] flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-[#E51937] text-white flex items-center justify-center shrink-0 shadow-sm">
                     <Clock className="w-5 h-5" />
                   </div>
                   <div>
@@ -110,7 +110,7 @@ export function DemoBookingForm() {
                       </h3>
                       <p className="text-sm text-[#6C757D] leading-relaxed mb-6 font-[var(--font-dm-sans)]">
                         Thank you, <strong className="text-[#0C121D]">{fullName}</strong>! We have received your query for{" "}
-                        <strong className="text-[#03594E]">{course}</strong>. Our admissions desk will WhatsApp / call you at{" "}
+                        <strong className="text-[#E51937]">{course}</strong>. Our admissions desk will WhatsApp / call you at{" "}
                         <strong className="text-[#0C121D]">{phone}</strong> shortly with your batch schedule.
                       </p>
                       <button
@@ -120,7 +120,7 @@ export function DemoBookingForm() {
                           setFullName("");
                           setPhone("");
                         }}
-                        className="text-xs font-bold text-[#03594E] hover:underline"
+                        className="text-xs font-bold text-[#E51937] hover:underline"
                       >
                         ← Submit another query
                       </button>
@@ -149,7 +149,7 @@ export function DemoBookingForm() {
                           htmlFor="fullName"
                           className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5"
                         >
-                          Full Name <span className="text-[#03594E]">*</span>
+                          Full Name <span className="text-[#E51937]">*</span>
                         </label>
                         <input
                           id="fullName"
@@ -158,7 +158,7 @@ export function DemoBookingForm() {
                           value={fullName}
                           onChange={(e) => setFullName(e.target.value)}
                           placeholder="Your Full Name"
-                          className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#03594E] focus:border-[#03594E] transition-all bg-slate-50 focus:bg-white text-slate-900 placeholder:text-slate-400"
+                          className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#E51937] focus:border-[#E51937] transition-all bg-slate-50 focus:bg-white text-slate-900 placeholder:text-slate-400"
                         />
                       </div>
 
@@ -168,7 +168,7 @@ export function DemoBookingForm() {
                           htmlFor="phone"
                           className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5"
                         >
-                          Phone / WhatsApp Number <span className="text-[#03594E]">*</span>
+                          Phone / WhatsApp Number <span className="text-[#E51937]">*</span>
                         </label>
                         <input
                           id="phone"
@@ -177,7 +177,7 @@ export function DemoBookingForm() {
                           value={phone}
                           onChange={(e) => setPhone(e.target.value)}
                           placeholder="018XXXXXXXX or 017XXXXXXXX"
-                          className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#03594E] focus:border-[#03594E] transition-all bg-slate-50 focus:bg-white text-slate-900 placeholder:text-slate-400"
+                          className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#E51937] focus:border-[#E51937] transition-all bg-slate-50 focus:bg-white text-slate-900 placeholder:text-slate-400"
                         />
                       </div>
 
@@ -187,13 +187,13 @@ export function DemoBookingForm() {
                           htmlFor="course"
                           className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5"
                         >
-                          Select Course / Reason <span className="text-[#03594E]">*</span>
+                          Select Course / Reason <span className="text-[#E51937]">*</span>
                         </label>
                         <select
                           id="course"
                           value={course}
                           onChange={(e) => setCourse(e.target.value)}
-                          className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#03594E] focus:border-[#03594E] transition-all bg-slate-50 focus:bg-white text-slate-900"
+                          className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#E51937] focus:border-[#E51937] transition-all bg-slate-50 focus:bg-white text-slate-900"
                         >
                           {programs.map((p) => (
                             <option key={p.id} value={p.title}>
@@ -203,18 +203,18 @@ export function DemoBookingForm() {
                         </select>
                       </div>
 
-                      {/* Submit Button in Educeet Warm Gold */}
+                      {/* Submit Button in Brand Crimson Red */}
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="mt-2 w-full inline-flex items-center justify-center gap-2 bg-[#F8C62F] hover:bg-[#eab308] disabled:opacity-60 text-[#1F2432] font-extrabold text-sm sm:text-base py-3.5 rounded-xl transition-all duration-200 shadow-lg hover:scale-[1.01] active:scale-[0.99]"
+                        className="mt-2 w-full inline-flex items-center justify-center gap-2 bg-[#E51937] hover:bg-[#C8132C] disabled:opacity-60 text-white font-extrabold text-sm sm:text-base py-3.5 rounded-xl transition-all duration-200 shadow-lg hover:scale-[1.01] active:scale-[0.99]"
                       >
                         <Send className="w-4 h-4" />
                         <span>{isSubmitting ? "Submitting..." : "Submit Query Now →"}</span>
                       </button>
 
                       <div className="flex items-center justify-center gap-1.5 text-[11px] text-slate-500 mt-1">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#03594E]" />
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#E51937]" />
                         <span>Zero commitment • Free classroom orientation trial</span>
                       </div>
                     </motion.form>

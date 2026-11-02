@@ -23,14 +23,14 @@ export function PageHero({
   children,
 }: PageHeroProps) {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[#023E37] via-[#03594E] to-[#046B5E] text-white pt-28 pb-14 sm:pt-32 md:pt-36 md:pb-20 lg:pt-40 lg:pb-24">
+    <section className="relative overflow-hidden bg-gradient-to-br from-[#12161E] via-[#181D26] to-[#1F2432] text-white pt-28 pb-14 sm:pt-32 md:pt-36 md:pb-20 lg:pt-40 lg:pb-24">
       {/* Background Decorative Accents */}
       <div
         className="absolute inset-0 pointer-events-none opacity-20 overflow-hidden"
         aria-hidden="true"
       >
-        <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-[#F8C62F]/20 blur-3xl" />
-        <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-white/10 blur-3xl" />
+        <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-[#E51937]/25 blur-3xl" />
+        <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-[#E51937]/15 blur-3xl" />
       </div>
 
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">

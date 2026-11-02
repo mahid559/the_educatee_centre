@@ -7,11 +7,20 @@ import { Course } from "@/data/content";
 interface CourseCardProps {
   course: Course;
   index?: number;
+  /**
+   * CTA button color scheme: "gold" (original, default) or "red",
+   * used by the homepage COURSES section.
+   */
+  ctaVariant?: "gold" | "red";
 }
 
-export function CourseCard({ course }: CourseCardProps) {
+export function CourseCard({ course, ctaVariant = "gold" }: CourseCardProps) {
+  const ctaClasses =
+    ctaVariant === "red"
+      ? "bg-[#DC2626] hover:bg-[#B91C1C] text-white"
+      : "bg-[#F8C62F] group-hover:bg-[#E51937] text-[#1F2432] group-hover:text-white";
   return (
-    <article className="group relative bg-white rounded-[20px] p-5 border border-[#03594E]/10 transition-all duration-300 hover:shadow-[0_20px_30px_0_rgba(1,6,20,0.08)] hover:-translate-y-1 flex flex-col h-full">
+    <article className="group relative bg-white rounded-[20px] p-5 border border-[#E51937]/15 transition-all duration-300 hover:shadow-[0_20px_30px_0_rgba(229,25,55,0.08)] hover:-translate-y-1 flex flex-col h-full">
       {/* 1. Course Photo Thumbnail with 12px rounded corners inside the 20px padded card */}
       <div className="relative w-full aspect-[16/10] rounded-[12px] overflow-hidden bg-slate-100 flex-shrink-0 mb-4">
         <Link href={`/programs/${course.slug}`} className="block w-full h-full relative">
@@ -28,14 +37,14 @@ export function CourseCard({ course }: CourseCardProps) {
       {/* 2. Main Course Information (Clean, centered, zero clutter) */}
       <div className="text-center flex-1 flex flex-col justify-between pt-1">
         <div>
-          {/* Category Eyebrow in Teal */}
-          <span className="text-[11px] font-bold uppercase tracking-wider text-[#03594E] block mb-2 font-[var(--font-jost)]">
+          {/* Category Eyebrow in Crimson Red */}
+          <span className="text-[11px] font-bold uppercase tracking-wider text-[#E51937] block mb-2 font-[var(--font-jost)]">
             {course.category}
           </span>
 
           {/* Course Title in Jost */}
           <Link href={`/programs/${course.slug}`}>
-            <h3 className="text-lg sm:text-xl font-bold text-[#1F2432] group-hover:text-[#03594E] transition-colors leading-snug line-clamp-2 min-h-[3.25rem] font-[var(--font-jost)] mb-3">
+            <h3 className="text-lg sm:text-xl font-bold text-[#1F2432] group-hover:text-[#E51937] transition-colors leading-snug line-clamp-2 min-h-[3.25rem] font-[var(--font-jost)] mb-3">
               {course.title}
             </h3>
           </Link>
@@ -54,11 +63,11 @@ export function CourseCard({ course }: CourseCardProps) {
           </div>
         </div>
 
-        {/* 3. Action Button (Educeet .it-btn-yellow that turns Teal on card hover) */}
+        {/* 3. Action Button (gold by default; red variant for the Courses section) */}
         <div className="w-full pt-3 border-t border-slate-100">
           <Link
             href={`/programs/${course.slug}`}
-            className="w-full block text-center py-3 px-4 rounded-lg bg-[#F8C62F] group-hover:bg-[#03594E] text-[#1F2432] group-hover:text-white font-bold text-xs sm:text-sm font-[var(--font-jost)] transition-all duration-300 shadow-sm"
+            className={`w-full block text-center py-3 px-4 rounded-lg ${ctaClasses} font-bold text-xs sm:text-sm font-[var(--font-jost)] transition-all duration-300 shadow-sm`}
           >
             Preview This Course
           </Link>

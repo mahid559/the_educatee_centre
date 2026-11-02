@@ -79,23 +79,23 @@ export function Footer() {
             <Link
               href="/"
               onClick={handleHomeClick}
-              className="text-sm text-[#9BA4B5] hover:text-[#F8C62F] transition-colors font-[var(--font-dm-sans)]"
+              className="text-sm text-[#9BA4B5] hover:text-white transition-colors font-[var(--font-dm-sans)]"
             >
               Home
             </Link>
-            <Link href="/about" className="text-sm text-[#9BA4B5] hover:text-[#F8C62F] transition-colors font-[var(--font-dm-sans)]">
+            <Link href="/about" className="text-sm text-[#9BA4B5] hover:text-white transition-colors font-[var(--font-dm-sans)]">
               About Us
             </Link>
-            <Link href="/programs" className="text-sm text-[#9BA4B5] hover:text-[#F8C62F] transition-colors font-[var(--font-dm-sans)]">
+            <Link href="/programs" className="text-sm text-[#9BA4B5] hover:text-white transition-colors font-[var(--font-dm-sans)]">
               Programs &amp; Courses
             </Link>
-            <Link href="/admissions" className="text-sm text-[#9BA4B5] hover:text-[#F8C62F] transition-colors font-[var(--font-dm-sans)]">
+            <Link href="/admissions" className="text-sm text-[#9BA4B5] hover:text-white transition-colors font-[var(--font-dm-sans)]">
               Admissions &amp; Fees
             </Link>
-            <Link href="/gallery" className="text-sm text-[#9BA4B5] hover:text-[#F8C62F] transition-colors font-[var(--font-dm-sans)]">
+            <Link href="/gallery" className="text-sm text-[#9BA4B5] hover:text-white transition-colors font-[var(--font-dm-sans)]">
               Photo Gallery
             </Link>
-            <Link href="/contact" className="text-sm text-[#9BA4B5] hover:text-[#F8C62F] transition-colors font-[var(--font-dm-sans)]">
+            <Link href="/contact" className="text-sm text-[#9BA4B5] hover:text-white transition-colors font-[var(--font-dm-sans)]">
               Contact Us
             </Link>
           </div>
@@ -107,7 +107,7 @@ export function Footer() {
               <Link
                 key={p.id}
                 href={`/programs/${p.slug}`}
-                className="text-sm text-[#9BA4B5] hover:text-[#F8C62F] transition-colors line-clamp-1 font-[var(--font-dm-sans)]"
+                className="text-sm text-[#9BA4B5] hover:text-white transition-colors line-clamp-1 font-[var(--font-dm-sans)]"
               >
                 {p.title}
               </Link>
@@ -118,7 +118,7 @@ export function Footer() {
           <div className="lg:col-span-3 flex flex-col gap-3">
             <h3 className="font-bold text-white text-base mb-1 font-[var(--font-jost)]">Campus Location</h3>
             <div className="flex items-start gap-2.5 text-sm">
-              <span className="text-[#F8C62F] mt-0.5 flex-shrink-0">
+              <span className="text-[#9BA4B5] mt-0.5 flex-shrink-0">
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                   <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                 </svg>
@@ -134,18 +134,18 @@ export function Footer() {
               </p>
               <a
                 href={`tel:${contact.primaryPhone.replace(/-/g, "")}`}
-                className="text-sm font-semibold text-[#F8C62F] hover:underline flex items-center gap-2 transition-colors"
+                className="text-sm font-semibold text-[#C4CDD9] hover:text-white hover:underline flex items-center gap-2 transition-colors"
               >
-                <svg className="w-3.5 h-3.5 fill-current text-[#F8C62F]" viewBox="0 0 24 24">
+                <svg className="w-3.5 h-3.5 fill-current text-[#9BA4B5]" viewBox="0 0 24 24">
                   <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z" />
                 </svg>
                 <span>{contact.primaryPhone}</span>
               </a>
               <a
                 href={`tel:${contact.secondaryPhone.replace(/-/g, "")}`}
-                className="text-sm font-semibold text-[#9BA4B5] hover:text-[#F8C62F] hover:underline flex items-center gap-2 transition-colors"
+                className="text-sm font-semibold text-[#9BA4B5] hover:text-white hover:underline flex items-center gap-2 transition-colors"
               >
-                <svg className="w-3.5 h-3.5 fill-current text-[#F8C62F]" viewBox="0 0 24 24">
+                <svg className="w-3.5 h-3.5 fill-current text-[#9BA4B5]" viewBox="0 0 24 24">
                   <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z" />
                 </svg>
                 <span>{contact.secondaryPhone}</span>

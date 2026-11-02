@@ -41,14 +41,14 @@ export function CourseDetailClientView({
   return (
     <>
       {/* 1. Course Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#023E37] via-[#03594E] to-[#046B5E] text-white pt-28 pb-14 sm:pt-32 md:pt-36 md:pb-20 lg:pt-40 lg:pb-24">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#12161E] via-[#181D26] to-[#1F2432] text-white pt-28 pb-14 sm:pt-32 md:pt-36 md:pb-20 lg:pt-40 lg:pb-24">
         {/* Background Decorative Accents */}
         <div
           className="absolute inset-0 pointer-events-none opacity-20 overflow-hidden"
           aria-hidden="true"
         >
-          <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-[#F8C62F]/20 blur-3xl" />
-          <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-white/10 blur-3xl" />
+          <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-[#E51937]/25 blur-3xl" />
+          <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-[#E51937]/15 blur-3xl" />
         </div>
 
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
@@ -119,7 +119,7 @@ export function CourseDetailClientView({
             <div className="lg:col-span-8 flex flex-col gap-12">
               {/* Overview & Feature Highlights */}
               <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-[#03594E] block mb-2 font-[var(--font-jost)]">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#E51937] block mb-2 font-[var(--font-jost)]">
                   COURSE OVERVIEW
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1F2432] font-[var(--font-jost)] mb-4">
@@ -134,9 +134,9 @@ export function CourseDetailClientView({
                   {course.keyHighlights.map((highlight, idx) => (
                     <div
                       key={idx}
-                      className="bg-[#E7F3F1]/60 p-4 rounded-2xl border border-[#03594E]/15 flex items-start gap-3"
+                      className="bg-[#FFF0F2] p-4 rounded-2xl border border-[#E51937]/15 flex items-start gap-3"
                     >
-                      <CheckCircle2 className="w-5 h-5 text-[#03594E] flex-shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-5 h-5 text-[#E51937] flex-shrink-0 mt-0.5" />
                       <span className="text-sm font-semibold text-[#1F2432] font-[var(--font-jost)]">
                         {highlight}
                       </span>
@@ -148,7 +148,7 @@ export function CourseDetailClientView({
               {/* Special Tier Comparison Cards for IELTS */}
               {course.slug === "ielts-preparation" && course.tiers && (
                 <div className="pt-6 border-t border-[#E2E9EB]">
-                  <span className="text-xs font-bold uppercase tracking-wider text-[#03594E] block mb-2 font-[var(--font-jost)]">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#E51937] block mb-2 font-[var(--font-jost)]">
                     SPECIALIZED TRACKS
                   </span>
                   <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1F2432] font-[var(--font-jost)] mb-3">
@@ -163,18 +163,18 @@ export function CourseDetailClientView({
                       <motion.div
                         key={tier.id}
                         {...cardLiftProps}
-                        className={`bg-white rounded-2xl p-6 sm:p-7 flex flex-col justify-between border shadow-[0_2px_12px_-2px_rgba(3,89,78,0.06)] hover:shadow-xl hover:border-[#03594E]/40 transition-all duration-300 relative group ${
-                          tier.popular ? "border-2 border-[#03594E] ring-4 ring-[#03594E]/5" : "border-[#E2E9EB]"
+                        className={`bg-white rounded-2xl p-6 sm:p-7 flex flex-col justify-between border shadow-[0_2px_12px_-2px_rgba(229,25,55,0.06)] hover:shadow-xl hover:border-[#E51937]/40 transition-all duration-300 relative group ${
+                          tier.popular ? "border-2 border-[#E51937] ring-4 ring-[#E51937]/5" : "border-[#E2E9EB]"
                         }`}
                       >
                         <div>
                           {tier.badge && (
-                            <span className="inline-block bg-[#E7F3F1] text-[#03594E] border border-[#03594E]/20 text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3.5 font-[var(--font-jost)]">
+                            <span className="inline-block bg-[#FFF0F2] text-[#E51937] border border-[#E51937]/20 text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3.5 font-[var(--font-jost)]">
                               {tier.badge}
                             </span>
                           )}
 
-                          <h3 className="text-xl font-bold font-[var(--font-jost)] text-[#1F2432] group-hover:text-[#03594E] transition-colors mb-1">
+                          <h3 className="text-xl font-bold font-[var(--font-jost)] text-[#1F2432] group-hover:text-[#E51937] transition-colors mb-1">
                             {tier.name}
                           </h3>
                           <p className="text-xs font-semibold text-[#6C757D] mb-3 font-[var(--font-jost)]">
@@ -187,7 +187,7 @@ export function CourseDetailClientView({
                           <ul className="flex flex-col gap-2 mb-6">
                             {tier.highlights.map((h, i) => (
                               <li key={i} className="flex items-start gap-2 text-xs font-semibold text-[#1F2432] bg-[#F5F7F9] p-2.5 rounded-xl border border-[#E2E9EB]">
-                                <CheckCircle2 className="w-3.5 h-3.5 flex-shrink-0 mt-0.5 text-[#03594E]" />
+                                <CheckCircle2 className="w-3.5 h-3.5 flex-shrink-0 mt-0.5 text-[#E51937]" />
                                 <span className="font-[var(--font-jost)]">{h}</span>
                               </li>
                             ))}
@@ -200,7 +200,7 @@ export function CourseDetailClientView({
                           </span>
                           <Link
                             href="#demo-form"
-                            className="w-full inline-flex items-center justify-center font-bold text-xs sm:text-sm py-3 px-4 rounded-full shadow-xs transition-all bg-[#03594E] hover:bg-[#023E37] text-white font-[var(--font-jost)]"
+                            className="w-full inline-flex items-center justify-center font-bold text-xs sm:text-sm py-3 px-4 rounded-full shadow-xs transition-all bg-[#E51937] hover:bg-[#C8132C] text-white font-[var(--font-jost)]"
                           >
                             Select Track &amp; Book Demo
                           </Link>
@@ -213,7 +213,7 @@ export function CourseDetailClientView({
 
               {/* Who is this course for? */}
               <div className="pt-6 border-t border-[#E2E9EB]">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#03594E] block mb-2 font-[var(--font-jost)]">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#E51937] block mb-2 font-[var(--font-jost)]">
                   TARGET AUDIENCE
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1F2432] font-[var(--font-jost)] mb-6">
@@ -226,7 +226,7 @@ export function CourseDetailClientView({
                       key={idx}
                       className="p-5 rounded-2xl bg-white border border-[#E2E9EB] shadow-sm flex items-start gap-3.5"
                     >
-                      <span className="w-7 h-7 rounded-lg bg-[#E7F3F1] text-[#03594E] border border-[#03594E]/20 flex items-center justify-center flex-shrink-0 font-bold text-xs font-[var(--font-jost)]">
+                      <span className="w-7 h-7 rounded-lg bg-[#FFF0F2] text-[#E51937] border border-[#E51937]/20 flex items-center justify-center flex-shrink-0 font-bold text-xs font-[var(--font-jost)]">
                         {idx + 1}
                       </span>
                       <p className="text-sm font-semibold text-[#1F2432] leading-snug font-[var(--font-jost)]">
@@ -239,7 +239,7 @@ export function CourseDetailClientView({
 
               {/* What You Will Learn (Curriculum Outline) */}
               <div className="pt-6 border-t border-[#E2E9EB]">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#03594E] block mb-2 font-[var(--font-jost)]">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#E51937] block mb-2 font-[var(--font-jost)]">
                   CURRICULUM MODULES
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1F2432] font-[var(--font-jost)] mb-2">
@@ -253,9 +253,9 @@ export function CourseDetailClientView({
                   {course.curriculumOutline.map((moduleItem, idx) => (
                     <div
                       key={idx}
-                      className="p-4 sm:p-5 rounded-2xl bg-[#F5F7F9] border border-[#E2E9EB] flex items-center gap-4 transition-colors hover:bg-[#E7F3F1]"
+                      className="p-4 sm:p-5 rounded-2xl bg-[#F5F7F9] border border-[#E2E9EB] flex items-center gap-4 transition-colors hover:bg-[#FFF0F2]"
                     >
-                      <span className="w-8 h-8 rounded-xl bg-[#03594E] text-white flex items-center justify-center font-bold text-xs flex-shrink-0">
+                      <span className="w-8 h-8 rounded-xl bg-[#E51937] text-white flex items-center justify-center font-bold text-xs flex-shrink-0">
                         0{idx + 1}
                       </span>
                       <span className="text-sm sm:text-base font-bold text-[#1F2432]">
@@ -269,7 +269,7 @@ export function CourseDetailClientView({
               {/* Course-Specific FAQ */}
               {course.faqs && course.faqs.length > 0 && (
                 <div className="pt-6 border-t border-[#E2E9EB]">
-                  <span className="text-xs font-bold uppercase tracking-wider text-[#03594E] block mb-2 font-[var(--font-jost)]">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#E51937] block mb-2 font-[var(--font-jost)]">
                     COMMON QUESTIONS
                   </span>
                   <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1F2432] font-[var(--font-jost)] mb-6">
@@ -285,7 +285,7 @@ export function CourseDetailClientView({
                           key={idx}
                           className={`rounded-2xl border transition-all overflow-hidden ${
                             isOpen
-                              ? "border-[#03594E] bg-white shadow-md shadow-[#03594E]/5"
+                              ? "border-[#E51937] bg-white shadow-md shadow-[#E51937]/5"
                               : "border-[#E2E9EB] bg-[#F5F7F9]"
                           }`}
                         >
@@ -299,7 +299,7 @@ export function CourseDetailClientView({
                               {faq.question}
                             </span>
                             <ChevronDown
-                              className={`w-5 h-5 text-[#03594E] transition-transform duration-200 flex-shrink-0 ${
+                              className={`w-5 h-5 text-[#E51937] transition-transform duration-200 flex-shrink-0 ${
                                 isOpen ? "rotate-180" : ""
                               }`}
                             />
@@ -336,7 +336,7 @@ export function CourseDetailClientView({
             <div className="lg:col-span-4">
               <div className="sticky top-28 flex flex-col gap-6">
                 {/* Quick Info Box */}
-                <div className="bg-white rounded-3xl p-7 border-2 border-[#03594E] shadow-xl shadow-[#03594E]/8">
+                <div className="bg-white rounded-3xl p-7 border-2 border-[#E51937] shadow-xl shadow-[#E51937]/8">
                   <div className="relative w-full h-44 rounded-2xl overflow-hidden mb-6 bg-gray-100">
                     <Image
                       src={course.image}
@@ -360,7 +360,7 @@ export function CourseDetailClientView({
                     {/* Duration */}
                     <div className="flex items-start justify-between gap-2">
                       <span className="flex items-center gap-2 text-[#6C757D]">
-                        <Clock className="w-4 h-4 text-[#03594E]" />
+                        <Clock className="w-4 h-4 text-[#E51937]" />
                         <span>Duration</span>
                       </span>
                       <strong className="text-[#1F2432] text-right">
@@ -371,7 +371,7 @@ export function CourseDetailClientView({
                     {/* Schedule */}
                     <div className="flex items-start justify-between gap-2">
                       <span className="flex items-center gap-2 text-[#6C757D]">
-                        <Calendar className="w-4 h-4 text-[#03594E]" />
+                        <Calendar className="w-4 h-4 text-[#E51937]" />
                         <span>Schedule</span>
                       </span>
                       <strong className="text-[#1F2432] text-right">
@@ -382,7 +382,7 @@ export function CourseDetailClientView({
                     {/* Fee */}
                     <div className="flex items-start justify-between gap-2">
                       <span className="flex items-center gap-2 text-[#6C757D]">
-                        <DollarSign className="w-4 h-4 text-[#03594E]" />
+                        <DollarSign className="w-4 h-4 text-[#E51937]" />
                         <span>Course Fee</span>
                       </span>
                       <strong className="text-[#1F2432] text-right font-bold">
@@ -393,7 +393,7 @@ export function CourseDetailClientView({
                     {/* Batch Type */}
                     <div className="flex items-start justify-between gap-2">
                       <span className="flex items-center gap-2 text-[#6C757D]">
-                        <Users className="w-4 h-4 text-[#03594E]" />
+                        <Users className="w-4 h-4 text-[#E51937]" />
                         <span>Cohort Structure</span>
                       </span>
                       <strong className="text-[#1F2432] text-right text-xs font-bold">
@@ -405,7 +405,7 @@ export function CourseDetailClientView({
                   <div className="pt-6 flex flex-col gap-3 font-[var(--font-jost)]">
                     <Link
                       href="#demo-form"
-                      className="w-full inline-flex items-center justify-center bg-[#03594E] hover:bg-[#023E37] text-white font-bold text-sm py-3.5 rounded-full transition-all shadow-md shadow-[#03594E]/20 hover:scale-[1.01]"
+                      className="w-full inline-flex items-center justify-center bg-[#E51937] hover:bg-[#C8132C] text-white font-bold text-sm py-3.5 rounded-full transition-all shadow-md shadow-[#E51937]/20 hover:scale-[1.01]"
                     >
                       Book Free Demo Class
                     </Link>
@@ -414,15 +414,15 @@ export function CourseDetailClientView({
                       href={contact.whatsappLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full inline-flex items-center justify-center gap-2 bg-[#F5F7F9] hover:bg-[#E7F3F1] text-[#1F2432] font-bold text-xs py-3 rounded-full transition-colors border border-[#E2E9EB]"
+                      className="w-full inline-flex items-center justify-center gap-2 bg-[#F5F7F9] hover:bg-[#FFF0F2] text-[#1F2432] font-bold text-xs py-3 rounded-full transition-colors border border-[#E2E9EB]"
                     >
-                      <MessageCircle className="w-4 h-4 text-[#03594E]" />
+                      <MessageCircle className="w-4 h-4 text-[#E51937]" />
                       <span>WhatsApp Inquiries</span>
                     </a>
                   </div>
 
                   <div className="mt-4 text-[11px] text-[#6C757D] flex items-center justify-center gap-1.5 font-[var(--font-dm-sans)]">
-                    <MapPin className="w-3.5 h-3.5 text-[#03594E] flex-shrink-0" />
+                    <MapPin className="w-3.5 h-3.5 text-[#E51937] flex-shrink-0" />
                     <span>Appayan Afroz Tower, College Road, Feni (5th Floor)</span>
                   </div>
                 </div>
@@ -443,7 +443,7 @@ export function CourseDetailClientView({
       {/* 3. Free Demo Class Booking Form for this Course */}
       <section id="demo-form" className="py-20 md:py-24 bg-[#F5F7F9] relative scroll-mt-24 border-t border-[#E2E9EB]">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
-          <div className="bg-[#03594E] rounded-3xl p-8 sm:p-12 lg:p-16 text-white relative overflow-hidden shadow-2xl">
+          <div className="bg-[#181D26] rounded-3xl p-8 sm:p-12 lg:p-16 text-white relative overflow-hidden shadow-2xl border border-white/10">
             {/* Educeet decorative accents */}
             <div className="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-[#F8C62F]/15 blur-3xl pointer-events-none" />
             <div className="absolute -left-20 -top-20 w-72 h-72 rounded-full bg-white/10 blur-3xl pointer-events-none" />

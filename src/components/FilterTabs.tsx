@@ -32,7 +32,7 @@ export function FilterTabs({
             aria-selected={isActive}
             type="button"
             onClick={() => onChange(category)}
-            className={`relative px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#03594E] ${
+            className={`relative px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E51937] ${
               isActive
                 ? "text-white shadow-sm"
                 : "text-[#6C757D] hover:text-[#1F2432] hover:bg-white/80"
@@ -41,7 +41,7 @@ export function FilterTabs({
             {isActive && (
               <motion.div
                 layoutId={layoutId}
-                className="absolute inset-0 bg-[#03594E] rounded-lg shadow-sm z-0"
+                className="absolute inset-0 bg-[#E51937] rounded-lg shadow-sm z-0"
                 transition={{ type: "spring", stiffness: 450, damping: 35 }}
               />
             )}

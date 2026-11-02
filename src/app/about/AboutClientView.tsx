@@ -33,11 +33,11 @@ export default function AboutClientView() {
   const getWhyLoveIcon = (id: string) => {
     switch (id) {
       case "love-1":
-        return <Heart className="w-7 h-7 text-[#03594E]" />;
+        return <Heart className="w-7 h-7 text-[#E51937]" />;
       case "love-2":
-        return <Laptop className="w-7 h-7 text-[#03594E]" />;
+        return <Laptop className="w-7 h-7 text-[#E51937]" />;
       case "love-3":
-        return <UserCheck className="w-7 h-7 text-[#03594E]" />;
+        return <UserCheck className="w-7 h-7 text-[#E51937]" />;
       case "love-4":
       default:
         return <PartyPopper className="w-7 h-7 text-[#F8C62F]" />;
@@ -78,7 +78,7 @@ export default function AboutClientView() {
               <div className="relative w-full max-w-[420px]">
                 {/* Subtle soft ambient glow */}
                 <div
-                  className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-[#03594E]/15 to-[#F8C62F]/15 blur-xl pointer-events-none"
+                  className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-[#E51937]/15 to-[#F8C62F]/15 blur-xl pointer-events-none"
                   aria-hidden="true"
                 />
 
@@ -108,7 +108,7 @@ export default function AboutClientView() {
               transition={{ duration: 0.6 }}
               className="lg:col-span-7 flex flex-col items-start"
             >
-              <span className="text-[#03594E] text-xs sm:text-sm font-bold uppercase tracking-wider mb-3 font-[var(--font-jost)]">
+              <span className="text-[#E51937] text-xs sm:text-sm font-bold uppercase tracking-wider mb-3 font-[var(--font-jost)]">
                 {about.story.tag}
               </span>
 
@@ -125,7 +125,7 @@ export default function AboutClientView() {
               </p>
 
               <div className="p-3.5 bg-[#F5F7F9] rounded-xl border border-[#E2E9EB] text-xs text-[#1F2432] flex items-center gap-2 mb-6 font-[var(--font-jost)]">
-                <span className="w-2 h-2 rounded-full bg-[#03594E]" />
+                <span className="w-2 h-2 rounded-full bg-[#E51937]" />
                 <span>
                   Founded in 2022 at Appayan Afroz Tower, College Road, Feni.
                 </span>
@@ -133,7 +133,7 @@ export default function AboutClientView() {
 
               <Link
                 href="/admissions#free-demo"
-                className="inline-flex items-center justify-center bg-[#03594E] hover:bg-[#023E37] text-white font-bold text-sm sm:text-base px-8 py-4 rounded-full transition-all duration-200 shadow-md shadow-[#03594E]/20 hover:scale-[1.02] active:scale-[0.98] font-[var(--font-jost)]"
+                className="inline-flex items-center justify-center bg-[#E51937] hover:bg-[#C8132C] text-white font-bold text-sm sm:text-base px-8 py-4 rounded-full transition-all duration-200 shadow-md shadow-[#E51937]/20 hover:scale-[1.02] active:scale-[0.98] font-[var(--font-jost)]"
               >
                 Experience a Free Demo Class →
               </Link>
@@ -163,7 +163,7 @@ export default function AboutClientView() {
               className="bg-white text-[#1F2432] rounded-2xl p-8 sm:p-10 border border-[#E2E9EB] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
             >
               <div>
-                <div className="w-14 h-14 rounded-xl bg-[#E7F3F1] border border-[#03594E]/20 text-[#03594E] flex items-center justify-center mb-6 shadow-sm transition-transform duration-300 group-hover:scale-105">
+                <div className="w-14 h-14 rounded-xl bg-[#FFF0F2] border border-[#E51937]/20 text-[#E51937] flex items-center justify-center mb-6 shadow-sm transition-transform duration-300 group-hover:scale-105">
                   <Award className="w-7 h-7" />
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-[#1F2432] mb-3 font-[var(--font-jost)] leading-tight">
@@ -174,7 +174,7 @@ export default function AboutClientView() {
                 </p>
               </div>
               <div className="mt-8 pt-4 border-t border-[#E2E9EB] text-xs font-bold text-[#6C757D] uppercase tracking-wider flex items-center gap-2 font-[var(--font-jost)]">
-                <span className="w-2 h-2 rounded-full bg-[#03594E]" />
+                <span className="w-2 h-2 rounded-full bg-[#E51937]" />
                 <span>Outcome-Driven Academic Standards</span>
               </div>
             </motion.div>
@@ -189,8 +189,8 @@ export default function AboutClientView() {
               className="bg-white text-[#1F2432] rounded-2xl p-8 sm:p-10 border border-[#E2E9EB] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
             >
               <div>
-                <div className="w-14 h-14 rounded-xl bg-[#F5F7F9] border border-[#E2E9EB] text-[#03594E] flex items-center justify-center mb-6 shadow-sm transition-transform duration-300 group-hover:scale-105">
-                  <Eye className="w-7 h-7 text-[#03594E]" />
+                <div className="w-14 h-14 rounded-xl bg-[#FFF0F2] border border-[#E51937]/15 text-[#E51937] flex items-center justify-center mb-6 shadow-sm transition-transform duration-300 group-hover:scale-105">
+                  <Eye className="w-7 h-7 text-[#E51937]" />
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-[#1F2432] mb-3 font-[var(--font-jost)] leading-tight">
                   {about.vision.title}
@@ -272,7 +272,7 @@ export default function AboutClientView() {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="lg:col-span-7 flex flex-col items-start"
               >
-                <span className="text-[#03594E] text-xs sm:text-sm font-bold uppercase tracking-wider mb-2 font-[var(--font-jost)]">
+                <span className="text-[#E51937] text-xs sm:text-sm font-bold uppercase tracking-wider mb-2 font-[var(--font-jost)]">
                   FOUNDER &amp; LEAD MENTOR
                 </span>
 
@@ -280,7 +280,7 @@ export default function AboutClientView() {
                   {founder.name}
                 </h2>
 
-                <p className="text-sm sm:text-base font-bold text-[#03594E] mb-1 font-[var(--font-jost)]">
+                <p className="text-sm sm:text-base font-bold text-[#E51937] mb-1 font-[var(--font-jost)]">
                   {founder.title}
                 </p>
                 <p className="text-xs sm:text-sm font-medium text-[#6C757D] mb-6 font-[var(--font-dm-sans)]">
@@ -304,7 +304,7 @@ export default function AboutClientView() {
 
                 <Link
                   href="/admissions#free-demo"
-                  className="inline-flex items-center justify-center bg-[#03594E] hover:bg-[#023E37] text-white font-bold text-sm px-7 py-3.5 rounded-full transition-all duration-200 shadow-md shadow-[#03594E]/20 hover:scale-[1.02] font-[var(--font-jost)]"
+                  className="inline-flex items-center justify-center bg-[#E51937] hover:bg-[#C8132C] text-white font-bold text-sm px-7 py-3.5 rounded-full transition-all duration-200 shadow-md shadow-[#E51937]/20 hover:scale-[1.02] font-[var(--font-jost)]"
                 >
                   Join Engr. Zahir Sir&apos;s Free Demo Class
                 </Link>
@@ -319,6 +319,7 @@ export default function AboutClientView() {
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           <SectionHeading
             tag="OUR INSTRUCTORS"
+            tagColor="red"
             title="Dedicated Faculty &amp; Academic Team"
             subtext="Our teaching faculty is personally trained and guided under Engr. Zahir Uddin Babar to maintain high standards of clarity, structured practice, and interactive training."
           />
@@ -347,7 +348,7 @@ export default function AboutClientView() {
                   <h3 className="text-lg sm:text-xl font-bold text-[#1F2432] font-[var(--font-jost)]">
                     {fac.name}
                   </h3>
-                  <p className="text-xs font-bold text-[#03594E] mt-1 font-[var(--font-jost)]">
+                  <p className="text-xs font-bold text-[#E51937] mt-1 font-[var(--font-jost)]">
                     {fac.role}
                   </p>
                   <p className="text-xs text-[#6C757D] mt-1 font-[var(--font-dm-sans)]">
@@ -371,6 +372,7 @@ export default function AboutClientView() {
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           <SectionHeading
             tag="CAMPUS FACILITIES"
+            tagColor="red"
             title="Designed for Deep Focus &amp; Practical Mastery"
             subtext="Step into our comfortable, modern 5th-floor campus at Appayan Afroz Tower. Every classroom is built for real interaction and distraction-free learning."
           />
@@ -381,17 +383,17 @@ export default function AboutClientView() {
                 {
                   badgeText: "Spoken Studio",
                   statText: "Max 16 / Cohort",
-                  icon: <Mic className="w-6 h-6 text-[#03594E]" strokeWidth={2.2} />,
+                  icon: <Mic className="w-6 h-6 text-[#E51937]" strokeWidth={2.2} />,
                 },
                 {
                   badgeText: "IT Training Lab",
                   statText: "1 Student : 1 PC",
-                  icon: <Monitor className="w-6 h-6 text-[#03594E]" strokeWidth={2.2} />,
+                  icon: <Monitor className="w-6 h-6 text-[#E51937]" strokeWidth={2.2} />,
                 },
                 {
                   badgeText: "Campus Focus",
                   statText: "5th Floor Sanctuary",
-                  icon: <Sparkles className="w-6 h-6 text-[#03594E]" strokeWidth={2.2} />,
+                  icon: <Sparkles className="w-6 h-6 text-[#E51937]" strokeWidth={2.2} />,
                 },
               ];
               const config = facConfigs[idx % facConfigs.length];
@@ -409,12 +411,12 @@ export default function AboutClientView() {
                   <div className="flex-1 flex flex-col">
                     {/* Top Bar: Icon Badge & Stat Pill */}
                     <div className="flex items-center justify-between gap-3 mb-6 font-[var(--font-jost)]">
-                      <div className="w-12 h-12 rounded-xl bg-[#E7F3F1] border border-[#03594E]/20 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+                      <div className="w-12 h-12 rounded-xl bg-[#FFF0F2] border border-[#E51937]/20 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
                         {config.icon}
                       </div>
 
                       <div className="flex flex-col items-end gap-1">
-                        <span className="text-[10.5px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-[#E7F3F1] text-[#03594E] border border-[#03594E]/20">
+                        <span className="text-[10.5px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-[#FFF0F2] text-[#E51937] border border-[#E51937]/20">
                           {config.badgeText}
                         </span>
                         <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full border border-[#E2E9EB] bg-[#F5F7F9] text-[#6C757D]">
@@ -434,7 +436,7 @@ export default function AboutClientView() {
                       <ul className="flex flex-col gap-2.5 mb-6 font-[var(--font-jost)]">
                         {fac.features.map((feat, fIdx) => (
                           <li key={fIdx} className="flex items-start gap-2.5 text-xs font-medium px-3 py-2 rounded-xl border border-[#E2E9EB] bg-[#F5F7F9] text-[#1F2432] leading-snug">
-                            <CheckCircle className="w-3.5 h-3.5 text-[#03594E] flex-shrink-0 mt-0.5" />
+                            <CheckCircle className="w-3.5 h-3.5 text-[#E51937] flex-shrink-0 mt-0.5" />
                             <span>{feat}</span>
                           </li>
                         ))}
@@ -453,6 +455,7 @@ export default function AboutClientView() {
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           <SectionHeading
             tag="OUR CULTURE &amp; CELEBRATIONS"
+            tagColor="red"
             title="Celebrations, Seminars &amp; Community Honors"
             subtext="Learning at Educatee is vibrant and celebratory. From our proud Graduation Day and Farewell Ceremonies to free educational seminars and the prestigious CEO Award, we honor every milestone."
           />
@@ -460,7 +463,7 @@ export default function AboutClientView() {
           {/* Quick Culture Highlights */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-12 font-[var(--font-jost)]">
             <div className="bg-[#F5F7F9] rounded-2xl p-5 text-center border border-[#E2E9EB] hover:bg-white hover:shadow-md transition-all">
-              <span className="text-xs font-bold text-[#03594E] uppercase block mb-1">
+              <span className="text-xs font-bold text-[#E51937] uppercase block mb-1">
                 Highest Honor
               </span>
               <h4 className="text-lg font-bold text-[#1F2432]">
@@ -545,7 +548,7 @@ export default function AboutClientView() {
           <div className="mt-10 text-center">
             <Link
               href="/gallery"
-              className="inline-flex items-center gap-2 bg-[#03594E] hover:bg-[#023E37] text-white font-bold text-sm px-8 py-4 rounded-full transition-all duration-200 shadow-md shadow-[#03594E]/20 hover:scale-[1.02] active:scale-[0.98] group font-[var(--font-jost)]"
+              className="inline-flex items-center gap-2 bg-[#E51937] hover:bg-[#C8132C] text-white font-bold text-sm px-8 py-4 rounded-full transition-all duration-200 shadow-md shadow-[#E51937]/20 hover:scale-[1.02] active:scale-[0.98] group font-[var(--font-jost)]"
             >
               <span>Explore Full Photo Gallery</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

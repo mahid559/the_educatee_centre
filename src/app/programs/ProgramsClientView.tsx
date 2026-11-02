@@ -40,7 +40,7 @@ export default function ProgramsClientView() {
           {/* Top Filter Bar */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mb-12 sm:mb-16 border-b border-[#E2E9EB] pb-8">
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-[#03594E] block mb-1 font-[var(--font-jost)]">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#E51937] block mb-1 font-[var(--font-jost)]">
                 SELECT A SPECIALIZATION
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1F2432] font-[var(--font-jost)]">
@@ -78,11 +78,11 @@ export default function ProgramsClientView() {
       {/* 3. "Not sure which course is right for you?" Section */}
       <section className="py-16 md:py-20 bg-[#F5F7F9] relative border-y border-[#E2E9EB]">
         <div className="max-w-[1000px] mx-auto px-4 sm:px-6 text-center">
-          <div className="w-14 h-14 rounded-2xl bg-white text-[#03594E] flex items-center justify-center mx-auto mb-5 shadow-sm border border-[#E2E9EB]">
+          <div className="w-14 h-14 rounded-2xl bg-[#FFF0F2] text-[#E51937] flex items-center justify-center mx-auto mb-5 shadow-sm border border-[#E51937]/15">
             <HelpCircle className="w-7 h-7" />
           </div>
 
-          <div className="inline-flex items-center gap-1.5 bg-[#E7F3F1] border border-[#03594E]/20 text-[#03594E] text-xs font-bold px-3.5 py-1 rounded-full mb-3 font-[var(--font-jost)]">
+          <div className="inline-flex items-center gap-1.5 bg-[#FFF0F2] border border-[#E51937]/20 text-[#E51937] text-xs font-bold px-3.5 py-1 rounded-full mb-3 font-[var(--font-jost)]">
             <span>Free Academic Counseling</span>
           </div>
 
@@ -99,7 +99,7 @@ export default function ProgramsClientView() {
               href={contact.whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2.5 bg-[#03594E] hover:bg-[#023E37] text-white font-semibold text-sm sm:text-base px-7 py-3.5 rounded-full transition-all shadow-md group"
+              className="inline-flex items-center justify-center gap-2.5 bg-[#E51937] hover:bg-[#C8132C] text-white font-semibold text-sm sm:text-base px-7 py-3.5 rounded-full transition-all shadow-md group"
             >
               <MessageCircle className="w-5 h-5 text-[#F8C62F]" />
               <span>Ask Us on WhatsApp</span>
@@ -109,7 +109,7 @@ export default function ProgramsClientView() {
               href={`tel:${contact.primaryPhone.replace(/-/g, "")}`}
               className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-[#1F2432] border border-[#E2E9EB] font-semibold text-sm sm:text-base px-6 py-3.5 rounded-full transition-all shadow-xs"
             >
-              <Phone className="w-4 h-4 text-[#03594E]" />
+              <Phone className="w-4 h-4 text-[#E51937]" />
               <span>Call Admissions: {contact.primaryPhone}</span>
             </a>
           </div>

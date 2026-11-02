@@ -98,9 +98,9 @@ export function SuccessStories() {
   return (
     <section className="py-20 md:py-28 bg-white text-[#1F2432] relative overflow-hidden border-t border-[#E2E9EB]">
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
-        {/* Section Header - Educeet Style */}
+        {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
-          <div className="inline-flex items-center gap-2 bg-[#E7F3F1] border border-[#03594E]/20 rounded-full px-4 py-1.5 mb-3 text-xs font-bold tracking-wider uppercase text-[#03594E] font-[var(--font-jost)]">
+          <div className="inline-flex items-center gap-2 bg-[#FFF0F2] border border-[#E51937]/20 rounded-full px-4 py-1.5 mb-3 text-xs font-bold tracking-wider uppercase text-[#E51937] font-[var(--font-jost)]">
             <span>STUDENT OUTCOMES</span>
           </div>
 
@@ -115,27 +115,27 @@ export function SuccessStories() {
 
         {/* HIGHLIGHT STRIP: 3 compact chips built strictly from reviews */}
         <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8 sm:mb-10 font-[var(--font-jost)]">
-          <div className="inline-flex items-center bg-[#F5F7F9] border border-[#E2E9EB] text-[#1F2432] text-xs sm:text-sm font-semibold px-4 py-2 rounded-full">
+          <div className="inline-flex items-center bg-[#F8FAFC] border border-[#E2E9EB] text-[#1F2432] text-xs sm:text-sm font-semibold px-4 py-2 rounded-full">
             <span>Skilled &amp; Passionate Mentors</span>
           </div>
-          <div className="inline-flex items-center bg-[#F5F7F9] border border-[#E2E9EB] text-[#1F2432] text-xs sm:text-sm font-semibold px-4 py-2 rounded-full">
+          <div className="inline-flex items-center bg-[#F8FAFC] border border-[#E2E9EB] text-[#1F2432] text-xs sm:text-sm font-semibold px-4 py-2 rounded-full">
             <span>Engaging, Practical Sessions</span>
           </div>
-          <div className="inline-flex items-center bg-[#F5F7F9] border border-[#E2E9EB] text-[#1F2432] text-xs sm:text-sm font-semibold px-4 py-2 rounded-full">
+          <div className="inline-flex items-center bg-[#F8FAFC] border border-[#E2E9EB] text-[#1F2432] text-xs sm:text-sm font-semibold px-4 py-2 rounded-full">
             <span>Continuous Individual Care</span>
           </div>
         </div>
 
-        {/* FEATURED TESTIMONIAL CARD - Educeet Style */}
+        {/* FEATURED TESTIMONIAL CARD */}
         <div
           className="max-w-2xl sm:max-w-3xl mx-auto mb-8 relative"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          <div className="bg-[#F5F7F9] text-[#1F2432] rounded-[28px] sm:rounded-[36px] p-7 sm:p-10 md:p-12 shadow-[0_16px_50px_-12px_rgba(3,89,78,0.06)] border border-[#E2E9EB] relative overflow-hidden">
+          <div className="bg-[#F8FAFC] text-[#1F2432] rounded-[28px] sm:rounded-[36px] p-7 sm:p-10 md:p-12 shadow-[0_16px_50px_-12px_rgba(229,25,55,0.06)] border border-[#E2E9EB] relative overflow-hidden">
             {/* Background decorative quote watermark */}
             <div
-              className="absolute -top-3 -right-3 text-[#03594E]/10 pointer-events-none select-none"
+              className="absolute -top-3 -right-3 text-[#E51937]/10 pointer-events-none select-none"
               aria-hidden="true"
             >
               <Quote className="w-32 h-32 rotate-180" />
@@ -144,7 +144,7 @@ export function SuccessStories() {
             {/* Top row: Quote icon + Facebook badge */}
             <div className="flex items-center justify-between mb-6 relative z-10">
               <div
-                className="w-11 h-11 rounded-2xl bg-[#E7F3F1] text-[#03594E] flex items-center justify-center shadow-sm"
+                className="w-11 h-11 rounded-2xl bg-[#FFF0F2] text-[#E51937] flex items-center justify-center shadow-sm"
               >
                 <Quote className="w-5 h-5 fill-current/20" />
               </div>
@@ -209,9 +209,9 @@ export function SuccessStories() {
                       role="tab"
                       aria-selected={isActive}
                       aria-label={`Go to recommendation ${idx + 1}: ${item.name}`}
-                      className={`h-2.5 rounded-full transition-all duration-300 focus-visible:outline-[#03594E] ${
+                      className={`h-2.5 rounded-full transition-all duration-300 focus-visible:outline-[#E51937] ${
                         isActive
-                          ? "w-7 bg-[#03594E]"
+                          ? "w-7 bg-[#E51937]"
                           : "w-2.5 bg-slate-300 hover:bg-slate-400"
                       }`}
                     />
@@ -224,14 +224,14 @@ export function SuccessStories() {
                 <button
                   onClick={prevSlide}
                   aria-label="Previous recommendation"
-                  className="w-10 h-10 rounded-full border border-slate-300 hover:border-[#03594E] hover:text-[#03594E] text-[#1F2432] flex items-center justify-center transition-all duration-200 active:scale-95 bg-white shadow-xs"
+                  className="w-10 h-10 rounded-full border border-slate-300 hover:border-[#E51937] hover:text-[#E51937] text-[#1F2432] flex items-center justify-center transition-all duration-200 active:scale-95 bg-white shadow-xs"
                 >
                   <ChevronLeft className="w-4 h-4" />
                 </button>
                 <button
                   onClick={nextSlide}
                   aria-label="Next recommendation"
-                  className="w-10 h-10 rounded-full border border-slate-300 hover:border-[#03594E] hover:text-[#03594E] text-[#1F2432] flex items-center justify-center transition-all duration-200 active:scale-95 bg-white shadow-xs"
+                  className="w-10 h-10 rounded-full border border-slate-300 hover:border-[#E51937] hover:text-[#E51937] text-[#1F2432] flex items-center justify-center transition-all duration-200 active:scale-95 bg-white shadow-xs"
                 >
                   <ChevronRight className="w-4 h-4" />
                 </button>
