@@ -1,12 +1,180 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { siteContent } from "@/data/content";
 import { Lightbulb, Clock, Handshake, Target, ArrowRight } from "lucide-react";
 
+const DESKTOP_THRESHOLDS = [0.14, 0.42, 0.7, 0.96] as const;
+const MOBILE_SEGMENTS = [
+  { start: 0.12, end: 0.42 },
+  { start: 0.42, end: 0.7 },
+  { start: 0.7, end: 0.96 },
+] as const;
+
+const SERPENTINE_PATH =
+  "M 500 25 C 530 25, 560 70, 560 130 C 560 230, 440 230, 440 330 C 440 430, 560 430, 560 530 C 560 630, 440 630, 440 730";
+
 export function AdmissionSteps() {
   const { admissionSteps } = siteContent;
+
+  const sectionRef = useRef<HTMLElement>(null);
+  const maskPathRef = useRef<SVGPathElement>(null);
+  const desktopNode04Ref = useRef<HTMLDivElement>(null);
+  const mobileNode04Ref = useRef<HTMLDivElement>(null);
+  const mobileLineRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  // By default (SSR / before JS init / reduced-motion), everything is visible.
+  const [jsReady, setJsReady] = useState(false);
+  const [revealed, setRevealed] = useState<[boolean, boolean, boolean, boolean]>([
+    true,
+    true,
+    true,
+    true,
+  ]);
+  const [step04Pulse, setStep04Pulse] = useState(false);
+  const revealedRef = useRef<[boolean, boolean, boolean, boolean]>([
+    true,
+    true,
+    true,
+    true,
+  ]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const reducedMotionQuery = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    );
+    if (reducedMotionQuery.matches) {
+      // Respect prefers-reduced-motion: keep full line and all steps visible immediately
+      if (maskPathRef.current) {
+        maskPathRef.current.style.strokeDasharray = "none";
+        maskPathRef.current.style.strokeDashoffset = "0";
+      }
+      mobileLineRefs.current.forEach((el) => {
+        if (el) el.style.transform = "scaleY(1)";
+      });
+      return;
+    }
+
+    const maskPath = maskPathRef.current;
+    const pathLen = maskPath ? maskPath.getTotalLength() : 860;
+    if (maskPath) {
+      maskPath.style.strokeDasharray = `${pathLen}`;
+      maskPath.style.strokeDashoffset = `${pathLen}`;
+    }
+
+    let initialized = false;
+    let rafId: number | null = null;
+
+    const computeAndApply = () => {
+      rafId = null;
+      const sectionEl = sectionRef.current;
+      if (!sectionEl) return;
+
+      const isDesktop = window.innerWidth >= 1024;
+      const markerEl = isDesktop
+        ? desktopNode04Ref.current
+        : mobileNode04Ref.current;
+
+      const vh = window.innerHeight || 1;
+      const sectionRect = sectionEl.getBoundingClientRect();
+      const startTriggerY = vh * 0.7;
+      const endTriggerY = vh * 0.5;
+
+      let offsetToStep04 = sectionRect.height * 0.75;
+      if (markerEl) {
+        const markerRect = markerEl.getBoundingClientRect();
+        const markerCenterY = markerRect.top + markerRect.height / 2;
+        offsetToStep04 = markerCenterY - sectionRect.top;
+      }
+
+      const totalTravel = Math.max(
+        1,
+        startTriggerY - endTriggerY + offsetToStep04
+      );
+      const rawProgress = (startTriggerY - sectionRect.top) / totalTravel;
+      const progress = Math.max(0, Math.min(1, rawProgress));
+
+      // 1. Update SVG mask dashoffset on desktop
+      if (maskPath) {
+        const offset = pathLen * (1 - progress);
+        maskPath.style.strokeDashoffset = `${offset}`;
+      }
+
+      // 2. Update vertical dashed segments on mobile/tablet
+      mobileLineRefs.current.forEach((lineEl, idx) => {
+        if (!lineEl) return;
+        const seg = MOBILE_SEGMENTS[idx];
+        if (!seg) return;
+        const segProgress = Math.max(
+          0,
+          Math.min(1, (progress - seg.start) / (seg.end - seg.start))
+        );
+        lineEl.style.transform = `scaleY(${segProgress})`;
+      });
+
+      // 3. Reveal steps once reached (stay visible once revealed)
+      if (!initialized) {
+        initialized = true;
+        const initRevealed: [boolean, boolean, boolean, boolean] = [
+          progress >= DESKTOP_THRESHOLDS[0],
+          progress >= DESKTOP_THRESHOLDS[1],
+          progress >= DESKTOP_THRESHOLDS[2],
+          progress >= DESKTOP_THRESHOLDS[3],
+        ];
+        revealedRef.current = initRevealed;
+        setRevealed(initRevealed);
+        setJsReady(true);
+        if (initRevealed[3]) {
+          setStep04Pulse(true);
+        }
+        return;
+      }
+
+      const cur = revealedRef.current;
+      let changed = false;
+      const next: [boolean, boolean, boolean, boolean] = [
+        cur[0],
+        cur[1],
+        cur[2],
+        cur[3],
+      ];
+      for (let i = 0; i < 4; i++) {
+        if (!next[i] && progress >= DESKTOP_THRESHOLDS[i]) {
+          next[i] = true;
+          changed = true;
+          if (i === 3) {
+            setStep04Pulse(true);
+          }
+        }
+      }
+      if (changed) {
+        revealedRef.current = next;
+        setRevealed(next);
+      }
+    };
+
+    const scheduleUpdate = () => {
+      if (rafId !== null) return;
+      rafId = window.requestAnimationFrame(computeAndApply);
+    };
+
+    // Initial synchronous measurement via rAF
+    computeAndApply();
+
+    window.addEventListener("scroll", scheduleUpdate, { passive: true });
+    window.addEventListener("resize", scheduleUpdate, { passive: true });
+
+    return () => {
+      if (rafId !== null) {
+        window.cancelAnimationFrame(rafId);
+      }
+      window.removeEventListener("scroll", scheduleUpdate);
+      window.removeEventListener("resize", scheduleUpdate);
+    };
+  }, []);
 
   const stepMeta = [
     {
@@ -51,8 +219,67 @@ export function AdmissionSteps() {
     },
   ];
 
+  const getDotStyle = (idx: number): React.CSSProperties => {
+    const isShown = !jsReady || revealed[idx];
+    return {
+      opacity: isShown ? 1 : 0,
+      transform: isShown ? "scale(1)" : "scale(0.6)",
+      transition: jsReady
+        ? "opacity 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)"
+        : undefined,
+      willChange: "transform, opacity",
+    };
+  };
+
+  const getLabelStyle = (idx: number): React.CSSProperties => {
+    const isShown = !jsReady || revealed[idx];
+    return {
+      opacity: isShown ? 1 : 0,
+      transition: jsReady ? "opacity 0.4s ease-out" : undefined,
+      willChange: "opacity",
+    };
+  };
+
+  const getCardStyle = (
+    idx: number,
+    side: "left" | "right",
+    baseStyle: React.CSSProperties
+  ): React.CSSProperties => {
+    const isShown = !jsReady || revealed[idx];
+    const offsetX = side === "left" ? -40 : 40;
+    return {
+      ...baseStyle,
+      opacity: isShown ? 1 : 0,
+      transform: isShown ? "translate3d(0, 0, 0)" : `translate3d(${offsetX}px, 0, 0)`,
+      transition: jsReady
+        ? "opacity 0.6s ease-out, transform 0.6s ease-out"
+        : undefined,
+      willChange: "transform, opacity",
+    };
+  };
+
   return (
-    <section className="py-20 md:py-28 bg-[#FFFFFF] relative border-b border-[#E2E9EB] overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="py-20 md:py-28 bg-[#FFFFFF] relative border-b border-[#E2E9EB] overflow-hidden"
+    >
+      <style>{`
+        @keyframes step04MarkerGlow {
+          0% {
+            box-shadow: 0 0 0 0 rgba(45, 55, 72, 0.55), 0 0 0 0 rgba(229, 25, 55, 0.35);
+          }
+          50% {
+            box-shadow: 0 0 0 12px rgba(45, 55, 72, 0), 0 0 18px 6px rgba(229, 25, 55, 0.25);
+          }
+          100% {
+            box-shadow: 0 0 0 0 rgba(45, 55, 72, 0), 0 0 0 0 rgba(229, 25, 55, 0);
+          }
+        }
+        .step04-glow-once {
+          animation: step04MarkerGlow 0.9s ease-out 1;
+        }
+      `}</style>
+
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
@@ -70,26 +297,49 @@ export function AdmissionSteps() {
         {/* ============================================================== */}
         {/* DESKTOP TIMELINE: Exact Match to Uploaded Reference Image     */}
         {/* ============================================================== */}
-        <div className="hidden lg:block relative max-w-[1020px] mx-auto h-[860px]">
+        <div className="hidden lg:block relative max-w-[1020px] mx-auto h-[800px]">
           {/* Central Serpentine S-Curve Dotted Line */}
           <svg
             className="absolute inset-0 w-full h-full pointer-events-none select-none"
-            viewBox="0 0 1000 860"
+            viewBox="0 0 1000 800"
             fill="none"
             aria-hidden="true"
           >
-            {/* Smooth S-curve path connecting top terminal, all 4 nodes, and bottom terminal */}
-            <path
-              d="M 500 25 C 530 25, 560 70, 560 130 C 560 230, 440 230, 440 330 C 440 430, 560 430, 560 530 C 560 630, 440 630, 440 730 C 440 790, 470 835, 500 835"
-              stroke="#94A3B8"
-              strokeWidth="2.5"
-              strokeDasharray="4 6"
-              strokeLinecap="round"
-            />
+            <defs>
+              <mask
+                id="admission-timeline-mask"
+                maskUnits="userSpaceOnUse"
+                x="-20"
+                y="-20"
+                width="1040"
+                height="840"
+              >
+                <path
+                  ref={maskPathRef}
+                  d={SERPENTINE_PATH}
+                  fill="none"
+                  stroke="#FFFFFF"
+                  strokeWidth="14"
+                  strokeLinecap="round"
+                  style={{ willChange: "stroke-dashoffset" }}
+                />
+              </mask>
+            </defs>
+
+            {/* Smooth S-curve path from the top terminal through all 4 nodes,
+                ending exactly at the center of the Step 04 node (440, 730) */}
+            <g mask="url(#admission-timeline-mask)">
+              <path
+                d={SERPENTINE_PATH}
+                stroke="#94A3B8"
+                strokeWidth="2.5"
+                strokeDasharray="4 6"
+                strokeLinecap="round"
+              />
+            </g>
+
             {/* Top Terminal Dot */}
             <circle cx="500" cy="25" r="6" fill="#8E9AA0" />
-            {/* Bottom Terminal Dot */}
-            <circle cx="500" cy="835" r="6" fill="#8E9AA0" />
           </svg>
 
           {/* STEP 01: Left Capsule, Right Node */}
@@ -99,11 +349,11 @@ export function AdmissionSteps() {
           >
             {/* Left Capsule (Vibrant Teal) */}
             <div
-              className="absolute right-[calc(50%+48px)] w-[410px] h-[106px] rounded-full flex items-center justify-between pl-7 pr-3 transition-transform duration-300 hover:scale-[1.02]"
-              style={{
+              className="absolute right-[calc(50%+48px)] w-[410px] h-[106px] rounded-full flex items-center justify-between pl-7 pr-3 hover:scale-[1.02]"
+              style={getCardStyle(0, "left", {
                 backgroundColor: stepMeta[0].color,
                 boxShadow: `0 12px 24px -6px ${stepMeta[0].shadowColor}`,
-              }}
+              })}
             >
               {/* Text */}
               <div className="flex-1 pr-3 text-left">
@@ -138,6 +388,7 @@ export function AdmissionSteps() {
               className="absolute left-[calc(50%+46px)] w-7 h-7 rounded-full bg-white flex items-center justify-center shadow-xs"
               style={{
                 border: `2.5px solid ${stepMeta[0].color}`,
+                ...getDotStyle(0),
               }}
             >
               <div
@@ -147,7 +398,10 @@ export function AdmissionSteps() {
             </div>
 
             {/* STEP 01 Label */}
-            <div className="absolute left-[calc(50%+90px)] flex flex-col text-left select-none">
+            <div
+              className="absolute left-[calc(50%+90px)] flex flex-col text-left select-none"
+              style={getLabelStyle(0)}
+            >
               <span className="text-[12px] font-semibold uppercase tracking-[0.2em] text-[#64748B]">
                 STEP
               </span>
@@ -166,7 +420,10 @@ export function AdmissionSteps() {
             style={{ top: "260px", height: "140px" }}
           >
             {/* STEP 02 Label */}
-            <div className="absolute right-[calc(50%+90px)] flex flex-col text-right select-none">
+            <div
+              className="absolute right-[calc(50%+90px)] flex flex-col text-right select-none"
+              style={getLabelStyle(1)}
+            >
               <span className="text-[12px] font-semibold uppercase tracking-[0.2em] text-[#64748B]">
                 STEP
               </span>
@@ -183,6 +440,7 @@ export function AdmissionSteps() {
               className="absolute right-[calc(50%+46px)] w-7 h-7 rounded-full bg-white flex items-center justify-center shadow-xs"
               style={{
                 border: `2.5px solid ${stepMeta[1].color}`,
+                ...getDotStyle(1),
               }}
             >
               <div
@@ -193,11 +451,11 @@ export function AdmissionSteps() {
 
             {/* Right Capsule (Deep Ocean Blue) */}
             <div
-              className="absolute left-[calc(50%+48px)] w-[410px] h-[106px] rounded-full flex items-center justify-between pl-3 pr-7 transition-transform duration-300 hover:scale-[1.02]"
-              style={{
+              className="absolute left-[calc(50%+48px)] w-[410px] h-[106px] rounded-full flex items-center justify-between pl-3 pr-7 hover:scale-[1.02]"
+              style={getCardStyle(1, "right", {
                 backgroundColor: stepMeta[1].color,
                 boxShadow: `0 12px 24px -6px ${stepMeta[1].shadowColor}`,
-              }}
+              })}
             >
               {/* Left Pointer Caret */}
               <div
@@ -235,11 +493,11 @@ export function AdmissionSteps() {
           >
             {/* Left Capsule (Deep Forest Teal) */}
             <div
-              className="absolute right-[calc(50%+48px)] w-[410px] h-[106px] rounded-full flex items-center justify-between pl-7 pr-3 transition-transform duration-300 hover:scale-[1.02]"
-              style={{
+              className="absolute right-[calc(50%+48px)] w-[410px] h-[106px] rounded-full flex items-center justify-between pl-7 pr-3 hover:scale-[1.02]"
+              style={getCardStyle(2, "left", {
                 backgroundColor: stepMeta[2].color,
                 boxShadow: `0 12px 24px -6px ${stepMeta[2].shadowColor}`,
-              }}
+              })}
             >
               {/* Text */}
               <div className="flex-1 pr-3 text-left">
@@ -274,6 +532,7 @@ export function AdmissionSteps() {
               className="absolute left-[calc(50%+46px)] w-7 h-7 rounded-full bg-white flex items-center justify-center shadow-xs"
               style={{
                 border: `2.5px solid ${stepMeta[2].color}`,
+                ...getDotStyle(2),
               }}
             >
               <div
@@ -283,7 +542,10 @@ export function AdmissionSteps() {
             </div>
 
             {/* STEP 03 Label */}
-            <div className="absolute left-[calc(50%+90px)] flex flex-col text-left select-none">
+            <div
+              className="absolute left-[calc(50%+90px)] flex flex-col text-left select-none"
+              style={getLabelStyle(2)}
+            >
               <span className="text-[12px] font-semibold uppercase tracking-[0.2em] text-[#64748B]">
                 STEP
               </span>
@@ -302,7 +564,10 @@ export function AdmissionSteps() {
             style={{ top: "660px", height: "140px" }}
           >
             {/* STEP 04 Label */}
-            <div className="absolute right-[calc(50%+90px)] flex flex-col text-right select-none">
+            <div
+              className="absolute right-[calc(50%+90px)] flex flex-col text-right select-none"
+              style={getLabelStyle(3)}
+            >
               <span className="text-[12px] font-semibold uppercase tracking-[0.2em] text-[#64748B]">
                 STEP
               </span>
@@ -316,9 +581,13 @@ export function AdmissionSteps() {
 
             {/* Concentric Circle Node at X = 440 */}
             <div
-              className="absolute right-[calc(50%+46px)] w-7 h-7 rounded-full bg-white flex items-center justify-center shadow-xs"
+              ref={desktopNode04Ref}
+              className={`absolute right-[calc(50%+46px)] w-7 h-7 rounded-full bg-white flex items-center justify-center shadow-xs ${
+                step04Pulse ? "step04-glow-once" : ""
+              }`}
               style={{
                 border: `2.5px solid ${stepMeta[3].color}`,
+                ...getDotStyle(3),
               }}
             >
               <div
@@ -329,11 +598,11 @@ export function AdmissionSteps() {
 
             {/* Right Capsule (Slate Charcoal Indigo) */}
             <div
-              className="absolute left-[calc(50%+48px)] w-[410px] h-[106px] rounded-full flex items-center justify-between pl-3 pr-7 transition-transform duration-300 hover:scale-[1.02]"
-              style={{
+              className="absolute left-[calc(50%+48px)] w-[410px] h-[106px] rounded-full flex items-center justify-between pl-3 pr-7 hover:scale-[1.02]"
+              style={getCardStyle(3, "right", {
                 backgroundColor: stepMeta[3].color,
                 boxShadow: `0 12px 24px -6px ${stepMeta[3].shadowColor}`,
-              }}
+              })}
             >
               {/* Left Pointer Caret */}
               <div
@@ -369,24 +638,39 @@ export function AdmissionSteps() {
         {/* MOBILE & TABLET LAYOUT: Fully Responsive Vertical Timeline     */}
         {/* ============================================================== */}
         <div className="lg:hidden flex flex-col gap-8 max-w-lg mx-auto relative">
-          {/* Vertical dotted guide line */}
-          <div
-            className="absolute left-6 top-8 bottom-8 w-[2px] pointer-events-none"
-            style={{
-              backgroundImage:
-                "linear-gradient(to bottom, #94A3B8 50%, rgba(255,255,255,0) 0%)",
-              backgroundPosition: "left",
-              backgroundSize: "2px 10px",
-              backgroundRepeat: "repeat-y",
-            }}
-          />
-
           {stepMeta.map((step, idx) => (
             <div key={step.stepNum} className="relative pl-14 flex flex-col gap-3">
+              {/* Vertical dotted guide line segment: runs from this node's
+                  center (top 20px) to the next node's center (item bottom +
+                  32px gap + 20px). Omitted after the last step so the line
+                  ends exactly at the Step 04 node. */}
+              {idx < stepMeta.length - 1 && (
+                <div
+                  ref={(el) => {
+                    mobileLineRefs.current[idx] = el;
+                  }}
+                  className="absolute left-3 -translate-x-1/2 top-5 -bottom-[52px] w-[2px] pointer-events-none origin-top"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(to bottom, #94A3B8 50%, rgba(255,255,255,0) 0%)",
+                    backgroundPosition: "left",
+                    backgroundSize: "2px 10px",
+                    backgroundRepeat: "repeat-y",
+                    willChange: "transform",
+                  }}
+                />
+              )}
+
               {/* Concentric Node on the Left line */}
               <div
-                className="absolute left-3 top-2 -translate-x-1/2 w-6 h-6 rounded-full bg-white flex items-center justify-center z-10 shadow-xs"
-                style={{ border: `2.5px solid ${step.color}` }}
+                ref={idx === 3 ? mobileNode04Ref : undefined}
+                className={`absolute left-3 top-2 -translate-x-1/2 w-6 h-6 rounded-full bg-white flex items-center justify-center z-10 shadow-xs ${
+                  idx === 3 && step04Pulse ? "step04-glow-once" : ""
+                }`}
+                style={{
+                  border: `2.5px solid ${step.color}`,
+                  ...getDotStyle(idx),
+                }}
               >
                 <div
                   className="w-2 h-2 rounded-full"
@@ -395,7 +679,10 @@ export function AdmissionSteps() {
               </div>
 
               {/* Step indicator header */}
-              <div className="flex items-center gap-2">
+              <div
+                className="flex items-center gap-2"
+                style={getLabelStyle(idx)}
+              >
                 <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#64748B]">
                   STEP
                 </span>
@@ -409,11 +696,11 @@ export function AdmissionSteps() {
 
               {/* Capsule Card */}
               <div
-                className="w-full rounded-[28px] sm:rounded-full p-4 sm:p-5 flex items-center gap-4 transition-all"
-                style={{
+                className="w-full rounded-[28px] sm:rounded-full p-4 sm:p-5 flex items-center gap-4"
+                style={getCardStyle(idx, "right", {
                   backgroundColor: step.color,
                   boxShadow: `0 10px 24px -4px ${step.shadowColor}`,
-                }}
+                })}
               >
                 {/* 3D Elevated White Circle Button */}
                 <div
