@@ -37,13 +37,14 @@ export function AboutPreview() {
       className="relative overflow-hidden bg-white text-[#1F2432] py-24 sm:py-32"
     >
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Left Column: Image with Floating Circular Badge (6 cols) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-stretch">
+          {/* Left Column: Photo (6 cols, fills the row height) */}
           <div className="lg:col-span-6 relative flex justify-center lg:justify-start">
             <div className="about-anim-image relative w-full max-w-[500px]">
 
-              {/* Main Photo */}
-              <div className="group relative w-full aspect-[4/4.2] sm:aspect-[4/4.2] lg:aspect-[978/1018] rounded-[24px] sm:rounded-[28px] overflow-hidden shadow-2xl border-2 border-white/25 bg-slate-900">
+              {/* Main Photo: fills its stretched column on desktop,
+                  fixed height on mobile (no extra min-height forcing) */}
+              <div className="group relative w-full h-full min-h-[340px] sm:min-h-[380px] rounded-[24px] sm:rounded-[28px] overflow-hidden shadow-2xl border-2 border-white/25 bg-slate-900">
                 <Image
                   src={aboutPreview.image}
                   alt={aboutPreview.imageAlt}
@@ -78,12 +79,11 @@ export function AboutPreview() {
               ))}
             </ul>
 
-            {/* Action Button (dark, inverts to outline on hover —
-                mirror of the original white-on-dark invert treatment) */}
+            {/* Action Button (red, matching the course card CTAs) */}
             <div className="about-anim-content pt-2">
               <Link
                 href="/about"
-                className="inline-block bg-[#1F2432] text-white hover:bg-transparent hover:text-[#1F2432] border-2 border-[#1F2432] rounded-[10px] px-8 py-4 font-bold text-base sm:text-lg transition-all duration-300 shadow-xl font-[var(--font-jost)] text-center"
+                className="inline-block bg-[#DC2626] text-white hover:bg-[#B91C1C] border-2 border-transparent rounded-[10px] px-8 py-4 font-bold text-base sm:text-lg transition-all duration-300 shadow-xl font-[var(--font-jost)] text-center"
               >
                 {aboutPreview.ctaText || "About Us"}
               </Link>

@@ -8,17 +8,18 @@ interface CourseCardProps {
   course: Course;
   index?: number;
   /**
-   * CTA button color scheme: "gold" (original, default) or "red",
-   * used by the homepage COURSES section.
+   * CTA button color scheme. "red" is the shared default so every
+   * course card (COURSES section, full courses page, course detail)
+   * uses the same #DC2626 button. "gold" keeps the legacy look.
    */
-  ctaVariant?: "gold" | "red";
+  ctaVariant?: "red" | "gold";
 }
 
-export function CourseCard({ course, ctaVariant = "gold" }: CourseCardProps) {
+export function CourseCard({ course, ctaVariant = "red" }: CourseCardProps) {
   const ctaClasses =
-    ctaVariant === "red"
-      ? "bg-[#DC2626] hover:bg-[#B91C1C] text-white"
-      : "bg-[#F8C62F] group-hover:bg-[#E51937] text-[#1F2432] group-hover:text-white";
+    ctaVariant === "gold"
+      ? "bg-[#F8C62F] group-hover:bg-[#E51937] text-[#1F2432] group-hover:text-white"
+      : "bg-[#DC2626] group-hover:bg-[#B91C1C] text-white group-hover:text-white";
   return (
     <article className="group relative bg-white rounded-[20px] p-5 border border-[#E51937]/15 transition-all duration-300 hover:shadow-[0_20px_30px_0_rgba(229,25,55,0.08)] hover:-translate-y-1 flex flex-col h-full">
       {/* 1. Course Photo Thumbnail with 12px rounded corners inside the 20px padded card */}

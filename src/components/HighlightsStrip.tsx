@@ -52,12 +52,9 @@ export function HighlightsStrip() {
                  <div className="w-12 h-12 rounded-full bg-[#FFF0F2] border border-[#E51937]/15 flex items-center justify-center mb-3 shadow-xs">
                    {getIcon(item.iconName)}
                  </div>
-                <h3 className="font-extrabold text-2xl sm:text-3xl text-[#1F2432] font-[var(--font-jost)]">
+                <h3 className="font-extrabold text-[clamp(20px,1.8vw,26px)] text-[#1F2432] font-[var(--font-jost)] whitespace-nowrap">
                   {item.title}
                 </h3>
-                <p className="text-xs sm:text-sm font-semibold text-[#6C757D] mt-1 font-[var(--font-dm-sans)]">
-                  {item.subtitle}
-                </p>
               </div>
             ))}
           </div>

@@ -147,30 +147,16 @@ export function WhyChooseUs() {
                       : "flex-col sm:flex-row-reverse text-center sm:text-left justify-between"
                   }`}
                 >
-                  {/* Text Content */}
+                  {/* Text Content — full card width now that the number
+                      circle is removed (titles use nowrap to stay on one line) */}
                   <div className={`flex-1 ${isLeft ? "sm:pr-2" : "sm:pl-2"}`}>
-                    <h4 className="text-base sm:text-lg font-bold text-[#1F2432] group-hover:text-[#E51937] transition-colors font-[var(--font-jost)] leading-snug flex items-center justify-center sm:justify-start gap-2 mb-1.5">
+                    <h4 className="text-base sm:text-lg font-bold text-[#1F2432] group-hover:text-[#E51937] transition-colors font-[var(--font-jost)] leading-snug flex items-center justify-center sm:justify-start gap-2 mb-1.5 whitespace-nowrap">
                       {item.icon}
                       <span>{item.title}</span>
                     </h4>
                     <p className="text-xs sm:text-sm text-[#6C757D] leading-relaxed font-[var(--font-dm-sans)]">
                       {item.description}
                     </p>
-                  </div>
-
-                  {/* Circular Node with Border & Number (Exact Match to Reference Nodes) */}
-                  <div
-                    className="w-16 h-16 sm:w-[70px] sm:h-[70px] rounded-full bg-white flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform duration-300"
-                    style={{
-                      border: `4px solid ${item.color}`,
-                    }}
-                  >
-                    <span
-                      className="text-2xl sm:text-3xl font-extrabold font-[var(--font-jost)] leading-none select-none"
-                      style={{ color: item.color }}
-                    >
-                      {item.number}
-                    </span>
                   </div>
                 </div>
               </div>

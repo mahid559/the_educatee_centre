@@ -204,9 +204,9 @@ export default function ContactClientView() {
       {/* 3. Main Form & Map Section */}
       <section className="py-16 md:py-24 bg-[#F5F7F9] relative border-t border-[#E2E9EB]">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-start lg:items-center">
             {/* Left Column: Contact Form (6 cols) */}
-            <div className="lg:col-span-6">
+            <div className="lg:col-span-6 lg:self-center">
               <div className="bg-white rounded-2xl p-8 sm:p-10 border border-[#E2E9EB] shadow-sm">
                 <span className="text-xs font-bold uppercase tracking-wider text-[#E51937] block mb-1 font-[var(--font-jost)]">
                   SEND US AN INQUIRY
