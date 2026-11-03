@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -22,6 +22,16 @@ import { CTABanner } from "@/components/CTABanner";
 import { DemoForm } from "@/components/DemoForm";
 import { cardLiftProps } from "@/lib/motion";
 
+let isPopStateNavigation = false;
+if (typeof window !== "undefined") {
+  window.addEventListener("popstate", () => {
+    isPopStateNavigation = true;
+    window.requestAnimationFrame(() => {
+      isPopStateNavigation = false;
+    });
+  });
+}
+
 interface CourseDetailClientViewProps {
   course: Course;
   relatedCourses: Course[];
@@ -33,6 +43,12 @@ export function CourseDetailClientView({
 }: CourseDetailClientViewProps) {
   const { contact } = siteContent;
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
+
+  useLayoutEffect(() => {
+    if (!window.location.hash && !isPopStateNavigation) {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    }
+  }, [course.slug]);
 
   const toggleFaq = (index: number) => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
@@ -305,7 +321,7 @@ export function CourseDetailClientView({
                             />
                           </button>
 
-                          <AnimatePresence>
+                          <AnimatePresence initial={false}>
                             {isOpen && (
                               <motion.div
                                 initial={{ opacity: 0, height: 0 }}

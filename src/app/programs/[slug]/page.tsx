@@ -81,11 +81,11 @@ export default async function CourseDetailPage({ params }: PageProps) {
 
   return (
     <>
+      <CourseDetailClientView course={course} relatedCourses={relatedCourses} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseJsonLd) }}
       />
-      <CourseDetailClientView course={course} relatedCourses={relatedCourses} />
     </>
   );
 }

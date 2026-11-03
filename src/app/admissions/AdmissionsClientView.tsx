@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -23,6 +23,16 @@ import { DemoForm } from "@/components/DemoForm";
 import { AdmissionSteps } from "@/components/AdmissionSteps";
 import { cardLiftProps } from "@/lib/motion";
 
+let isPopStateNavigation = false;
+if (typeof window !== "undefined") {
+  window.addEventListener("popstate", () => {
+    isPopStateNavigation = true;
+    window.requestAnimationFrame(() => {
+      isPopStateNavigation = false;
+    });
+  });
+}
+
 export default function AdmissionsClientView() {
   const {
     admissionSteps,
@@ -35,6 +45,12 @@ export default function AdmissionsClientView() {
   } = siteContent;
 
   const [openFaqId, setOpenFaqId] = useState<string | null>("faq-1");
+
+  useLayoutEffect(() => {
+    if (!window.location.hash && !isPopStateNavigation) {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    }
+  }, []);
 
   const toggleFaq = (id: string) => {
     setOpenFaqId(openFaqId === id ? null : id);
@@ -332,7 +348,7 @@ export default function AdmissionsClientView() {
                     />
                   </button>
 
-                  <AnimatePresence>
+                  <AnimatePresence initial={false}>
                     {isOpen && (
                       <motion.div
                         initial={{ opacity: 0, height: 0 }}
