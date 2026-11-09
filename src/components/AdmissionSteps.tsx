@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { siteContent } from "@/data/content";
 import { Lightbulb, Clock, Handshake, Target, ArrowRight } from "lucide-react";
+import { SectionHeading } from "@/components/SectionHeading";
 
 const DESKTOP_THRESHOLDS = [0.14, 0.42, 0.7, 0.96] as const;
 const MOBILE_SEGMENTS = [
@@ -282,17 +283,11 @@ export function AdmissionSteps() {
 
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
-          <span className="text-[#E51937] text-xs sm:text-sm font-bold uppercase tracking-widest block mb-2 font-[var(--font-jost)]">
-            ADMISSION PROCESS
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#1F2432] tracking-tight mb-4 font-[var(--font-jost)] leading-tight">
-            How Admission &amp; Enrollment Works
-          </h2>
-          <p className="text-base sm:text-lg text-[#6C757D] leading-relaxed max-w-2xl mx-auto font-[var(--font-dm-sans)]">
-            Experience our classroom culture before paying any fees. We respect your time with a completely zero-pressure enrollment policy.
-          </p>
-        </div>
+        <SectionHeading
+          tag="ADMISSION PROCESS"
+          title="How Admission & Enrollment Works"
+          subtext="Experience our classroom culture before paying any fees. We respect your time with a completely zero-pressure enrollment policy."
+        />
 
         {/* ============================================================== */}
         {/* DESKTOP TIMELINE: Exact Match to Uploaded Reference Image     */}

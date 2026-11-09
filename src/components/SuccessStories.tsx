@@ -14,6 +14,7 @@ import {
   getInitials,
   cardAccents,
 } from "@/components/TestimonialCard";
+import { SectionHeading } from "@/components/SectionHeading";
 
 function FacebookIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
@@ -99,19 +100,12 @@ export function SuccessStories() {
     <section className="py-20 md:py-28 bg-white text-[#1F2432] relative overflow-hidden border-t border-[#E2E9EB]">
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
-          <div className="inline-flex items-center gap-2 bg-[#FFF0F2] border border-[#E51937]/20 rounded-full px-4 py-1.5 mb-3 text-xs font-bold tracking-wider uppercase text-[#E51937] font-[var(--font-jost)]">
-            <span>STUDENT OUTCOMES</span>
-          </div>
-
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#1F2432] tracking-tight mb-3 font-[var(--font-jost)]">
-            Trusted by Professionals &amp; Learners Across Feni
-          </h2>
-
-          <p className="text-base sm:text-lg text-[#6C757D] font-[var(--font-dm-sans)]">
-            Verified authentic recommendations and reviews from our students on Facebook.
-          </p>
-        </div>
+        <SectionHeading
+          tag="STUDENT OUTCOMES"
+          title="Trusted by Professionals & Learners Across Feni"
+          subtext="Verified authentic recommendations and reviews from our students on Facebook."
+          className="mb-8 sm:mb-10"
+        />
 
         {/* HIGHLIGHT STRIP: 3 compact chips built strictly from reviews */}
         <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8 sm:mb-10 font-[var(--font-jost)]">

@@ -26,7 +26,7 @@ export const PricingSection: React.FC = () => {
       name: "IELTS Preparation",
       subtitle: "Target Band 6.0+ Preparation",
       badge: "High Success Track Record",
-      badgeClass: "pill-badge-amber",
+      badgeClass: "pill-badge-crimson",
       features: [
         "Small batch mentorship (Max 16 learners)",
         "Comprehensive 4-module mastery (L, R, W, S)",
@@ -131,7 +131,7 @@ export const PricingSection: React.FC = () => {
                     plan.isPopular ? "pill-btn-primary" : "pill-btn-outline"
                   }`}
                 >
-                  <Sparkles className="w-4 h-4 text-amber-200" />
+                  <Sparkles className="w-4 h-4 text-[#E51937]" />
                   <span>Reserve Free Demo Session</span>
                 </Link>
                 <div className="text-center text-[11px] text-[#A09D98] mt-2">

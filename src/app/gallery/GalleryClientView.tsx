@@ -15,6 +15,7 @@ const Lightbox = dynamic(() => import("@/components/Lightbox").then((mod) => mod
   ssr: false,
 });
 import { GalleryCategory } from "@/data/content";
+import { JustifiedGallery, JustifiedImageItem } from "@/components/JustifiedGallery";
 
 type TabId = "all" | GalleryCategory;
 
@@ -99,6 +100,19 @@ export default function GalleryClientView() {
 
   const visiblePhotos = activePhotos.slice(0, visibleCount);
   const hasMore = visibleCount < activePhotos.length;
+
+  const justifiedPhotos: JustifiedImageItem[] = useMemo(() => {
+    return visiblePhotos.map((photo) => ({
+      id: photo.id,
+      src: photo.src,
+      alt: photo.alt,
+      width: photo.width,
+      height: photo.height,
+      blurDataURL: photo.blurDataURL,
+      categoryLabel: photo.categoryLabel,
+      tagline: photo.filename,
+    }));
+  }, [visiblePhotos]);
 
   const handleLoadMore = () => {
     setVisibleCount((prev) => Math.min(prev + 12, activePhotos.length));
@@ -193,10 +207,10 @@ export default function GalleryClientView() {
           {/* Header Status Bar (Without photo count numbers) */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-8 sm:mb-10 pb-5 border-b border-[#E2E9EB]">
             <div>
-              <span className="text-xs font-extrabold uppercase tracking-widest text-[#C81E2B] block mb-1">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#E51937] block mb-1 font-[var(--font-jost)]">
                 PHOTO ARCHIVE
               </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#3B3B3D] font-[var(--font-ubuntu)]">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1F2432] font-[var(--font-jost)]">
                 {activeTabMeta.label}
               </h2>
             </div>
@@ -212,7 +226,7 @@ export default function GalleryClientView() {
               <div className="w-16 h-16 rounded-full bg-[#FEE2E2] flex items-center justify-center text-[#C81E2B] mb-4">
                 <Camera className="w-8 h-8 opacity-60" />
               </div>
-              <h3 className="text-2xl font-extrabold text-[#3B3B3D] mb-2 font-[var(--font-ubuntu)]">
+              <h3 className="text-2xl font-extrabold text-[#1F2432] mb-2 font-[var(--font-jost)]">
                 Photos coming soon
               </h3>
               <p className="text-sm text-[#54595F] mb-6 leading-relaxed">
@@ -230,67 +244,13 @@ export default function GalleryClientView() {
             </div>
           ) : (
             <>
-              {/* Continuous Masonry Grid with Framer Motion Reflow */}
-              <motion.div
-                layout
-                className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-5 space-y-5 [column-fill:_balance]"
-              >
-                <AnimatePresence mode="popLayout">
-                  {visiblePhotos.map((photo, index) => (
-                    <motion.div
-                      layout
-                      key={photo.id}
-                      initial={{
-                        opacity: 0,
-                        scale: shouldReduceMotion ? 1 : 0.96,
-                      }}
-                      animate={{
-                        opacity: 1,
-                        scale: 1,
-                      }}
-                      exit={{
-                        opacity: 0,
-                        scale: shouldReduceMotion ? 1 : 0.96,
-                      }}
-                      transition={{
-                        duration: shouldReduceMotion ? 0.05 : 0.35,
-                        delay: shouldReduceMotion ? 0 : (index % 6) * 0.04,
-                        ease: [0.22, 1, 0.36, 1],
-                      }}
-                      onClick={() => setActiveLightboxIndex(index)}
-                      className="break-inside-avoid relative rounded-2xl overflow-hidden cursor-pointer group shadow-xs hover:shadow-xl transition-all duration-300 border border-[#E2E9EB]/90 bg-slate-100"
-                    >
-                      <div className="relative overflow-hidden w-full">
-                        {/* Photo: Natural Aspect Ratio with Blur Placeholder */}
-                        <Image
-                          src={photo.src}
-                          alt={photo.alt}
-                          width={photo.width}
-                          height={photo.height}
-                          placeholder={photo.blurDataURL ? "blur" : "empty"}
-                          blurDataURL={photo.blurDataURL}
-                          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                          className="w-full h-auto block object-contain group-hover:scale-[1.03] transition-transform duration-500 ease-out"
-                        />
-
-                        {/* Hover Overlay: Small Category Label & Enlarge Icon */}
-                        <div className="absolute inset-0 bg-black/35 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-4 pointer-events-none">
-                          <div className="flex justify-end">
-                            <span className="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white flex items-center justify-center shadow-lg">
-                              <Maximize2 className="w-4 h-4" />
-                            </span>
-                          </div>
-                          <div>
-                            <span className="inline-block bg-black/70 backdrop-blur-md border border-white/25 text-[#FFC73B] text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full shadow-md font-[var(--font-nunito)]">
-                              {photo.categoryLabel}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </AnimatePresence>
-              </motion.div>
+              {/* Justified Rows Layout (Google Photos / Flickr style) - Perfectly Flat Bottom Edge */}
+              <JustifiedGallery
+                items={justifiedPhotos}
+                gap={18}
+                onItemClick={(idx) => setActiveLightboxIndex(idx)}
+                priorityFirstRow={true}
+              />
 
               {/* Load More Button */}
               {hasMore && (

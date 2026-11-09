@@ -80,13 +80,13 @@ export function CourseDetailClientView({
             />
 
             {/* Category Tag */}
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-1.5 mb-4 text-xs font-bold tracking-wider uppercase text-[#F8C62F] shadow-sm font-[var(--font-jost)]">
-              <span className="w-2 h-2 rounded-full bg-[#F8C62F] animate-pulse" />
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-1.5 mb-4 text-xs font-bold tracking-wider uppercase text-white shadow-sm font-[var(--font-jost)]">
+              <span className="w-2 h-2 rounded-full bg-[#E51937] animate-pulse" />
               <span>{course.category} Specialization</span>
               {course.badge && (
                 <>
                   <span className="text-white/40">•</span>
-                  <span className="text-[#F8C62F] font-bold">{course.badge}</span>
+                  <span className="text-white font-bold">{course.badge}</span>
                 </>
               )}
             </div>
@@ -108,7 +108,7 @@ export function CourseDetailClientView({
             <div className="flex flex-wrap items-center gap-4 font-[var(--font-jost)]">
               <Link
                 href="#demo-form"
-                className="inline-flex items-center justify-center bg-[#F8C62F] hover:bg-[#e0b020] text-[#1F2432] font-bold text-sm sm:text-base px-8 py-4 rounded-full transition-all duration-200 shadow-xl shadow-black/20 hover:scale-[1.02] active:scale-[0.98]"
+                className="inline-flex items-center justify-center bg-[#E51937] hover:bg-[#C8132C] text-white font-bold text-sm sm:text-base px-8 py-4 rounded-full transition-all duration-200 shadow-xl shadow-black/20 hover:scale-[1.02] active:scale-[0.98]"
               >
                 Book a Free Demo Class
               </Link>
@@ -119,7 +119,7 @@ export function CourseDetailClientView({
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/25 font-bold text-sm sm:text-base px-7 py-3.5 rounded-full transition-all duration-200 backdrop-blur-sm"
               >
-                <MessageCircle className="w-4 h-4 text-[#F8C62F]" />
+                <MessageCircle className="w-4 h-4 text-white" />
                 <span>WhatsApp Admission Desk</span>
               </a>
             </div>
@@ -362,7 +362,7 @@ export function CourseDetailClientView({
                       className="object-cover"
                     />
                     {course.badge && (
-                      <span className="absolute top-3 left-3 bg-[#F8C62F] text-[#1F2432] text-[11px] font-bold px-3 py-1 rounded-full shadow font-[var(--font-jost)]">
+                      <span className="absolute top-3 left-3 bg-[#E51937] text-white text-[11px] font-bold px-3 py-1 rounded-full shadow font-[var(--font-jost)]">
                         {course.badge}
                       </span>
                     )}
@@ -461,13 +461,13 @@ export function CourseDetailClientView({
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           <div className="bg-[#181D26] rounded-3xl p-8 sm:p-12 lg:p-16 text-white relative overflow-hidden shadow-2xl border border-white/10">
             {/* Educeet decorative accents */}
-            <div className="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-[#F8C62F]/15 blur-3xl pointer-events-none" />
+            <div className="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-[#E51937]/15 blur-3xl pointer-events-none" />
             <div className="absolute -left-20 -top-20 w-72 h-72 rounded-full bg-white/10 blur-3xl pointer-events-none" />
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center relative z-10">
               <div className="lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left">
-                <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-[#F8C62F] px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3 shadow-sm font-[var(--font-jost)]">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#F8C62F]" />
+                <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3 shadow-sm font-[var(--font-jost)]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#E51937]" />
                   RESERVE YOUR ORIENTATION SEAT
                 </span>
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight font-[var(--font-jost)] mb-4">
@@ -479,15 +479,15 @@ export function CourseDetailClientView({
 
                 <div className="flex flex-col gap-3 text-sm text-white/90 font-[var(--font-jost)]">
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#F8C62F]" />
+                    <CheckCircle2 className="w-4 h-4 text-white" />
                     <span>100% Free — Zero obligation to register</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#F8C62F]" />
+                    <CheckCircle2 className="w-4 h-4 text-white" />
                     <span>Structured interactive practice in capped cohorts</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#F8C62F]" />
+                    <CheckCircle2 className="w-4 h-4 text-white" />
                     <span>Morning, afternoon &amp; working professional batch slots</span>
                   </div>
                 </div>

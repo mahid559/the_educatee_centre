@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { siteContent } from "@/data/content";
+import { SectionHeading } from "@/components/SectionHeading";
 
 export function FAQAccordion() {
   const { faqs } = siteContent;
@@ -16,18 +17,11 @@ export function FAQAccordion() {
     <section className="py-20 md:py-28 bg-white relative">
       <div className="max-w-[900px] mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <span className="text-[#E51937] text-xs sm:text-sm font-extrabold uppercase tracking-widest block mb-2 font-[var(--font-jost)]">
-            GOT QUESTIONS?
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#1F2432] tracking-tight mb-4 font-[var(--font-jost)]">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-base sm:text-lg text-[#6C757D] font-[var(--font-dm-sans)]">
-            Everything you need to know about our demo classes, batch structures,
-            fees, and Feni campus location.
-          </p>
-        </div>
+        <SectionHeading
+          tag="GOT QUESTIONS?"
+          title="Frequently Asked Questions"
+          subtext="Everything you need to know about our demo classes, batch structures, fees, and Feni campus location."
+        />
 
         {/* Accordion List */}
         <div className="flex flex-col gap-4">

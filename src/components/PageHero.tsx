@@ -45,8 +45,8 @@ export function PageHero({
           <Breadcrumb items={breadcrumbs} variant="light" />
 
           {/* Eyebrow Label */}
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-1.5 mb-4 text-xs font-bold tracking-wider uppercase text-[#F8C62F] shadow-sm font-[var(--font-jost)]">
-            <span className="w-2 h-2 rounded-full bg-[#F8C62F] animate-pulse" />
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-1.5 mb-4 text-xs font-bold tracking-wider uppercase text-[#E51937] shadow-sm font-[var(--font-jost)]">
+            <span className="w-2 h-2 rounded-full bg-[#E51937] animate-pulse" />
             <span>{eyebrow}</span>
           </div>
 
@@ -54,7 +54,7 @@ export function PageHero({
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-[1.15] tracking-tight !text-white mb-4 font-[var(--font-jost)]">
             <span className="text-white">{title} </span>
             {accentText && (
-              <span className="text-[#F8C62F]">
+              <span className="text-[#E51937]">
                 {accentText}
               </span>
             )}

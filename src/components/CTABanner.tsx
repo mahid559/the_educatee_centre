@@ -74,7 +74,7 @@ export function CTABanner({
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto lg:w-full inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold text-sm px-6 py-3.5 rounded-lg transition-all duration-300 font-[var(--font-jost)]"
               >
-                <MessageCircle className="w-4 h-4 text-[#F8C62F]" />
+                <MessageCircle className="w-4 h-4 text-white" />
                 <span>Chat on WhatsApp</span>
               </a>
 
@@ -82,7 +82,7 @@ export function CTABanner({
                 href={`tel:${contact.primaryPhone.replace(/-/g, "")}`}
                 className="text-xs text-white/75 hover:text-white flex items-center gap-1.5 transition-colors pt-1 font-[var(--font-jost)]"
               >
-                <Phone className="w-3.5 h-3.5 text-[#F8C62F]" />
+                <Phone className="w-3.5 h-3.5 text-white" />
                 <span>Direct Desk: {contact.primaryPhone}</span>
               </a>
             </div>

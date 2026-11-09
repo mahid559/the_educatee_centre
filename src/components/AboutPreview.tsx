@@ -73,7 +73,7 @@ export function AboutPreview() {
             <ul className="about-anim-content space-y-3 mb-8 text-sm sm:text-base text-[#6C757D] font-[var(--font-dm-sans)] w-full">
               {aboutPreview.bullets.map((bullet, idx) => (
                 <li key={idx} className="flex items-start gap-3">
-                  <span className="w-2 h-2 rounded-full bg-[#F8C62F] mt-2 shrink-0" />
+                  <span className="w-2 h-2 rounded-full bg-[#E51937] mt-2 shrink-0" />
                   <span className="leading-relaxed font-medium">{bullet}</span>
                 </li>
               ))}

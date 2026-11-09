@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -23,6 +23,8 @@ import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { FeatureCard } from "@/components/FeatureCard";
 import { CTABanner } from "@/components/CTABanner";
+import { FacilitiesGallery } from "@/components/FacilitiesGallery";
+import { JustifiedGallery, JustifiedImageItem } from "@/components/JustifiedGallery";
 import { Lightbox, LightboxImage } from "@/components/Lightbox";
 import { cardLiftProps } from "@/lib/motion";
 
@@ -40,7 +42,7 @@ export default function AboutClientView() {
         return <UserCheck className="w-7 h-7 text-[#E51937]" />;
       case "love-4":
       default:
-        return <PartyPopper className="w-7 h-7 text-[#F8C62F]" />;
+        return <PartyPopper className="w-7 h-7 text-[#E51937]" />;
     }
   };
 
@@ -48,6 +50,16 @@ export default function AboutClientView() {
     src: item.image,
     alt: item.imageAlt,
   }));
+
+  const justifiedCultureItems: JustifiedImageItem[] = useMemo(() => {
+    return cultureGallery.slice(0, 8).map((item) => ({
+      id: item.id,
+      src: item.image,
+      alt: item.imageAlt,
+      width: item.width,
+      height: item.height,
+    }));
+  }, [cultureGallery]);
 
   return (
     <>
@@ -78,7 +90,7 @@ export default function AboutClientView() {
               <div className="relative w-full max-w-[420px]">
                 {/* Subtle soft ambient glow */}
                 <div
-                  className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-[#E51937]/15 to-[#F8C62F]/15 blur-xl pointer-events-none"
+                  className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-[#E51937]/15 to-[#E51937]/10 blur-xl pointer-events-none"
                   aria-hidden="true"
                 />
 
@@ -94,7 +106,7 @@ export default function AboutClientView() {
                 </div>
 
                 <div className="absolute -bottom-4 right-2 sm:right-4 bg-[#1F2432] text-white px-4 py-2 rounded-xl font-bold text-xs shadow-xl border border-white/10 z-20 flex items-center gap-2 font-[var(--font-jost)] select-none">
-                  <span className="w-2 h-2 rounded-full bg-[#F8C62F]" />
+                  <span className="w-2 h-2 rounded-full bg-[#E51937]" />
                   <span>Est. 2022 • College Road, Feni</span>
                 </div>
               </div>
@@ -146,9 +158,9 @@ export default function AboutClientView() {
       <section className="py-20 md:py-24 bg-[#F5F7F9] relative border-y border-[#E2E9EB]">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           <SectionHeading
-            tag="PURPOSE &amp; DIRECTION"
+            tag="PURPOSE & DIRECTION"
             tagColor="red"
-            title="Our Guiding Mission &amp; Vision"
+            title="Our Guiding Mission & Vision"
             subtext="We believe fluency in English and mastery of IT are not privileges — they are practical tools every adult learner in Feni can achieve with structured guidance."
           />
 
@@ -200,7 +212,7 @@ export default function AboutClientView() {
                 </p>
               </div>
               <div className="mt-8 pt-4 border-t border-[#E2E9EB] text-xs font-bold text-[#6C757D] uppercase tracking-wider flex items-center gap-2 font-[var(--font-jost)]">
-                <span className="w-2 h-2 rounded-full bg-[#F8C62F]" />
+                <span className="w-2 h-2 rounded-full bg-[#E51937]" />
                 <span>Long-Term Community &amp; Career Impact</span>
               </div>
             </motion.div>
@@ -258,7 +270,7 @@ export default function AboutClientView() {
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
                   </div>
                   <div className="absolute -bottom-4 right-4 z-20 bg-[#1F2432] text-white px-4 py-2 rounded-xl font-bold text-xs shadow-xl border border-white/10 inline-flex items-center gap-2 font-[var(--font-jost)]">
-                    <Award className="w-3.5 h-3.5 text-[#F8C62F]" />
+                    <Award className="w-3.5 h-3.5 text-[#E51937]" />
                     <span>Founder, CEO &amp; Lead Mentor</span>
                   </div>
                 </div>
@@ -320,7 +332,7 @@ export default function AboutClientView() {
           <SectionHeading
             tag="OUR INSTRUCTORS"
             tagColor="red"
-            title="Dedicated Faculty &amp; Academic Team"
+            title="Dedicated Faculty & Academic Team"
             subtext="Our teaching faculty is personally trained and guided under Engr. Zahir Uddin Babar to maintain high standards of clarity, structured practice, and interactive training."
           />
 
@@ -367,96 +379,16 @@ export default function AboutClientView() {
         </div>
       </section>
 
-      {/* 7. Facilities Showcase */}
-      <section className="py-20 md:py-28 bg-[#F5F7F9] relative border-y border-[#E2E9EB]">
-        <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
-          <SectionHeading
-            tag="CAMPUS FACILITIES"
-            tagColor="red"
-            title="Designed for Deep Focus &amp; Practical Mastery"
-            subtext="Step into our comfortable, modern 5th-floor campus at Appayan Afroz Tower. Every classroom is built for real interaction and distraction-free learning."
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {facilities.map((fac, idx) => {
-              const facConfigs = [
-                {
-                  badgeText: "Spoken Studio",
-                  statText: "Max 16 / Cohort",
-                  icon: <Mic className="w-6 h-6 text-[#E51937]" strokeWidth={2.2} />,
-                },
-                {
-                  badgeText: "IT Training Lab",
-                  statText: "1 Student : 1 PC",
-                  icon: <Monitor className="w-6 h-6 text-[#E51937]" strokeWidth={2.2} />,
-                },
-                {
-                  badgeText: "Campus Focus",
-                  statText: "5th Floor Sanctuary",
-                  icon: <Sparkles className="w-6 h-6 text-[#E51937]" strokeWidth={2.2} />,
-                },
-              ];
-              const config = facConfigs[idx % facConfigs.length];
-
-              return (
-                <motion.article
-                  key={fac.id}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  {...cardLiftProps}
-                  className="bg-white rounded-2xl p-6 sm:p-7 border border-[#E2E9EB] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
-                >
-                  <div className="flex-1 flex flex-col">
-                    {/* Top Bar: Icon Badge & Stat Pill */}
-                    <div className="flex items-center justify-between gap-3 mb-6 font-[var(--font-jost)]">
-                      <div className="w-12 h-12 rounded-xl bg-[#FFF0F2] border border-[#E51937]/20 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
-                        {config.icon}
-                      </div>
-
-                      <div className="flex flex-col items-end gap-1">
-                        <span className="text-[10.5px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-[#FFF0F2] text-[#E51937] border border-[#E51937]/20">
-                          {config.badgeText}
-                        </span>
-                        <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full border border-[#E2E9EB] bg-[#F5F7F9] text-[#6C757D]">
-                          {config.statText}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xl sm:text-2xl font-bold mb-3 font-[var(--font-jost)] leading-tight text-[#1F2432]">
-                        {fac.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-[#6C757D] leading-relaxed mb-6 font-normal font-[var(--font-dm-sans)]">
-                        {fac.description}
-                      </p>
-
-                      <ul className="flex flex-col gap-2.5 mb-6 font-[var(--font-jost)]">
-                        {fac.features.map((feat, fIdx) => (
-                          <li key={fIdx} className="flex items-start gap-2.5 text-xs font-medium px-3 py-2 rounded-xl border border-[#E2E9EB] bg-[#F5F7F9] text-[#1F2432] leading-snug">
-                            <CheckCircle className="w-3.5 h-3.5 text-[#E51937] flex-shrink-0 mt-0.5" />
-                            <span>{feat}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </motion.article>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      {/* 7. Facilities Showcase (Campus Infrastructure & Facilities) */}
+      <FacilitiesGallery />
 
       {/* 8. Our Culture Section */}
       <section className="py-20 md:py-28 bg-white relative">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           <SectionHeading
-            tag="OUR CULTURE &amp; CELEBRATIONS"
+            tag="OUR CULTURE & CELEBRATIONS"
             tagColor="red"
-            title="Celebrations, Seminars &amp; Community Honors"
+            title="Celebrations, Seminars & Community Honors"
             subtext="Learning at Educatee is vibrant and celebratory. From our proud Graduation Day and Farewell Ceremonies to free educational seminars and the prestigious CEO Award, we honor every milestone."
           />
 
@@ -511,38 +443,13 @@ export default function AboutClientView() {
             </div>
           </div>
 
-          {/* Interactive Lightbox Image Strip (Clean real photos — Zero Cropping) */}
-          <div className="columns-2 sm:columns-3 lg:columns-4 gap-4 space-y-4 [column-fill:_balance]">
-            {cultureGallery.slice(0, 8).map((item, index) => (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, scale: 0.96 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.35, delay: index * 0.04 }}
-                onClick={() => setActiveLightboxIndex(index)}
-                className="break-inside-avoid relative rounded-2xl overflow-hidden cursor-pointer group shadow-sm hover:shadow-xl transition-all duration-300 border border-[#E2E9EB]/80 bg-slate-100"
-              >
-                <div className="relative overflow-hidden w-full">
-                  <Image
-                    src={item.image}
-                    alt={item.imageAlt}
-                    width={item.width}
-                    height={item.height}
-                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 280px"
-                    className="w-full h-auto block object-contain group-hover:scale-[1.03] transition-transform duration-500 ease-out"
-                  />
-
-                  {/* Subtle Hover Scrim with Center Enlarge Icon */}
-                  <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="w-10 h-10 rounded-full bg-white/30 backdrop-blur-md text-white border border-white/40 flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform duration-300">
-                      <Maximize2 className="w-4 h-4" />
-                    </span>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          {/* Interactive Lightbox Image Strip (Justified Rows - Perfectly Flat Bottom Edge) */}
+          <JustifiedGallery
+            items={justifiedCultureItems}
+            gap={16}
+            onItemClick={(idx) => setActiveLightboxIndex(idx)}
+            priorityFirstRow={true}
+          />
 
           {/* Link to Full Photo Gallery */}
           <div className="mt-10 text-center">

@@ -22,7 +22,7 @@ export interface Course {
   category: 'English' | 'IELTS' | 'IT & Digital Skills';
   description: string;
   badge?: string;
-  accentColor: 'blue' | 'pink' | 'teal' | 'yellow';
+  accentColor: 'blue' | 'pink' | 'teal' | 'yellow' | 'red';
   image: string;
   imageAlt: string;
   targetAudience: string[];
@@ -49,7 +49,7 @@ export interface FeatureCard {
   id: string;
   title: string;
   description: string;
-  accent: 'blue' | 'pink' | 'teal' | 'yellow';
+  accent: 'blue' | 'pink' | 'teal' | 'yellow' | 'red';
 }
 
 export interface StepItem {
@@ -327,7 +327,7 @@ export const siteContent = {
         id: "love-4",
         title: "Celebrations & Community",
         description: "From our proud Graduation Day and heartfelt Farewell Ceremonies to the prestigious CEO Award, we celebrate student growth like family.",
-        accent: "yellow",
+        accent: "red",
       },
     ] as FeatureCard[],
   },
@@ -371,7 +371,7 @@ export const siteContent = {
       id: "why-4",
       title: "Regular Events & Celebrations",
       description: "Learning is exciting at Educatee. From Graduation Days to the prestigious CEO Award, we celebrate student milestones together like family.",
-      accent: "yellow",
+      accent: "red",
     },
   ] as FeatureCard[],
 
@@ -930,7 +930,7 @@ export const siteContent = {
       category: "IELTS",
       description: "Structured band-targeted preparation across Listening, Reading, Writing, and Speaking with free authentic Cambridge mock tests. Classes strictly capped at a maximum of 16 students.",
       badge: "Max 16 Students",
-      accentColor: "yellow",
+      accentColor: "red",
       image: "/images/programs/ielts-preparation.png",
       imageAlt: "IELTS Preparation Course thumbnail",
       targetAudience: [

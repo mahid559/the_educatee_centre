@@ -160,9 +160,9 @@ export const Navbar: React.FC = () => {
             </Link>
 
             <Link
-              href="/facilities"
+              href="/about#facilities"
               className={`px-3.5 py-1.5 rounded-full text-xs xl:text-sm font-semibold transition-colors ${
-                pathname === "/facilities"
+                pathname === "/about"
                   ? "text-[#C81E2B] font-bold"
                   : "text-[#121214] hover:text-[#C81E2B] hover:bg-[#E8E3D7]/50"
               }`}
@@ -210,7 +210,7 @@ export const Navbar: React.FC = () => {
               href="/admissions#book-demo"
               className="pill-btn-primary !py-2.5 !px-5 !text-xs xl:!text-sm"
             >
-              <Sparkles className="w-3.5 h-3.5 text-amber-200" />
+              <Sparkles className="w-3.5 h-3.5 text-[#E51937]" />
               <span>Get started</span>
             </Link>
           </div>
@@ -248,7 +248,7 @@ export const Navbar: React.FC = () => {
                 About & Founder Story
               </Link>
               <Link
-                href="/facilities"
+                href="/about#facilities"
                 className="px-4 py-2.5 rounded-full font-bold text-sm text-[#121214] hover:bg-white transition-colors"
               >
                 Campus & Elevator Directions
@@ -278,7 +278,7 @@ export const Navbar: React.FC = () => {
                 href="/admissions#book-demo"
                 className="pill-btn-primary w-full justify-center !py-3 !text-sm"
               >
-                <Sparkles className="w-4 h-4 text-amber-200" />
+                <Sparkles className="w-4 h-4 text-[#E51937]" />
                 <span>Get started • Free Demo</span>
               </Link>
               <a

@@ -8,7 +8,7 @@ import { CheckCircle2 } from "lucide-react";
 interface FeatureCardProps {
   title: string;
   description: string;
-  accent?: "blue" | "pink" | "teal" | "yellow";
+  accent?: "blue" | "pink" | "teal" | "yellow" | "red";
   icon?: React.ReactNode;
   index?: number;
 }

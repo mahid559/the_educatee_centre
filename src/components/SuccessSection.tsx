@@ -31,9 +31,9 @@ export const SuccessSection: React.FC = () => {
           </h2>
 
           <div className="flex items-center justify-center gap-2 text-sm text-[#585552]">
-            <div className="flex items-center gap-0.5 text-amber-500">
+            <div className="flex items-center gap-0.5 text-[#E51937]">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                <Star key={i} className="w-4 h-4 fill-[#E51937] text-[#E51937]" />
               ))}
             </div>
             <span className="font-bold text-[#121214]">4.9 / 5</span>
@@ -81,9 +81,9 @@ export const SuccessSection: React.FC = () => {
               <div className="font-sans text-xs text-[#585552] mt-0.5">
                 Jamshed Hossain • Alumni
               </div>
-              <div className="flex items-center gap-1 text-amber-500 mt-3">
+              <div className="flex items-center gap-1 text-[#E51937] mt-3">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                  <Star key={i} className="w-4 h-4 fill-[#E51937] text-[#E51937]" />
                 ))}
               </div>
             </div>
@@ -100,9 +100,9 @@ export const SuccessSection: React.FC = () => {
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-1 text-amber-500">
+                  <div className="flex items-center gap-1 text-[#E51937]">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                      <Star key={i} className="w-3.5 h-3.5 fill-[#E51937] text-[#E51937]" />
                     ))}
                   </div>
                   <span className="pill-badge pill-badge-crimson text-[10px] font-bold">

@@ -8,6 +8,7 @@ import { PageHero } from "@/components/PageHero";
 import { FilterTabs } from "@/components/FilterTabs";
 import { CourseCard } from "@/components/CourseCard";
 import { CTABanner } from "@/components/CTABanner";
+import { SectionHeading } from "@/components/SectionHeading";
 
 export default function ProgramsClientView() {
   const { programs, contact } = siteContent;
@@ -38,24 +39,18 @@ export default function ProgramsClientView() {
       <section className="py-20 md:py-28 bg-white relative">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           {/* Top Filter Bar */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mb-12 sm:mb-16 border-b border-[#E2E9EB] pb-8">
-            <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-[#E51937] block mb-1 font-[var(--font-jost)]">
-                SELECT A SPECIALIZATION
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1F2432] font-[var(--font-jost)]">
-                Browse by Category
-              </h2>
-            </div>
-
-            {/* Sliding Pill Filter Tabs */}
-            <FilterTabs
-              categories={categories}
-              activeCategory={activeCategory}
-              onChange={setActiveCategory}
-              layoutId="programsFilterActive"
-            />
-          </div>
+          <SectionHeading
+            tag="SELECT A SPECIALIZATION"
+            title="Browse by Category"
+            actionButton={
+              <FilterTabs
+                categories={categories}
+                activeCategory={activeCategory}
+                onChange={setActiveCategory}
+                layoutId="programsFilterActive"
+              />
+            }
+          />
 
           {/* Programs Grid with Layout Animation */}
           <motion.div
@@ -82,17 +77,11 @@ export default function ProgramsClientView() {
             <HelpCircle className="w-7 h-7" />
           </div>
 
-          <div className="inline-flex items-center gap-1.5 bg-[#FFF0F2] border border-[#E51937]/20 text-[#E51937] text-xs font-bold px-3.5 py-1 rounded-full mb-3 font-[var(--font-jost)]">
-            <span>Free Academic Counseling</span>
-          </div>
-
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#1F2432] font-[var(--font-jost)] mb-3">
-            Not Sure Which Program is Right for You?
-          </h2>
-
-          <p className="text-base sm:text-lg text-[#6C757D] leading-relaxed max-w-2xl mx-auto mb-8 font-[var(--font-dm-sans)]">
-            Tell us about your background (working professional, job seeker, SSC/Dakhil, or university aspirant) and your goals. Our senior mentors will recommend the ideal batch and schedule.
-          </p>
+          <SectionHeading
+            tag="FREE ACADEMIC COUNSELING"
+            title="Not Sure Which Program is Right for You?"
+            subtext="Tell us about your background (working professional, job seeker, SSC/Dakhil, or university aspirant) and your goals. Our senior mentors will recommend the ideal batch and schedule."
+          />
 
           <div className="flex flex-wrap items-center justify-center gap-4 font-[var(--font-jost)]">
             <a
@@ -101,7 +90,7 @@ export default function ProgramsClientView() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2.5 bg-[#E51937] hover:bg-[#C8132C] text-white font-semibold text-sm sm:text-base px-7 py-3.5 rounded-full transition-all shadow-md group"
             >
-              <MessageCircle className="w-5 h-5 text-[#F8C62F]" />
+              <MessageCircle className="w-5 h-5 text-white" />
               <span>Ask Us on WhatsApp</span>
             </a>
 

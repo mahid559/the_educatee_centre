@@ -18,7 +18,7 @@ export const NoticeBanner: React.FC = () => {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
           </span>
           <span className="font-semibold tracking-wide flex items-center gap-1.5 text-center sm:text-left">
-            <Sparkles className="w-3.5 h-3.5 inline text-amber-200 shrink-0" />
+            <Sparkles className="w-3.5 h-3.5 inline text-[#E51937] shrink-0" />
             <span>{siteConfig.bannerNotice.text}</span>
           </span>
         </div>

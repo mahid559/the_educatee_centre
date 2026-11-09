@@ -20,7 +20,7 @@ export const LevelsSection: React.FC = () => {
     },
     {
       tag: "Level 02",
-      badgeClass: "pill-badge-amber",
+      badgeClass: "pill-badge-crimson",
       title: "Catching up",
       subtitle: "Fill the gaps and get back on track.",
       points: [

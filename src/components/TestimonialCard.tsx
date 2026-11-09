@@ -75,7 +75,7 @@ export function TestimonialCard({
       <div>
         {/* Top Header: Rating Stars & Facebook Badge */}
         <div className="flex items-center justify-between gap-3 mb-4">
-          <div className="flex items-center gap-1 text-amber-500">
+          <div className="flex items-center gap-1 text-[#E51937]">
             {[...Array(5)].map((_, i) => (
               <Star key={i} className="w-3.5 h-3.5 fill-current" />
             ))}

@@ -91,8 +91,8 @@ export default function AdmissionsClientView() {
       <section className="py-16 md:py-24 bg-[#F5F7F9] relative border-y border-[#E2E9EB]">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           <SectionHeading
-            tag="COMMUNITY &amp; SCHOLARSHIP"
-            title="Intake Initiatives &amp; Fee Concessions"
+            tag="COMMUNITY & SCHOLARSHIP"
+            title="Intake Initiatives & Fee Concessions"
             subtext="Special incentives established to encourage female education and career-oriented early enrollments in Feni."
           />
 
@@ -153,9 +153,9 @@ export default function AdmissionsClientView() {
       <section className="py-20 md:py-28 bg-white relative">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           <SectionHeading
-            tag="TUITION &amp; TIMELINE"
+            tag="TUITION & TIMELINE"
             tagColor="red"
-            title="Course Fees &amp; Batch Schedules"
+            title="Course Fees & Batch Schedules"
             subtext="Official fee schedules and upcoming batch timelines are confirmed before each intake. Contact us or attend a demo class for current details."
           />
 
@@ -391,15 +391,15 @@ export default function AdmissionsClientView() {
 
                 <div className="flex flex-col gap-3 text-sm text-white/90 font-[var(--font-jost)]">
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#F8C62F]" />
+                    <CheckCircle2 className="w-4 h-4 text-[#E51937]" />
                     <span>No registration fee required for the demo orientation</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#F8C62F]" />
+                    <CheckCircle2 className="w-4 h-4 text-[#E51937]" />
                     <span>Dedicated female &amp; professional cohorts available</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#F8C62F]" />
+                    <CheckCircle2 className="w-4 h-4 text-[#E51937]" />
                     <span>Cohorts strictly capped at 16 candidates</span>
                   </div>
                 </div>
@@ -444,7 +444,7 @@ export default function AdmissionsClientView() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-[#E51937] hover:bg-[#C8132C] text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-full transition-all duration-200 shadow hover:shadow-md hover:scale-[1.02] active:scale-[0.98]"
               >
-                <MessageCircle className="w-4 h-4 text-[#F8C62F]" />
+                <MessageCircle className="w-4 h-4 text-white" />
                 <span>WhatsApp Us</span>
               </a>
             </div>

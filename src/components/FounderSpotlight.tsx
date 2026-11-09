@@ -99,7 +99,7 @@ export const FounderSpotlight: React.FC = () => {
                 className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#121214]/85 via-transparent to-transparent" />
-              <div className="absolute top-3.5 left-3.5 pill-badge pill-badge-amber text-[11px] font-bold">
+              <div className="absolute top-3.5 left-3.5 pill-badge pill-badge-crimson text-[11px] font-bold">
                 Senior Academic Advisor
               </div>
               <div className="absolute bottom-4 left-4 right-4 text-white">

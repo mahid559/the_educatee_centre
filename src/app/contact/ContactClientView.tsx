@@ -328,7 +328,7 @@ export default function ContactClientView() {
                         disabled={isSubmitting}
                         className="mt-2 w-full inline-flex items-center justify-center gap-2 bg-[#E51937] hover:bg-[#C8132C] disabled:opacity-60 text-white font-bold text-sm sm:text-base py-4 rounded-full transition-all duration-200 shadow-md shadow-[#E51937]/20 hover:scale-[1.01] active:scale-[0.99] font-[var(--font-jost)]"
                       >
-                        <Send className="w-4 h-4 text-[#F8C62F]" />
+                        <Send className="w-4 h-4 text-white" />
                         <span>{isSubmitting ? "Sending Inquiry..." : "Submit Inquiry"}</span>
                       </button>
 

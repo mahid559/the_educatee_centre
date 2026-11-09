@@ -4,9 +4,9 @@
   --color-primary: #E51937;
   --color-primary-dark: #C8132C;
   --color-primary-light: #FFF0F2;
-  --color-accent-gold: #F8C62F;
-  --color-accent-gold-hover: #EAA816;
-  --color-accent-gold-light: #FFF9EB;
+  --color-accent-gold: #E51937;
+  --color-accent-gold-hover: #C8132C;
+  --color-accent-gold-light: #FFF0F2;
   --color-dark: #1F2432;
   --color-dark-heading: #0C121D;
   --color-heading: #0C121D;
@@ -25,7 +25,7 @@
   --font-heading-val: var(--font-jost), 'Ubuntu', sans-serif;
   --font-body-val: var(--font-dm-sans), 'Open Sans', sans-serif;
   --it-theme-1: #E51937;
-  --it-theme-2: #F8C62F;
+  --it-theme-2: #E51937;
   --it-common-black: #1F2432;
   --it-gray-1: #F0F4F5;
   --it-gray-3: #F8FAFC;

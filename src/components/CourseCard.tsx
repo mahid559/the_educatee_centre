@@ -18,7 +18,7 @@ interface CourseCardProps {
 export function CourseCard({ course, ctaVariant = "red" }: CourseCardProps) {
   const ctaClasses =
     ctaVariant === "gold"
-      ? "bg-[#F8C62F] group-hover:bg-[#E51937] text-[#1F2432] group-hover:text-white"
+      ? "bg-[#DC2626] group-hover:bg-[#B91C1C] text-white group-hover:text-white"
       : "bg-[#DC2626] group-hover:bg-[#B91C1C] text-white group-hover:text-white";
   return (
     <article className="group relative bg-white rounded-[20px] p-5 border border-[#E51937]/15 transition-all duration-300 hover:shadow-[0_20px_30px_0_rgba(229,25,55,0.08)] hover:-translate-y-1 flex flex-col h-full">

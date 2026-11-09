@@ -7,6 +7,7 @@ interface SectionHeadingProps {
   subtext?: string;
   align?: "center" | "left";
   className?: string;
+  actionButton?: React.ReactNode;
 }
 
 export function SectionHeading({
@@ -15,6 +16,7 @@ export function SectionHeading({
   subtext,
   align = "center",
   className = "",
+  actionButton,
 }: SectionHeadingProps) {
   const isCenter = align === "center";
 
@@ -36,6 +38,11 @@ export function SectionHeading({
         <p className="text-base sm:text-lg text-[#6C757D] leading-relaxed font-[var(--font-dm-sans)]">
           {subtext}
         </p>
+      )}
+      {actionButton && (
+        <div className="mt-6 flex justify-center [&:has(>.hidden)]:hidden md:[&:has(>.hidden)]:flex">
+          {actionButton}
+        </div>
       )}
     </div>
   );

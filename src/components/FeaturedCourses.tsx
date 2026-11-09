@@ -77,7 +77,7 @@ export const FeaturedCourses: React.FC = () => {
             let badgeClass = "pill-badge-crimson";
             if (course.category === "Test Preparation") {
               IconComponent = GraduationCap;
-              badgeClass = "pill-badge-amber";
+              badgeClass = "pill-badge-crimson";
             } else if (course.category === "Digital Skills / IT") {
               IconComponent = Monitor;
               badgeClass = "pill-badge-sage";
@@ -120,7 +120,7 @@ export const FeaturedCourses: React.FC = () => {
 
                   <div className="absolute bottom-4 left-4 flex items-center gap-1.5 text-white text-xs font-medium">
                     <span className="px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md flex items-center gap-1.5">
-                      <Users className="w-3.5 h-3.5 text-amber-300" />
+                      <Users className="w-3.5 h-3.5 text-[#E51937]" />
                       <span>{course.classSize}</span>
                     </span>
                   </div>

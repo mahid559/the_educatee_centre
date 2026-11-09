@@ -63,14 +63,14 @@ export function Hero() {
           {/* Left Column: Content (7 cols) */}
           <div className="lg:col-span-7 pb-12 sm:pb-16 lg:pb-24 text-center lg:text-left">
             {/* Category Subtitle */}
-            <span className="hero-anim-item inline-block text-xs sm:text-sm font-bold tracking-widest uppercase text-[#F8C62F] mb-3 font-[var(--font-jost)]">
+            <span className="hero-anim-item inline-block text-xs sm:text-sm font-bold tracking-widest uppercase text-[#E51937] mb-3 font-[var(--font-jost)]">
               {hero.tag || "Feni's Premier Language & IT Academy"}
             </span>
 
             {/* Main Headline in Jost */}
             <h1 className="hero-anim-item text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-extrabold leading-[1.12] tracking-tight text-white mb-5 font-[var(--font-jost)]">
               <span>{hero.headlineLine1} </span>
-              <span className="text-[#F8C62F] block sm:inline">
+              <span className="text-[#E51937] block sm:inline">
                 {hero.headlineLine2}
               </span>
             </h1>

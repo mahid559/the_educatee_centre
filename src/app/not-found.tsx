@@ -10,21 +10,21 @@ export default function NotFound() {
         className="absolute inset-0 pointer-events-none opacity-25 overflow-hidden"
         aria-hidden="true"
       >
-        <div className="absolute top-10 left-10 w-72 h-72 rounded-full bg-[#C81E2B]/15 blur-3xl" />
-        <div className="absolute bottom-10 right-10 w-80 h-80 rounded-full bg-[#FFC73B]/20 blur-3xl" />
+        <div className="absolute top-10 left-10 w-72 h-72 rounded-full bg-[#E51937]/15 blur-3xl" />
+        <div className="absolute bottom-10 right-10 w-80 h-80 rounded-full bg-[#E51937]/10 blur-3xl" />
       </div>
 
       <div className="max-w-xl w-full text-center relative z-10">
         {/* 404 Graphic Badge */}
-        <div className="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-[#FEE2E2] text-[#C81E2B] font-black text-4xl mb-6 shadow-md border-2 border-[#C81E2B]/20 font-[var(--font-nunito)]">
+        <div className="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-[#FFF0F2] text-[#E51937] font-black text-4xl mb-6 shadow-md border-2 border-[#E51937]/20 font-[var(--font-jost)]">
           404
         </div>
 
-        <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#C81E2B] block mb-2 font-[var(--font-nunito)]">
+        <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#E51937] block mb-2 font-[var(--font-jost)]">
           PAGE NOT FOUND
         </span>
 
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#3B3B3D] tracking-tight font-[var(--font-ubuntu)] mb-4">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#1F2432] tracking-tight font-[var(--font-jost)] mb-4">
           Looking for Something Else?
         </h1>
 

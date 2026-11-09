@@ -6,7 +6,6 @@ import { ProgramsGrid } from "@/components/ProgramsGrid";
 import { WhyChooseUs } from "@/components/WhyChooseUs";
 import { FounderSection } from "@/components/FounderSection";
 import { AdmissionSteps } from "@/components/AdmissionSteps";
-import { FacilitiesGallery } from "@/components/FacilitiesGallery";
 
 const SuccessStories = dynamic(
   () => import("@/components/SuccessStories").then((mod) => mod.SuccessStories)
@@ -44,9 +43,6 @@ export default function HomePage() {
 
       {/* 9. How Admission Works */}
       <AdmissionSteps />
-
-      {/* 10. Facilities Showcase */}
-      <FacilitiesGallery />
 
       {/* 11. Success Stories & Testimonials */}
       <SuccessStories />

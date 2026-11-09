@@ -1,10 +1,10 @@
-﻿"use client";
+"use client";
 
 import React from "react";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { CheckCircle2, ArrowRight } from "lucide-react";
-import "./FacilitiesGallery.css";
+import { SectionHeading } from "@/components/SectionHeading";
 
 export function FacilitiesGallery() {
   const shouldReduceMotion = useReducedMotion();
@@ -77,80 +77,77 @@ export function FacilitiesGallery() {
   ];
 
   return (
-    <section className="fcSection py-20 md:py-28">
+    <section id="facilities" className="py-20 md:py-28 bg-[#FFFFFF] relative overflow-hidden border-b border-[#E2E9EB]">
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
-          <span className="text-[#E51937] text-xs sm:text-sm font-bold uppercase tracking-widest block mb-2 font-[var(--font-jost)]">
-            CAMPUS INFRASTRUCTURE &amp; FACILITIES
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#1F2432] tracking-tight mb-4 font-[var(--font-jost)] leading-tight">
-            World-Class Campus Facilities in Feni
-          </h2>
-          <p className="text-base sm:text-lg text-[#6C757D] leading-relaxed max-w-2xl mx-auto font-[var(--font-dm-sans)]">
-            Quality learning requires the right environment. We have invested in modern, quiet, and air-conditioned facilities on the 5th floor of Appayan Afroz Tower.
-          </p>
-        </div>
+        <SectionHeading
+          tag="CAMPUS INFRASTRUCTURE & FACILITIES"
+          title="World-Class Campus Facilities in Feni"
+          subtext="Quality learning requires the right environment. We have invested in modern, quiet, and air-conditioned facilities on the 5th floor of Appayan Afroz Tower."
+        />
 
-        {/* Stacked, angled facility banners filled with the Admission
-            Process capsule colors (no visible 1-2-3-4 numbering) */}
-        <div className="fcStack">
+        {/* 2x2 Infrastructure & Facility Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-stretch">
           {facilityCards.map((card, index) => (
             <motion.div
               key={card.id}
-              className="fcReveal"
-              initial={
-                shouldReduceMotion
-                  ? false
-                  : { opacity: 0, x: index % 2 === 0 ? 60 : -60 }
-              }
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.18 }}
+              initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
               transition={{
-                duration: 0.55,
-                delay: shouldReduceMotion ? 0 : index * 0.12,
+                duration: 0.5,
+                delay: shouldReduceMotion ? 0 : index * 0.1,
                 ease: [0.22, 1, 0.36, 1],
               }}
+              className="h-full"
             >
-              {/* Floating banner wrapper (shadow + dashed guide live here) */}
-              <div className="fcCardWrap">
-                <article className="fcCard">
-                  <div className="fcContent">
-                    <div className="fcMeta">
-                      <span className="fcTag">{card.tag}</span>
-                      <span className="fcBadge">{card.badge}</span>
-                    </div>
-
-                    <h3 className="fcTitle">{card.title}</h3>
-
-                    <div className="fcDots" aria-hidden="true">
-                      <span className="fcDot" />
-                      <span className="fcDot" />
-                      <span className="fcDot" />
-                    </div>
-
-                    <p className="fcDescription">{card.description}</p>
-
-                    {/* Existing feature data, preserved as-is */}
-                    <ul className="fcFeatures">
-                      {card.features.map((feature, idx) => (
-                        <li key={idx} className="fcFeature">
-                          <CheckCircle2
-                            className="fcCheck"
-                            aria-hidden="true"
-                          />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <Link href={card.linkUrl} className="fcLink">
-                      <span>{card.linkText}</span>
-                      <ArrowRight className="fcArrow" aria-hidden="true" />
-                    </Link>
+              <article className="bg-white rounded-2xl sm:rounded-3xl p-7 sm:p-9 border border-[#E2E9EB] shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between h-full group">
+                <div>
+                  {/* Meta: Tag & Badge */}
+                  <div className="flex items-center justify-between flex-wrap gap-2 mb-4">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#E51937] font-[var(--font-jost)]">
+                      {card.tag}
+                    </span>
+                    <span className="bg-[#FFF0F2] text-[#E51937] border border-[#E51937]/20 text-[11px] sm:text-xs font-bold px-3 py-1 rounded-full font-[var(--font-jost)]">
+                      {card.badge}
+                    </span>
                   </div>
-                </article>
-              </div>
+
+                  {/* Title */}
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-[#1F2432] font-[var(--font-jost)] group-hover:text-[#E51937] transition-colors mb-3 leading-snug">
+                    {card.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-sm sm:text-[15px] text-[#6C757D] leading-relaxed font-[var(--font-dm-sans)] mb-6">
+                    {card.description}
+                  </p>
+
+                  {/* Feature Bullets */}
+                  <ul className="space-y-3 mb-8">
+                    {card.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#1F2432] font-[var(--font-dm-sans)]">
+                        <CheckCircle2
+                          className="w-4 h-4 text-[#E51937] shrink-0 mt-0.5"
+                          aria-hidden="true"
+                        />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Card Action Link */}
+                <div className="pt-5 border-t border-[#E2E9EB]">
+                  <Link
+                    href={card.linkUrl}
+                    className="inline-flex items-center gap-2 text-sm font-bold text-[#E51937] hover:text-[#C8132C] group/link transition-colors font-[var(--font-jost)]"
+                  >
+                    <span>{card.linkText}</span>
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1" aria-hidden="true" />
+                  </Link>
+                </div>
+              </article>
             </motion.div>
           ))}
         </div>
